@@ -28,6 +28,9 @@
 - `Kontextdiagramm_ThesisFlow_v2.pptx` – Kontextdiagramm in Datenfluss-Notation nach Vorlesung Kap. 2
   (Systemgrenze, Kontextgrenze, Grauzone; Personen, Systeme, Dokumente, Ereignisse; grüne Input-,
   blaue Output-Pfeile). Skript `Skripte/kontext2.js`, Format 16:9 breit (13,33 x 7,5 Zoll). Die v1 ist überholt.
+- `Kontextdiagramm_Ist-Zustand.pptx` – gleiches Layout für den heutigen manuellen Prozess (kein System in der Mitte,
+  Schwachstellen statt Grauzone). Skript `Skripte/kontext_ist.js`.
+- Folien-QA: PowerPoint ist installiert; Export per COM (`PowerPoint.Application`, `Slides(1).Export(png)`) und Bild ansehen.
 
 ## Git
 - Repo: https://github.com/Gsng875/WK_1610-Requirements-Engineering-WPF-Gruppe-Gruen (Branch `main`).

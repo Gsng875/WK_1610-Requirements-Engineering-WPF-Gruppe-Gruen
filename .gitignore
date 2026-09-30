@@ -1,0 +1,17 @@
+# Office-Sperrdateien und Temporäres
+~$*
+*.tmp
+.~lock.*
+
+# Node (Skripte werden lokal in einem Scratchpad ausgeführt)
+node_modules/
+package-lock.json
+
+# Betriebssystem
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# PDFs der Formulare und Pruefungsordnungen liegen im Repo unter Unterlagen/Praxis,
+# lokale Kopien in Quellen/ werden nicht doppelt versioniert
+Quellen/*.pdf

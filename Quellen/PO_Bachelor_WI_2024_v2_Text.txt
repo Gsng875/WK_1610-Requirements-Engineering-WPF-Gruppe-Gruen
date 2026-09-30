@@ -1,0 +1,1419 @@
+Prüfungsordnung der Fachbereiche Mathematik, Naturwissenschaften und
+Datenverarbeitung (MND) und Mathematik, Naturwissenschaften und Informatik (MNI)
+der Technischen Hochschule Mittelhessen (THM) für den Bachelorstudiengang
+Wirtschaftsinformatik vom 7. November 2024 und 13. November 2024 - Version 2
+
+Genehmigung:
+Nach § 43 Abs. 5 des Hessischen Hochschulgesetzes (HessHG) in der Fassung vom
+14. Dezember 2021 (GVBl. S. 931), zuletzt geändert am 29. Juni 2023 (GVBl. S. 456, 472),
+genehmige ich hiermit die nachstehende Prüfungsordnung für den Bachelorstudiengang
+Wirtschaftsinformatik.
+
+Für das Präsidium:
+
+Gießen, den 16. Dezember 2024
+
+                            Prof. Dr. Matthias Willems
+                            Präsident der Technischen Hochschule Mittelhessen
+
+Vorbemerkung:
+Nach § 50 Abs. 1 Nr. 1 des HessHG in der Fassung vom 14. Dezember 2021 (GVBl. S. 931),
+zuletzt geändert am 29. Juni 2023 (GVBl. S. 456, 472), haben die Fachbereichsräte der
+Fachbereiche MND und MNI der THM am 7. November 2024 und 13. November 2024 die
+Änderung der Prüfungsordnung für den Bachelorstudiengang Wirtschaftsinformatik
+beschlossen. Sie enthält in Teil I die Allgemeinen Bestimmungen für
+Bachelorprüfungsordnungen der THM vom 2. Juli 2014 (AMB 39/2014), zuletzt geändert am
+25. Februar 2026 (AMB 02/2026), und wird ergänzt durch die Fachspezifischen Bestimmungen
+in Teil II.
+
+Beschluss FBR   Beschluss   Genehmigung   Inkrafttreten / Veröffentlichung
+                Senat       Präsident    01.10.2026 / AMB 44/2026
+16.06.2026 und  15.07.2026  20.07.2026
+24.06.2026                                01.10.2025 / AMB 10/2025
+07.11.2024      04.12.2ß24  16.12.2024
+
+Teil I
+Allgemeine Bestimmungen
+
+Es gelten die im Amtlichen Mitteilungsblatt der THM veröffentlichten Allgemeinen
+Bestimmungen für Bachelorprüfungsordnungen der THM vom 2. Juli 2014 (AMB 39/2014),
+zuletzt geändert am 25. Februar 2026 (AMB 02/2026).
+
+                                                                            1
+Teil II
+Fachspezifische Bestimmungen
+
+Inhalt
+
+§ 1 Geltungsbereich, Studienziel
+§ 2 Bachelorgrad und -urkunde
+§ 3 Regelstudienzeit, Dauer und Gliederung des Studiums, Sprache
+§ 4 Module
+§ 5 Berufspraktische Phase
+§ 6 Zulassung, Bearbeitungszeit und Umfang der Bachelorarbeit, Kolloquium
+§ 7 Inkrafttreten, Übergangsregelung
+
+Anlage 1:   Übersicht über die im Bachelorstudiengang ,,Wirtschaftsinformatik" zu
+            erbringenden Module
+Anlage 2:   Modulhandbuch, Modulbeschreibungen (Das Modulhandbuch wurde im Ordner
+
+Anlage 3:   Modulhandbücher veröffentlicht)
+Anlage 4a:
+Anlage 4b:  Ordnung für die Berufspraktische Phase
+Anlage 5a:  Bachelorzeugnis, deutsch
+Anlage 5b:  Bachelorzeugnis, englisch
+Anlage 6:   Bachelorurkunde, deutsch
+            Bachelorurkunde, englisch
+            Diploma Supplement
+
+                                                                                   2
+§ 1 Geltungsbereich, Studienziel
+
+(1) Die Fachspezifischen Bestimmungen regeln die Inhalte und Anforderungen des
+    Bachelorstudiengangs ,,Wirtschaftsinformatik" der Fachbereiche MND und MNI.
+
+(2) Studienziel des Bachelorstudiengangs ,,Wirtschaftsinformatik" ist die Vermittlung
+    berufsqualifizierender Fähigkeiten zum Entwickeln betrieblicher Informationssysteme
+    unter softwaretechnischen und ökonomischen Gesichtspunkten. Die Absolventinnen und
+    Absolventen sind in der Lage, in allen Phasen der Erstellung dieser betrieblichen Systeme
+    mitzuarbeiten bzw. gestalterisch zu wirken. Hierzu gehören neben der
+    geschäftsprozessorientierten Entwicklung neuer Systeme auch die Anpassung und das
+    Customizing bestehender Lösungen im Besonderen auch von Standardsoftware. Diese
+    Qualifikation umfasst neben der Softwaretechnik Kenntnisse über den Aufbau und die
+    Struktur von Systemsoftware sowie von lokalen und weltweiten Kommunikationssystemen
+    und Netzwerken. Darüber hinaus werden im Studiengang fundierte betriebswirtschaftliche
+    Zusammenhänge vermittelt und die Fähigkeit zur Teamarbeit trainiert.
+
+§ 2 Bachelorgrad und ­urkunde
+
+Bei erfolgreichem Abschluss des Studiums im Bachelorstudiengang Wirtschaftsinformatik wird
+der akademische Grad ,,Bachelor of Science", Kurzform ,,B. Sc.", mit Urkunde nach Anlage 5
+verliehen.
+
+§ 3 Regelstudienzeit, Dauer und Gliederung des Studiums, Sprache
+
+(1) Die Regelstudienzeit im Bachelorstudiengang ,,Wirtschaftsinformatik" beträgt 7 Semester,
+    das entspricht 3,5 Studienjahren. Für den erfolgreichen Abschluss der Bachelorprüfung
+    sind die in der Modulübersicht in Anlage 1 aufgeführten Module erfolgreich abzuschließen.
+    Bei Abschluss eines Moduls zu erreichende Leistungspunkte nach dem European Credit
+    Transfer System (ECTS) werden als Creditpoints (CrP) bezeichnet. Für einen Creditpoint
+    wird eine Arbeitsbelastung (workload) der oder des Studierenden von 30 Arbeitsstunden
+    angenommen, die sich wiederum in Präsenz- und/oder Selbststudium aufteilen.
+
+(2) Über die Anerkennung ausländischer oder gleichwertiger Abschlüsse und
+    Hochschulzugangsberechtigungen und die Umrechnung ihrer Noten und Prozentpunkte
+    bzw. die Anerkennung gleichwertiger Qualifikationen entscheidet die Präsidentin oder der
+    Präsident der Technischen Hochschule Mittelhessen nach Maßgabe der gesetzlichen
+    Bestimmungen und Vorgaben der Hochschulrektoren- und Kultusministerkonferenz. § 14
+    der Allgemeinen Bestimmungen (Teil I der Prüfungsordnung) gilt entsprechend. Bei
+    Anerkennungsentscheidungen werden die Vorgaben des Übereinkommens vom 11. April
+    1997 über die Anerkennung von Qualifikationen im Hochschulbereich in der europäischen
+    Region beachtet.
+
+(3) Lehr- und Prüfungssprache ist Deutsch, soweit dies in der Modulbeschreibung nicht anders
+    angegeben ist. Die Art der Prüfung ist im Modulhandbuch (Anlage 2) festgelegt.
+
+§ 4 Module
+
+(1) Die zu erbringenden Module sind grundsätzlich aus dem Angebot des
+    Bachelorstudiengangs ,,Wirtschaftsinformatik" nach Anlage 1 zu absolvieren. Ersatzweise
+    können identische oder gleichwertige Module auch aus dem Modulangebot anderer
+    Studiengänge der Technischen Hochschule Mittelhessen erbracht werden. Dabei
+    entstandene Fehlversuche werden angerechnet. §§ 11 bis 14 der Allgemeinen
+    Bestimmungen (Teil I der Prüfungsordnung) sind anzuwenden.
+
+(2) In einem ,,beschleunigten Verfahren" können bisher noch nicht angebotene
+    Wahlpflichtmodule, die aktuelle Themen aufgreifen und für die Studierenden von Interesse
+    sind, vom Fachbereich, ohne dass hierzu vorab eine Prüfungsordnungsänderung erfolgt,
+    angeboten werden. Die Verfahrensvoraussetzungen hierzu sind in Anlage 2 geregelt.
+
+                                                                                                                          3
+§ 5 Berufspraktische Phase (BPP)
+
+Das Studium beinhaltet eine Berufspraktische Phase (BPP) bestehend aus einer betrieblichen
+Projektphase (PP) im Umfang von 20 Wochen und einem Projektphasenseminar (PPS).
+Näheres über Ablauf und Inhalt der Berufspraktischen Phase ist in der Ordnung für die
+Berufspraktische Phase (Anlage 3) und in den Modulbeschreibungen (Anlage 2) festgelegt.
+
+§ 6 Zulassung, Bearbeitungszeit und Umfang der Bachelorarbeit, Kolloquium
+
+(1) Die Zulassung zur Bachelorarbeit kann erst erfolgen, wenn aus den im Curriculum (Anlage
+    1) angegebenen Modulen bis einschließlich dem 6. Semester alle bis auf maximal drei
+    Module erfolgreich absolviert wurden.
+    Die Berufspraktische Phase (BPP) mit den Modulen Projektphase (PP) und
+    Projektphasenseminar (PPS) muss vor dem Beginn der Bachelorarbeit erfolgreich
+    abgeschlossen sein. Für die Zulassung zum Kolloquium müssen alle Module erfolgreich
+    absolviert sein.
+
+(2) Die Bachelorarbeit hat einen Umfang von 12 Creditpoints (CrP). Der zeitliche Umfang der
+    Bachelorarbeit beträgt drei Monate (vgl. § 18 Abs. 1Teil I der Prüfungsordnung).
+
+(3) Mit einem Kolloquium zur Bachelorarbeit muss die oder der Studierende ihre oder seine
+    Arbeit fachlich präsentieren und verteidigen. Der erfolgreiche Abschluss des Kolloquiums
+    ergibt 3 CrP. Ein Vortrag als Teil des Kolloquiums kann öffentlich gehalten werden. Im
+    Übrigen gilt § 17 der Allgemeinen Bestimmungen (Teil I der Prüfungsordnung).
+
+(4) Die Bewertung der Module Bachelorarbeit und Kolloquium zur Bachelorarbeit fließen mit
+    150 % Gewicht in die Gesamtnote ein.
+
+§ 7 Inkrafttreten, Übergangsregelung
+
+(1) Diese Prüfungsordnung tritt mit Wirkung vom 1. Oktober 2025 in Kraft. Sie gilt für alle
+    Studierenden die ihr Studium im Bachelorstudiengang Wirtschaftsinformatik ab dem
+    Wintersemester 2025/26 aufnehmen.
+
+(2) Für Studierende die ihr Studium vor Inkrafttreten dieser Prüfungsordnung im
+    Bachelorstudiengang Wirtschaftsinformatik aufgenommen haben, gilt die
+    Prüfungsordnung vom 12. Dezember 2017 und 20. Dezember 2017 (AMB 06/2018), zuletzt
+    geändert am 21. Juni 2022 und 22. Juni 2022 (AMB 74/2022) längstens bis zum Ende des
+    Wintersemesters 2028/2029.
+
+(3) Studierende nach Abs. 2 können jederzeit unwiderruflich erklären, dass die Bedingungen
+    der ab dem 1. Oktober 2025 geltenden Prüfungsordnung für sie gelten sollen. Ab dem
+    Sommersemester 2029 hat diese Prüfungsordnung verbindliche Gültigkeit für alle
+    Studierenden.
+
+(4) Die Prüfungsordnung für den Bachelorstudiengang Wirtschaftsinformatik vom 12.
+    Dezember 2017 und 20. Dezember 2017 (AMB 06/2018), zuletzt geändert am 21. Juni
+    2022 und 22. Juni 2022 (AMB 74/2022) wird mit Wirkung vom 1. April 2029 aufgehoben.
+
+Friedberg, den 16. Dezember 2024
+
+                               Prof. Dr. Marcus Martin
+                               Dekan des Fachbereichs MND
+
+Gießen, den 16. Dezember 2024
+
+                               Prof. Dr. Peter Kneisel
+                               Dekan des Fachbereichs MNI
+
+                                                                             4
+Anlage 1: Übersicht über die im Bachelorstudiengang Wirtschaftsinformatik zu
+erbringenden Module
+
+Modulname                                              Nr.  CrP              SWS  Art
+1. Semester
+                                                            27               24
+Einführung in die Wirtschaftsinformatik
+Einführung in die Programmierung                       WK_1101 6             6    V+Ü
+Einführung in die Wirtschaftswissenschaften
+Mathematik für Wirtschaftsinformatik I                 WK_1201 6             6    V+P
+Wissenschaftliches Arbeiten
+                                                       WK_1301 6             4    V
+
+                                                       WK_1401 6             6    V+Ü
+
+                                                       WK_1520 3             2    V+Ü
+
+2. Semester                                                              33  30
+Privat- und Arbeitsrecht sowie Rechtliche Aspekte der
+Informatik                                             WK_1504 3             4    V
+Betriebssysteme und Rechnernetze
+                                                       WK_1202 6             4    V+Ü
+Datenbanksysteme                                       WK_1203 6
+Algorithmen und Datenstrukturen                        WK_1204 6             6    V+Ü
+Rechnungswesen                                         WK_1302 6
+Mathematik für Wirtschaftsinformatik II                WK_1402 6             6    V+P
+
+                                                                             4    V+Ü
+
+                                                                             6    V+Ü
+
+3. Semester                                                 33               28
+Wirtschaftsinformatik-Seminar I (Proseminar)
+Softwaretechnik                                        WK_1104 3             2    S
+Grundlagen der Informationssicherheit
+Projektmanagement - Planspiel und Fallstudien          WK_1208 6             6    V+Ü
+Organisationslehre
+Wirtschaftsstatistik                                   WK_1220 6             6    V+P
+
+                                                       WK_1304 6             4    V+P
+
+                                                       WK_1305 6             4    V+Ü
+
+                                                       WK_1403 6             6    V+Ü
+
+4. Semester                                                              30  22
+Kommerzielle Standardsoftware
+Wirtschaftsinformatik-Projekt I (Softwaretechnik)      WK_1103 6             6    V+Ü+P
+Business Intelligence                                  WK_1106 6
+Entwicklung betrieblicher Informationssysteme          WK_1108 6             4    Pr
+Wahlpflichtmodul                                       WK_1109 6
+                                                       WK_16xx 6             4    V+P
+
+                                                                             4    V+Ü
+
+                                                                             4    V+Ü
+
+5. Semester                                                 30               18
+
+Wirtschaftsinformatik-Seminar II (Hauptseminar)        WK_1105 6             2    S
+Wirtschaftsinformatik-Projekt II
+Wahlpflichtmodul                                       WK_1107 6             4    Pr
+Wahlpflichtmodul
+Wahlpflichtmodul                                       WK_16xx 6             4    V+Ü
+
+                                                       WK_16xx 6             4    V+Ü
+
+                                                       WK_16xx 6             4    V+Ü
+
+6. Semester                                                              27  10
+IT-Management                                          WK_1110 6
+Digitale Geschäftsprozesse                             WK_1307 3             4    V+Ü
+Operations Management                                  WK_1420 6
+Projektphase (BPP, Teil 1) (*)                         WK_1114 12            2    V+S
+
+                                                                             4    V+Ü
+
+                                                                                  Pr
+
+7. Semester                                                 30               4
+Projektphase (BPP, Teil 2) (*)
+Projektphasen-Seminar                                  WK_1114 12                 Pr
+Bachelorarbeit
+Kolloquium zur Bachelorarbeit                          WK_1115 3             2    S
+
+                                                       WK_1116 12                 Pr
+
+                                                       WK_1121 3             2    S
+
+Legende: Vorlesung (V); Übung (Ü); Praktikum (P), Seminar (S); Projekt (Pr), Creditpoints (CrP),
+Semesterwochenstunde (SWS);
+
+(*): Die Projektphase (WK_1114) ist in der Regel am Stück im Umfang von 20 Wochen durchzuführen. Es werden
+24 CrP vergeben. (Näheres regelt die Anlage 3).
+
+                                                                                                            5
+Anlage 2: Modulhandbuch, Modulbeschreibungen
+
+Das Modulhandbuch wurde im Ordner Modulhandbücher veröffentlicht.
+
+                                                                                                                          6
+Anlage 3: Ordnung für die Berufspraktische Phase (BPP)
+
+§ 1 Allgemeines
+
+(1) Der Bachelorstudiengang ,,Wirtschaftsinformatik" der Fachbereiche MND und MNI der
+    Technischen Hochschule Mittelhessen beinhaltet eine Berufspraktische Phase (BPP). Diese wird
+    von der Hochschule vorbereitet, begleitet und nachbereitet. Die Berufspraktische Phase kann auf
+    Wunsch der Studierenden an einer Projektstelle im Ausland durchgeführt werden.
+
+(2) Bei der organisatorischen Abwicklung der Projektphase erhalten die Professorinnen und
+    Professoren Unterstützung seitens des Dekanats.
+
+(3) Der zugeordneten Professorin oder dem zugeordneten Professor obliegt die fachliche Betreuung
+    und Bewertung der Berufspraktischen Phase. § 16 der Allgemeinen Bestimmungen (Teil I der
+    Prüfungsordnung) gilt entsprechend.
+
+(4) Die Bewerbung um eine geeignete Projektstelle obliegt der oder dem Studierenden. Sie oder er hat
+    das Recht, eine Projektstelle vorzuschlagen. Über eine Ablehnung der Projektstelle entscheidet
+    der Prüfungsausschuss.
+
+(5) Die Berufspraktische Phase der oder des einzelnen Studierenden wird auf der Grundlage eines
+    Vertrages zwischen der Studentin oder dem Studenten und dem Projektpartner geregelt.
+
+§ 2 Ziele der Berufspraktischen Phase (BPP)
+
+(1) In der betrieblichen Projektphase soll die oder der Studierende studiengangsadäquate
+     berufsqualifizierende Tätigkeiten zur Vorbereitung auf das künftige Berufsfeld ausüben.
+
+(2) Die oder der Studierende soll eine praktische Ausbildung an fest umrissenen, konkreten
+     Projekten erhalten, die zwingend eine Anwendung des im Bachelorstudium Erlernten verlangen.
+
+(3) Die praktische Ausbildung innerhalb der Projektphase muss am angestrebten Berufsbild einer
+     Wirtschaftsinformatikerin oder eines Wirtschaftsinformatikers erfolgen. Die Projektphase kann in
+     nachfolgenden Bereichen absolviert werden:
+         · Softwarehäuser, Systemhäuser, Consulting und Beratungsunternehmen Software-
+             Beratung und -Entwicklung
+         · Banken und Versicherungen
+         · Industrie und Handel
+         · Öffentliche Verwaltung
+       Weitere Bereiche können auf Antrag von der betreuenden Professorin oder dem betreuenden
+       Professor zugelassen werden.
+
+  (4) Die Berufspraktische Phase soll auf die sich anschließende Bachelorarbeit vorbereiten.
+
+§ 3 Dauer und zeitlicher Ablauf der Berufspraktischen Phase (BPP)
+
+(1) Die Berufspraktische Phase (BPP) besteht aus den Modulen Projektphase (PP, WK_1114) sowie
+    dem Projektphasenseminar (PPS, WK_1115) und hat einen Umfang von insgesamt 27 CrP. Die
+    Module überschreiten dabei insgesamt den in § 10 Abs. 2 der Allgemeinen Bestimmungen (Teil
+    I der Prüfungsordnung) vorgesehenen Workload nicht. Fehlzeiten (z. B. Krankheit und Urlaub)
+    werden nicht angerechnet und sind nachzuholen.
+
+(2) Die Projektphase (PP) umfasst eine Gesamtdauer von 20 Wochen in Vollzeit. Auf Antrag der
+    oder des Studierenden kann in besonders begründeten Fällen die Projektphase auf maximal 26
+    Wochen (bzw. 6 Monate) vom Prüfungsausschuss verlängert werden.
+
+(3) Alternativ kann die Gesamtdauer der Projektphase (PP) auch durch 800 Stunden, die innerhalb
+    eines Jahres zu absolvieren sind, nachgewiesen werden. Der Nachweis ist durch die
+    Studierenden am Ende der Praxisphase dem BPP-Referat zusammen mit dem Arbeitszeugnis
+    vorzulegen. Die Zulassungsvoraussetzungen gemäß § 4 und die Pflicht zu deren Anmeldung vor
+    dem Start bleiben bei beiden Alternativen bestehen.
+
+(4) Das Modul Projektphasenseminar (PPS, WK_1115) umfasst
+
+                                                                                                                                  7
+    · ein Fachreferat/eine Präsentation i.d.R. am Ende bzw. nach der Projektphase über das
+         zentrale Thema der Projektphase. Der Termin für das Fachreferat/Präsentation ist mit
+         dem/der betreuenden Professor/in abzustimmen.
+
+    · einen schriftlichen Projektbericht am Ende der Projektphase mit Tätigkeitsmerkmalen,
+         Anforderungsprofilen, theoretische Hintergründe, berufliche Perspektiven und Reflexionen
+         während der Projektphase. Die Abgabe des schriftlichen Projektberichts, dessen Form und
+         Umfang, ist mit der betreuenden Professorin oder dem betreuenden Professor abzustimmen.
+
+§ 4 Zulassungsvoraussetzungen
+
+Voraussetzung für die Zulassung zur Berufspraktischen Phase (BPP) ist der erfolgreiche Abschluss
+der Module der ersten fünf Semester bis auf 12 CrP sowie der Besuch von sieben speziell
+ausgewiesenen Fach- und Praxisvorträgen, die per Aushang durch das Dekanat bekannt gegeben
+werden. Folglich ist eine Zulassung zur Berufspraktischen Phase (BPP) nur möglich, wenn
+mindestens 141 CrP aus den ersten fünf Semestern erreicht wurden. Das Pflichtmodul
+Wirtschaftsinformatik-Seminar II (WK_1105) muss in jedem Fall erfolgreich abgeschlossen sein. Eine
+weitere Voraussetzung ist der Nachweis des Besuchs der zwei Informationsveranstaltungen.
+
+§ 5 Projektstellen, Verträge
+
+(1) Die Berufspraktische Phase wird in enger Zusammenarbeit der Hochschule mit geeigneten
+    Unternehmen oder Institutionen so durchgeführt, dass ein möglichst hohes Maß an Kenntnissen
+    und praktischen Fähigkeiten erworben werden kann.
+
+(2) Die Bereitstellung geeigneter Projektstellen kann durch Rahmenvereinbarungen der Hochschule
+    mit geeigneten Unternehmen oder Institutionen geregelt werden.
+
+(3) Voraussetzung für den Beginn der Berufspraktische Phase ist die vorherige ordnungsgemäße
+    Anmeldung und ein schriftlicher Vertrag zwischen der oder dem Studierenden und der
+    Projektstelle, dem die Hochschule zustimmen muss.
+
+(4) Der Vertrag regelt insbesondere:
+      1. die Verpflichtung der Projektstelle,
+         · die oder der Studierende für die Dauer der Projektphase entsprechend den
+             Ausbildungszielen nach § 2 insbesondere bezüglich des Zusammenhangs zwischen den
+             Projekten und den Studieninhalten auszubilden,
+         · eine Bescheinigung auszustellen, die Angaben über Beginn und Ende der Projektphase,
+             evtl. Fehlzeiten, die Inhalte der praktischen Tätigkeiten sowie den Erfolg der Projektphase
+             enthält,
+         · die Benennung einer oder eines Beauftragten der Projektstelle für die Betreuung der oder des
+             Studierenden,
+      2. die Verpflichtung der oder des Studierenden,
+         · die gebotenen Ausbildungsmöglichkeiten wahrzunehmen und die innerhalb der
+             Projektphase übertragenen Aufgaben sorgfältig auszuführen,
+         · den Anordnungen der Projektstelle und der von ihr beauftragten Personen nachzukommen,
+         · die für die Projektstelle geltenden Ordnungen, insbesondere Arbeitsordnungen und
+             Unfallverhütungsvorschriften sowie Vorschriften über die Schweigepflicht zu beachten.
+
+§ 6 Begleitstudium
+
+Der praktische Teil der Berufspraktischen Phase (BPP), die Projektphase (PP), wird von der
+Technischen Hochschule Mittelhessen durch ein Begleitstudium in Form von Fachgesprächen
+ergänzt, die die betreuende Professorin oder der betreuende Professor in geeigneter Weise zur
+fachlichen Begleitung durchführt.
+
+§ 7 Status der Studierenden während der Projektphase (PP)
+
+Während der Projektphase (PP), die Bestandteil des Bachelorstudiums ist, bleibt die oder der
+Studierende an der Technische Hochschule Mittelhessen immatrikuliert. Die Studentin oder der
+
+                                                                                                                                  8
+Student ist keine Praktikantin oder kein Praktikant im Sinne des Berufsbildungsgesetzes und
+unterliegt in der Projektstelle weder dem Betriebsverfassungsgesetz noch dem
+Personalvertretungsgesetz. Andererseits ist die oder der Studierende an die Ordnungen der
+Projektstelle gebunden. Nach Maßgabe des Bundesausbildungsförderungsgesetzes (BAföG)
+besteht während der Projektphase grundsätzlich Anspruch auf Ausbildungsförderung. Etwaige
+Vergütungen der Projektstelle werden auf die Leistungen nach BAföG angerechnet.
+
+§ 8 Anerkennung, Bewertung, Wiederholung
+(1) Die Anerkennung der Projektphase (PP) setzt die Vorlage folgender Unterlagen bei der
+
+    betreuenden Professorin oder dem betreuenden Professor bzw. dem Dekanat voraus:
+       1. einen Ausbildungsvertrag nach § 5 Abs. 4 bis spätestens zum Beginn der Projektphase,
+       2. einen Tätigkeitsnachweis der Projektstelle gemäß § 5 Abs. 4 Nr. 1,
+       3. den Nachweis des erfolgreichen Abschlusses des Begleitstudiums nach § 6
+
+(2) Bei Nicht-Anerkennung der Projektphase, ist diese einschließlich des Begleitstudiums zu
+    wiederholen.
+
+(3) Das Modul Projektphase ist unbenotet, das Modul Projektphasenseminar wird benotet.
+
+§ 9 Anrechnung gleichwertiger praktischer Tätigkeiten
+Studierende, die eine der Projektphase (PP) gleichwertige Tätigkeit nachweisen, kann diese auf
+Antrag ganz oder teilweise auf die Projektphase angerechnet werden. Praktische Tätigkeiten von
+Studierenden sollen nur dann auf die Projektphase angerechnet werden, wenn die Tätigkeit auf
+einem Ausbildungsstand basiert, der den ersten fünf Semestern des Studiengangs
+Wirtschaftsinformatik entspricht und es können nur solche Zeiten anerkannt werden, die zeitlich nach
+der Erfüllung von § 4 liegen. Über die Anrechnung entscheidet der Prüfungsausschuss auf
+schriftlichen Antrag. Das Projektphasenseminar (PPS) gem. § 3 Abs. 4 in Verbindung mit Anlage 2
+ist ungeachtet einer Anrechnung von Tätigkeiten trotzdem zu erbringen.
+
+§ 10 Versicherungsschutz, Sozialabgaben, Steuerpflicht
+(1) Die oder der Studierende ist während der Projektphase kraft Gesetzes gegen Unfall versichert.
+
+    Im Versicherungsfall übermittelt die Projektstelle auch der Technische Hochschule Mittelhessen
+    einen Abdruck der Unfallanzeige.
+(2) Das Haftpflichtrisiko der oder des Studierenden an der Projektstelle ist für die Laufzeit des
+    Vertrages durch die allgemeine Betriebshaftpflichtversicherung der Projektstelle gedeckt. Der
+    Abschluss einer privaten Haftpflichtversicherung wird empfohlen.
+(3) Die oder der Studierende ist während der Projektphase grundsätzlich nach den Bestimmungen
+    der studentischen Krankenversicherung pflichtversichert.
+(4) Bei Ableistung der Projektphase im Ausland wird der Abschluss einer privaten Haftplicht- und
+    Krankenversicherung empfohlen.
+(5) Die Verpflichtung zur Zahlung von Sozialabgaben und Steuern auf etwaige Vergütungen richtet
+    sich nach den gesetzlichen Bestimmungen und obliegt der oder dem Studierenden und der
+    Projektstelle.
+
+§ 11 Inkrafttreten
+Diese Ordnung tritt mit Wirkung vom 1. Oktober 2025 in Kraft.
+
+                                                                                                                                  9
+Anlage 4a: Bachelorzeugnis, deutsch - Inhalt des Zeugnisses Bachelor of Science (B. Sc.)
+
+                TECHNISCHE HOCHSCHULE MITTELHESSEN
+                                   Campus Friedberg
+
+                                                        Zeugnis
+
+                                                Bachelor of Science (B. Sc.)
+
+Name
+
+geboren am               in                                                  Matr.-Nr.:
+
+hat in den Fachbereichen               Mathematik, Naturwissenschaften und Datenverarbeitung
+                                       Mathematik, Naturwissenschaften, Informatik
+
+Bachelorstudiengang                    Wirtschaftsinformatik
+
+                                                die Bachelorprüfung mit der
+
+                                                Gesamtnote:
+
+                             abgelegt und folgende Einzelbewertungen erhalten:
+
+Bachelorarbeit
+
+Thema:
+
+Bewertung:                                      Prozentpunkte:                          Creditpoints:
+
+Name, geboren am:
+
+Pflichtmodule                                                   Note                    Prozent-       Creditpoints
+                                                                                         punkte            (CrP*1)
+
+Wahlpflichtmodule
+
+Gesamtnote
+
+Zusatzmodule
+
+Bemerkungen:
+Für die Dauer des Studiums war der Studiengang durch den deutschen Akkreditierungsrat akkreditiert.
+
+Friedberg, den
+
+               Die Dekanin / Der Dekan                                Die/der Vorsitzende des Prüfungsausschusses
+
+*1 nach dem ,,European Credit Transfer System"
+* anerkannte Leistungen aus dem Ausland
+** anerkannte Leistungen aus dem Inland
+
+sehr gut      1,0 ­ 1,5  (100 ­ 88 %)                           ausreichend  3,6 ­ 4,0  (57 ­ 50 %)
+gut           1,6 ­ 2,5   (87 ­ 73 %)                           mangelhaft   5,0             (<50 %)
+befriedigend  2,6 ­ 3,5   (72 ­ 58 %)
+
+                                                                                                                   10
+Anlage 4b: Bachelorzeugnis, englisch - Inhalt des Zeugnisses Bachelor of Science (B. Sc.)
+
+                     TECHNISCHE HOCHSCHULE MITTELHESSEN
+                                         Campus Friedberg
+
+                                      Degree Certificate
+
+                                      Bachelor of Science (B. Sc.)
+
+Name
+
+Born on                  in                                                       Student ID Number:
+
+Departments                           Mathematics, Natural Sciences and Data Processing
+                                      Mathematics, Natural Sciences and Computer Science
+
+Course of study                       Business Information Systems
+
+                 has successfully completed the final Bachelor's Examination with the
+
+                                                         Overall grade:
+
+                               and achieved the following individual grades:
+
+Bachelor Thesis
+
+Topic:
+
+Grade:                                Percentage Points:                          Credit Points:
+
+Name, born on:                                           Grade                    Percentage          Credit Points
+                                                                                     Points               (CrP*1)
+Compulsory Modules
+
+Elective Modules
+
+Overall Grade
+
+Additional Modules
+
+Comments:
+For the duration of studies, the course of study was accredited by the German Accreditation Council.
+
+Friedberg,
+
+                         Dean                                            Head of the Examination Board
+
+*1according to the ,,European Credit Transfer System"
+* recognised academic performances from abroad
+
+** recognised academic performances from within Germany
+
+excellent     1.0 ­ 1.5  (100 ­ 88%)                     sufficient      3.6 ­ 4.0  (57 ­ 50%)
+good          1.6 ­ 2.5   (87 ­ 73%)                                                    (<50%)
+satisfactory  2.6 ­ 3.5   (72 ­ 58%)                     insufficient / fail 5.0
+
+                                                                                                        11
+Anlage 5a: Bachelorurkunde, deutsch
+             Logo der Technische Hochschule Mittelhessen / University of Applied Sciences
+
+                                 BACHELORURKUNDE
+
+Name                             in
+geboren am                       die Bachelorprüfung im
+hat am
+
+Bachelorstudiengang Wirtschaftsinformatik
+
+Fachbereiche            Mathematik, Naturwissenschaften und Datenverarbeitung
+                        Mathematik, Naturwissenschaften, Informatik
+
+erfolgreich bestanden.
+
+                        Aufgrund dieser Prüfung verleiht die
+                        Technische Hochschule Mittelhessen
+
+                                den akademischen Grad
+                              Bachelor of Science (B. Sc.)
+
+Friedberg, den
+
+Die Präsidentin / der Präsident  Siegel                       Die Dekanin / der Dekan
+
+                                                                                           12
+Anlage 5b: Bachelorurkunde, englisch
+             Logo der Technische Hochschule Mittelhessen / University of Applied Sciences
+
+                                               BACHELOR CERTIFICATE
+
+Name
+
+Born on                in
+
+has successfully completed the Bachelor's examination on
+
+Course of study        Business Information Systems
+Departments
+                       Mathematics, Natural Sciences and Data Processing
+                       Mathematics, Natural Sciences and Computer Science
+
+                       The Technische Hochschule Mittelhessen /
+                               University of Applied Sciences
+
+                         confers on the basis of this examination
+                                    the academic degree of
+
+                                Bachelor of Science (B. Sc.)
+
+Friedberg,
+
+            President      Seal                                    Dean
+
+                                                                                           13
+Anlage 6: Diploma Supplement
+
+                       Technische Hochschule Mittelhessen /
+                            University of Applied Sciences
+                                     Campus Friedberg
+
+               Diploma Supplement (Deutsche Version)
+
+    Diese Diploma Supplement-Vorlage wurde von der Europäischen Kommission, dem Europarat und UNESCO/CEPES entwickelt. Das Diploma
+    Supplement soll hinreichende Daten zur Verfügung stellen, die die internationale Transparenz und angemessene akademische und berufliche
+    Anerkennung von Qualifikationen (Urkunden, Zeugnisse, Abschlüsse, Zertifikate, etc.) verbessern. Das Diploma Supplement beschreibt
+    Eigenschaften, Stufe, Zusammenhang, Inhalte sowie Art des Abschlusses des Studiums, das von der in der Originalurkunde bezeichneten Person
+    erfolgreich abgeschlossen wurde. Die Originalurkunde muss diesem Diploma Supplement beigefügt werden. Das Diploma Supplement sollte frei
+    sein von jeglichen Werturteilen, Äquivalenzaussagen oder Empfehlungen zur Anerkennung. Es sollte Angaben in allen acht Abschnitten enthalten.
+    Wenn keine Angaben gemacht werden, sollte dies durch eine Begründung erläutert werden.
+
+    1. ANGABEN ZUM INHABER/ZUR INHABERIN DER QUALIFIKATION
+
+     1.1 Familienname(n) / 1.2 Vorname(n)
+
+     1.3 Geburtsdatum (TT/MM/JJJJ)
+
+     1.4 Matrikelnummer oder Code zur Identifizierung des/der Studierenden
+
+    2. ANGABEN ZUR QUALIFIKATION
+
+     2.1 Bezeichnung der Qualifikation und verliehener Grad (in der Originalsprache)
+          Bachelor of Science
+
+     2.2 Hauptstudienfach oder -fächer für die Qualifikation
+          Wirtschaftsinformatik
+
+     2.3 Name und Status (Typ/Trägerschaft) der Einrichtung, die die Qualifikation verliehen hat
+          Technische Hochschule Mittelhessen
+          Wiesenstraße 14
+          D-35390 Gießen
+          Hochschule für angewandte Wissenschaften (Fachhochschule)
+          Staatliche Einrichtung
+
+     2.4 Name und Status (Typ/Trägerschaft) der Einrichtung (falls nicht mit 2.3 identisch), die den Studiengang
+          durchgeführt hat
+          siehe Abschnitt 2.3
+
+     2.5 Im Unterricht / in der Prüfung verwendete Sprache(n)
+          Deutsch
+
+    3. ANGABEN ZU EBENE UND ZEITDAUER DER QUALIFIKATION
+
+                                                                                                                                          14
+3.1 Ebene der Qualifikation
+
+3.2 Offizielle Dauer des Studiums (Regelstudienzeit) in Leistungspunkten und/oder Jahren
+     3,5 Jahre (7 Semester) / 210 CrP nach ECTS
+
+3.3 Zugangsvoraussetzung(en)
+   · Hochschulzugangsberechtigung nach § 60 HessHG
+   Einzelheiten siehe Abschnitt 8.7
+
+4. Angaben zum Inhalt des Studiums und zu den erzielten Ergebnissen
+
+4.1 Studienform
+     Vollzeit
+
+4.2 Lernergebnisse des Studiengangs
+
+     Der Studiengang "Bachelor of Science (B.Sc) in Wirtschaftsinformatik" bietet einen ersten wissenschaftlich fundierten,
+     praxisorientierten und berufsqualifizierenden Hochschulabschluss in Wirtschaftsinformatik, der in einer Regelstudienzeit von
+     sieben Semestern zu erreichen ist. Die Wirtschaftsinformatik ist eine Wissenschaft mit kurzen Innovationszeiten. Daher wird
+     im Studiengang auf eine solide wissenschaftliche und praktische Grundlage Wert gelegt. Diese Vermittlung zeitinvarianten
+     Wissens ermöglicht es, zukünftiges Wissen systematisch und selbstständig zu erschließen. Ein breiter Wahlpflichtbereich
+     erlaubt zudem eine Vertiefung in einzelnen Bereichen - explizite Spezialisierungen sind nicht vorgesehen. Anteile der
+     Disziplinen Informatik, Mathematik und Wirtschaftswissenschaften und die originären Inhalte der Wirtschaftsinformatik
+     bilden die Basis. Die letztgenannten stellen die integrative Verbindung zwischen den erstgenannten Bereichen her. Die
+     Anteile des Studiengangs sind ausgewogen über diese klassischen Säulen der Wirtschaftsinformatik verteilt. Zudem werden
+     Schlüsselqualifikationen, wie die Fähigkeit zum wissenschaftlichen Arbeiten, Team-, Kommunikations- und Konfliktfähigkeit,
+     Interdisziplinarität und Verantwortung in speziellen Modulen und innerhalb der Wirtschaftsinformatikmodule vermittelt. Die
+     Absolventin oder der Absolvent können sich rasch wechselnden und vielfältigen Aufgaben in allen Berufsfeldern der
+     Wirtschaftsinformatik stellen und sich jederzeit in neue Problemfelder einarbeiten. Dabei erlernte Fachkompetenz wird
+     sachgerecht und verantwortlich eingesetzt.
+
+4.3 Einzelheiten zum Studiengang, individuell erworbene Leistungspunkte und erzielte Noten
+     Siehe separates Dokument "Transcript of Records"
+
+4.4 Notensystem und Notenspiegel
+
+sehr gut                 1,0 - 1,5         (100 % - 88 %)
+gut                      1,6 - 2,5          (87 % - 73 %)
+befriedigend             2,6 - 3,5          (72 % - 58 %)
+ausreichend              3,6 - 4,0          (57 % - 50 %)
+mangelhaft               5,0                  (unter 50 %)
+
+Weitere Informationen siehe Abschnitt 8.6
+
+ECTS-Grades
+
+A (10 %)      100 - ...
+
+B (25 %)      ...-...
+
+C (30 %)      ...-...
+
+D (25 %)      ...-...
+
+E (10 %)      ... - 50
+
+4.5 Gesamtnote (in Originalsprache)
+     <<Gesamtnote>>
+
+5. ANGABEN ZUR BERECHTIGUNG DER QUALIFIKATION
+
+5.1 Zugang zu weiterführenden Studien
+
+                                                                                                                                   15
+     Erster berufsqualifizierender Abschluss. Erlaubt bei einer Gesamtnote "gut" (2,5 oder besser) den
+     Zugang zum Studiengang Master of Science Wirtschaftsinformatik. Zugang zu weiterführenden
+     Studiengängen im deutschen Hochschulsystem (siehe Abschnitt 8).
+
+5.2 Zugang zu reglementierten Berufen (sofern zutreffend)
+     Mit dem Abschluss "Bachelor of Science (B.Sc) in Wirtschaftsinformatik" sind die Absolventinnen und Absolventen hervorragend
+     geeignet zur Mitarbeit bei der Entwicklung betrieblicher Informationssysteme. Sie sind in der Lage, in allen Phasen der Erstellung
+     dieser Systeme gestalterisch zu wirken. Hierzu gehören neben der Entwicklung neuer Systeme auch die Anpassung und das
+     Customizing bestehender Lösungen. Dies gilt insbesondere für die Einführung von Standardsoftware. Hierzu werden im Studium
+     betriebswirtschaftliche Inhalte in den spezifischen Wirtschaftsinformatikmodulen aufgegriffen und dort im
+     informationstechnologischen Kontext studiert. Während des Studiums werden weiterhin die Fähigkeit zur Teamarbeit und die
+     Entwicklung der Persönlichkeit trainiert. Die fundierte Ausbildung ist nicht branchenspezifisch ausgereichtet und genügt damit der
+     Nachfrage nach Wirtschaftsinformatikern mit einer breit angelegten Kompetenz, um Aufgaben in der Industrie und im privaten
+     oder öffentlichen Dienstleistungsbereich zu übernehmen. Als Arbeitgeber kommen nicht nur Unternehmen in Frage, die
+     betriebliche Informationssysteme entwickeln, sondern auch alle Institutionen, deren unternehmerische Kernkompetenzen stark
+     von einem fundierten Informationsmanagement abhängen.
+
+6. WEITERE ANGABEN
+
+6.1 Weitere Angaben
+     Zusätzliche Informationen zum individuellen Verlauf des Studiums oder besondere Aktivitäten der Absolventin / des Absolventen
+     werden auf Wunsch gesondert bescheinigt
+
+6.2 Weitere Informationsquellen
+
+     Allgemeine Informationen: siehe Abschnitt 8.8
+
+     Detaillierte Informationen zum Studienprogramm können angefordert werden bei:
+
+     Technische Hochschule Mittelhessen University
+     of Applied Sciences Wiesenstr. 14
+     D-35390 Gießen/Hessen Germany
+     http://www.thm.de
+
+7. ZERTIFIZIERUNG DES DIPLOMA SUPPLEMENTS
+
+Dieses Diploma Supplement nimmt Bezug auf folgende Original-Dokumente:
+
+Urkunde über die Verleihung des Grades vom
+[Datum] Prüfungszeugnis vom [Datum]
+Transcript of Records vom [Datum]
+
+Datum der Zertifizierung:  <<DsAusstelldatum>>
+                                                  Siegel
+
+Die Dekanin / Der Dekan                                   Vorsitzende / Vorsitzender des
+                                                          Prüfungsausschusses
+
+8. ANGABEN ZUM NATIONALEN HOCHSCHULSYSTEM
+
+Die Informationen über das nationale Hochschulsystem auf den folgenden Seiten geben Auskunft über die Qualifikation und den
+Status der Institution, die sie vergeben hat.
+
+                                                                                                                             16
+8. INFORMATIONEN ZUM HOCHSCHULSYSTEM IN DEUTSCHLAND1                                In allen Hochschularten wurden die Studiengänge traditionell als integrierte
+                                                                                    ,,lange" (einstufige) Studiengänge angeboten, die entweder zum Diplom oder
+8.1 Die unterschiedlichen Hochschulen und ihr institutioneller Status               zum Magister Artium führten oder mit einer Staatsprüfung abschlossen.
+
+Die Hochschulausbildung wird in Deutschland von drei Arten von Hochschulen          Im Rahmen des Bologna-Prozesses wird das einstufige Studiensystem
+angeboten. 2                                                                        sukzessive durch ein zweistufiges ersetzt. Seit 1998 wurden in fast allen
+                                                                                    Studiengängen gestufte Abschlüsse (Bachelor und Master) eingeführt. Dies
+- Universitäten, einschließlich verschiedener spezialisierter Institutionen,        soll den Studierenden mehr Wahlmöglichkeiten und Flexibilität beim Planen
+bieten das gesamte Spektrum akademischer Disziplinen an. Traditionell liegt         und Verfolgen ihrer Lernziele bieten sowie Studiengänge international
+der Schwerpunkt an deutschen Universitäten besonders auf der                        kompatibler machen.
+Grundlagenforschung, so dass das fortgeschrittene Studium vor allem
+theoretisch ausgerichtet und forschungsorientiert ist.                              Die Abschlüsse des deutschen Hochschulsystems einschließlich ihrer
+                                                                                    Zuordnung zu den Qualifikationsstufen sowie die damit einhergehenden
+- Fachhochschulen (FH)/Hochschulen für Angewandte Wissenschaften (HAW)              Qualifikationsziele und Kompetenzen der Absolventinnen und Absolventen
+konzentrieren ihre Studienangebote auf ingenieurwissenschaftliche                   sind im Qualifikationsrahmen für deutsche Hochschulabschlüsse (HQR)3
+technische Fächer und wirtschaftswissenschaftliche Fächer, Sozialarbeit und         beschrieben. Die drei Stufen des HQR sind den Stufen 6, 7 und 8 des
+Design. Der Auftrag von angewandter Forschung und Entwicklung impliziert            Deutschen Qualifikationsrahmens für lebenslanges Lernen (DQR)4 und des
+einen praxisorientierten Ansatz und eine ebensolche Ausrichtung des                 Europäischen Qualifikationsrahmens für lebenslanges Lernen (EQR) 5
+Studiums, was häufig integrierte und begleitete Praktika in Industrie,              zugeordnet.
+Unternehmen oder anderen einschlägigen Einrichtungen einschließt.
+                                                                                    Einzelheiten s. Abschnitte 8.4.1, 8.4.2 bzw. 8.4.3. Tab. 1 gibt eine
+- Kunst- und Musikhochschulen bieten Studiengänge für künstlerische                 zusammenfassende Übersicht.
+Tätigkeiten an, in Bildender Kunst, in Schauspiel und Musik, in den Bereichen
+Regie, Produktion und Drehbuch für Theater, in Film und anderen Medien
+sowie in den Bereichen Design, Architektur, Medien und Kommunikation.
+
+Hochschulen sind entweder staatliche oder staatlich anerkannte Institutionen.
+Sowohl in ihrem Handeln einschließlich der Planung von Studiengängen als
+auch in der Festsetzung und Zuerkennung von Studienabschlüssen
+unterliegen sie der Hochschulgesetzgebung.
+
+8.2 Studiengänge und -abschlüsse
+
+Tab. 1: Institutionen, Studiengänge und Abschlüsse im Deutschen Hochschulsystem
+
+                                                                                    Besondere
+                                                                                    Zulassungsregelungen
+
+     UNIVERSITÄTEN        Bachelor (B.A./B.Sc./B.Eng./LL.B./B.Ed.)                  [1-2 Jahre]
+         und diesen
+                          [3-4 Jahre]                 Master (M.A./M.Sc./M.Eng./LL.M./M.Ed.)
+       gleichgestellte
+     SPEZIALISIERTE       Diplom & Magister Artium (M.A.) Grad [4-5 Jahre]                                   Promotion
+     INSTITUTIONEN                                                                                                (Dr.)
+    (Theologische und     Staatsprüfung [3,5-6,5 Jahre]
+                                                                                                            (Dissertation /
+       Pädagogische                                                                                             evtl. mit
+        Hochschulen)
+                                                                                                            strukturiertem
+[Promotionsberechtigung]                                                                                     Promotions-
+
+                                                                               Besondere                       studium)
+                                                                               Zulassungsregelungen
+                                                                                                             Promotion
+                          Bachelor (B.A./B.Sc./B.Eng./LL. B.)                       [1-2 Jahre]                   (Dr.)
+
+FACHHOCHSCHULEN           [3-4 Jahre]                 Master (M.A./M.Sc./M.Eng./LL.M.)
+             (FH)
+                          Diplom (FH) Grad [4 Jahre]                                Besondere
+ HOCHSCHULEN FÜR                                                                    Zulassungsregelungen
+     ANGEWANDTE
+                                                                                    Besondere
+  WISSENSCHAFTEN                                                                    Zulassungsregelungen
+           (HAW)
+                          Bachelor (B.A./B.F.A./B.Mus./B.Ed.)                       [1-2 Jahre]
+KUNST- UND MUSIK-
+   HOCHSCHULEN            [3-4 Jahre]                 Master (M.A./M.F.A./M.Mus./M.Ed.)
+
+ [Promotion teilweise     Diplom & M.A. Grad, Zertifikate, zertifizierte Prüfungen
+         möglich]         [4-5 Jahre]
+
+                          Integrierte/lange (einstufige) Studiengänge                                       Promotion
+
+Studiengänge und
+    Abschlüsse
+
+                          Erster Abschluss                                            Besondere
+                                                                                      Zulassungsregelungen
+
+                                                                               Zweiter Abschluss
+
+                                                                                                                             17
+8.3 Anerkennung/Akkreditierung von Studiengängen und                             promotionsberechtigten            Hochschulen        bewerben,
+         Abschlüssen                                                             s. Abschnitt 8.5.
+
+Um die Qualität und die Vergleichbarkeit von Qualifikationen sicherzustellen,    - Das Studium an Kunst- und Musikhochschulen ist in seiner Organisation und
+müssen sich sowohl die Organisation und Struktur von Studiengängen als           Struktur abhängig vom jeweiligen Fachgebiet und der individuellen
+auch die grundsätzlichen Anforderungen an Studienabschlüsse an den               Zielsetzung. Neben dem Diplom- bzw. Magisterabschluss gibt es bei
+Prinzipien und Regelungen der Ständigen Konferenz der Kultusminister der         integrierten Studiengängen Zertifikate und zertifizierte Abschlussprüfungen für
+Länder (KMK) orientieren.6 Seit 1999 existiert ein bundesweites                  spezielle Bereiche und berufliche Zwecke.
+Akkreditierungssystem für Bachelor- und Masterstudiengänge, nach dem alle
+neu eingeführten Studiengänge akkreditiert werden. Akkreditierte                 8.5 Promotion
+Studiengänge sind berechtigt, das Qualitätssiegel des Akkreditierungsrates zu
+führen. 7                                                                        Universitäten, gleichgestellte Hochschulen sowie einige Fachhochschulen
+                                                                                 (FH)/Hochschulen für Angewandte Wissenschaften (HAW) und einige Kunst-
+8.4 Organisation und Struktur der Studiengänge                                   und Musikhochschulen sind promotionsberechtigt. Formale Voraussetzung für
+                                                                                 die Zulassung zur Promotion ist ein qualifizierter Masterabschluss
+Die folgenden Studiengänge können von allen drei Hochschularten angeboten        (Fachhochschulen und Universitäten), ein Magister-abschluss, ein Diplom,
+werden. Bachelor- und Masterstudiengänge können nacheinander, an                 eine Staatsprüfung oder ein äquivalenter ausländischer Abschluss.
+unterschiedlichen Hochschulen, an unterschiedlichen Hochschularten und mit       Entsprechende Abschlüsse von Kunst- und Musikhochschulen können in
+Phasen der Erwerbstätigkeit zwischen der ersten und der zweiten                  Ausnahmefällen (wissenschaftliche Studiengänge, z.B. Musiktheorie,
+Qualifikationsstufe studiert werden. Bei der Planung werden Module und das       Musikwissenschaften, Kunst- und Musikpädagogik, Medienwissenschaften)
+Europäische System zur Übertragung und Akkumulierung von                         formal den Zugang zur Promotion eröffnen. Besonders qualifizierte Inhaber
+Studienleistungen (ECTS) verwendet, wobei einem Semester 30 Kreditpunkte         eines Bachelorgrades oder eines Diploms (FH) können ohne einen weiteren
+entsprechen.                                                                     Studienabschluss im Wege eines Eignungsfeststellungs-verfahrens zur
+                                                                                 Promotion zugelassen werden. Die Universitäten bzw. promotionsberechtigten
+8.4.1 Bachelor                                                                   Hochschulen regeln sowohl die Zulassung zur Promotion als auch die Art der
+                                                                                 Eignungsprüfung. Voraussetzung für die Zulassung ist außerdem, dass das
+In Bachelorstudiengängen werden wissenschaftliche Grundlagen,                    Promotionsprojekt von einem Hochschullehrer als Betreuer angenommen
+Methodenkompetenz und berufsfeldbezogene Qualifikationen vermittelt. Der         wird.
+Bachelorabschluss wird nach 3 bis 4 Jahren vergeben.                             Die Promotion entspricht der Qualifikationsstufe 8 des DQR/EQR.
+Zum Bachelorstudiengang gehört eine schriftliche Abschlussarbeit.
+Studiengänge, die mit dem Bachelor abgeschlossen werden, müssen gemäß            8.6 Benotungsskala
+dem Studienakkreditierungsstaatsvertrag akkreditiert werden.8
+Studiengänge der ersten Qualifikationsstufe (Bachelor) schließen mit den         Die deutsche Benotungsskala umfasst üblicherweise 5 Grade (mit
+Graden Bachelor of Arts (B.A.), Bachelor of Science (B.Sc.), Bachelor of         zahlenmäßigen Entsprechungen; es können auch Zwischennoten vergeben
+Engineering (B.Eng.), Bachelor of Laws (LL.B.), Bachelor of Fine Arts (B.F.A.),  werden): ,,Sehr gut" (1), ,,Gut" (2), ,,Befriedigend" (3), ,,Ausreichend" (4), ,,Nicht
+Bachelor of Music (B.Mus.) oder Bachelor of Education (B.Ed.) ab.                ausreichend" (5). Zum Bestehen ist mindestens die Note ,,Ausreichend" (4)
+Der Bachelorgrad entspricht der Qualifikationsstufe 6 des DQR/EQR.               notwendig. Die Bezeichnung für die Noten kann in Einzelfällen und für die
+                                                                                 Promotion abweichen.
+8.4.2 Master                                                                     Außerdem findet eine Einstufungstabelle nach dem Modell des ECTS-
+                                                                                 Leitfadens Verwendung, aus der die relative Verteilung der Noten in Bezug auf
+Der Master ist der zweite Studienabschluss nach weiteren 1 bis 2 Jahren.         eine Referenzgruppe hervorgeht.
+Masterstudiengänge können nach den Profiltypen ,,anwendungsorientiert" und
+,,forschungsorientiert" differenziert werden. Die Hochschulen legen das Profil   8.7 Hochschulzugang
+fest.
+Zum Masterstudiengang gehört eine schriftliche Abschlussarbeit.                  Die Allgemeine Hochschulreife (Abitur) nach 12 bis 13 Schuljahren ermöglicht
+Studiengänge, die mit dem Master abgeschlossen werden, müssen gemäß
+dem Studienakkreditierungsstaatsvertrag akkreditiert werden.9                    den Zugang zu allen Studiengängen. Die Fachgebundene Hochschulreife
+Studiengänge der zweiten Qualifikationsstufe (Master) schließen mit den
+Graden Master of Arts (M.A.), Master of Science (M.Sc.), Master of               ermöglicht den Zugang zu allen Studiengängen an Fachhochschulen, an
+Engineering (M.Eng.), Master of Laws (LL.M.), Master of Fine Arts (M.F.A.),
+Master of Music (M.Mus.) oder Master of Education (M.Ed.) ab. Weiterbildende     Universitäten und gleichgestellten Hochschulen, aber nur zu bestimmten
+Masterstudien-gänge können andere Bezeichnungen erhalten (z.B. MBA).
+Der Mastergrad entspricht der Qualifikations-stufe 7 des DQR/EQR.                Fächern. Das Studium an Fachhochschulen ist auch mit der
+
+8.4.3 Integrierte ,,lange" einstufige Studiengänge:                              Fachhochschulreife möglich, die in der Regel nach 12 Schuljahren erworben
+         Diplom, Magister Artium, Staatsprüfung
+                                                                                 wird. Der Zugang zu Studiengängen an Kunst- und Musikhochschulen und
+Ein integrierter Studiengang ist entweder mono-disziplinär (Diplomabschlüsse
+und die meisten Staatsprüfungen) oder besteht aus einer Kombination von          entsprechenden Studiengängen an anderen Hochschulen sowie der Zugang
+entweder zwei Hauptfächern oder einem Haupt- und zwei Nebenfächern
+(Magister Artium). Das Vorstudium (1,5 bis 2 Jahre) dient der breiten            zu einem Sportstudiengang kann auf der Grundlage von anderen bzw.
+Orientierung und dem Grundlagenerwerb im jeweiligen Fach. Eine
+Zwischenprüfung (bzw. Vordiplom) ist Voraussetzung für die Zulassung zum         zusätzlichen Voraussetzungen zum Nachweis einer besonderen Eignung
+Haupt-studium, d.h. zum fortgeschrittenen Studium und der Spezialisierung.
+Voraussetzung für den Abschluss sind die Vorlage einer schriftlichen             erfolgen.
+Abschlussarbeit (Dauer bis zu 6 Monaten) und umfangreiche schriftliche und
+mündliche Abschlussprüfungen. Ähnliche Regelungen gelten für die                 Beruflich qualifizierte Bewerber und Bewerberinnen ohne schulische
+Staatsprüfung. Die erworbene Qualifikation entspricht dem Master.
+                                                                                 Hochschulzugangsberechtigung      erhalten     eine  allgemeine
+- Die Regelstudienzeit an Universitäten beträgt bei integrierten Studiengängen
+4 bis 5 Jahre (Diplom, Magister Artium) oder 3,5 bis 6,5 Jahre (Staatsprüfung).  Hochschulzugangsberechtigung und damit Zugang zu allen Studiengängen,
+Mit dem Diplom werden ingenieur-, natur- und wirtschaftswissenschaftliche
+Studiengänge abgeschlossen. In den Geisteswissenschaften ist der                 wenn sie Inhaber von Abschlüssen bestimmter, staatlich geregelter beruflicher
+entsprechende Abschluss in der Regel der Magister Artium (M.A.). In den
+Sozialwissenschaften variiert die Praxis je nach Tradition der jeweiligen        Aufstiegsfortbildungen sind (zum Beispiel Meister/in im Handwerk,
+Hochschule. Juristische, medizinische und pharmazeutische Studiengänge
+schließen mit der Staatsprüfung ab. Dies gilt in einigen Ländern auch für        Industriemeister/in, Fachwirt/in (IHK), Betriebswirt/in (IHK) und (HWK),
+Lehramtsstudiengänge.
+Die drei Qualifikationen (Diplom, Magister Artium und Staatsprüfung) sind        staatlich geprüfte/r Techniker/in, staatlich geprüfte/r Betriebswirt/in, staatlich
+akademisch gleichwertig und auf der Qualifikationsstufe 7 des DQR/EQR
+angesiedelt. Sie bilden die formale Voraussetzung zur Promotion. Weitere         geprüfte/r Gestalter/in, staatlich geprüfte/r Erzieher/in). Eine fachgebundene
+Zulassungsvoraussetzungen können von der Hochschule festgelegt werden,
+s. Abschnitt 8.5.                                                                Hochschulzugangsberechtigung erhalten beruflich qualifizierte Bewerber und
+
+- Die Regelstudienzeit an Fachhochschulen (FH)/Hochschulen für                   Bewerberinnen mit einem Abschluss einer staatlich geregelten, mindestens
+Angewandte Wissenschaften (HAW) beträgt bei integrierten Studiengängen 4
+Jahre und schließt mit dem Diplom (FH) ab. Dieses ist auf der                    zweijährigen Berufsausbildung und i.d.R. mindestens dreijähriger
+Qualifikationsstufe 6 des DQR/EQR angesiedelt. Qualifizierte Absolventinnen
+und Absolventen von Fachhochschulen/Hochschulen für Angewandte                   Berufspraxis, die ein Eignungs-feststellungsverfahren an einer Hochschule
+Wissenschaften können sich für die Zulassung zur Promotion an
+                                                                                 oder staatlichen Stelle erfolgreich durchlaufen haben; das
+
+                                                                                 Eignungsfeststellungsverfahren kann durch ein nachweislich erfolgreich
+
+                                                                                 absolviertes Probestudium von mindestens einem Jahr ersetzt werden. 10
+
+                                                                                 Die Hochschulen können in bestimmten Fällen zusätzliche spezifische
+
+                                                                                 Zulassungsverfahren durchführen.
+
+                                                                                 8.8 Informationsquellen in der Bundesrepublik
+
+                                                                                 - Kultusministerkonferenz (KMK) (Ständige Konferenz der Kultusminister der
+                                                                                    Länder in der Bundesrepublik Deutschland); Graurheindorfer Str. 157, D-
+                                                                                    53117 Bonn; Tel.: +49(0)228/501-0; www.kmk.org; E-Mail:
+                                                                                    hochschulen@kmk.org
+
+                                                                                 - Zentralstelle für ausländisches Bildungswesen (ZAB) als deutsche NARIC;
+                                                                                    www.kmk.org; E-Mail: zab@kmk.org
+
+                                                                                 - Deutsche Informationsstelle der Länder im EURYDICE-Netz, für
+                                                                                    Informationen zum Bildungswesen in Deutschland; www.kmk.org; E-Mail:
+                                                                                    eurydice@kmk.org
+
+                                                                                 - Hochschulrektorenkonferenz (HRK); Leipziger Platz 11, D-10117 Berlin,
+                                                                                    Tel.: +49 30 206292-11; www.hrk.de; E-Mail: post@hrk.de
+
+                                                                                 - ,,Hochschulkompass" der Hochschulrektorenkonferenz, enthält
+                                                                                    umfassende Informationen zu Hochschulen, Studiengängen etc.
+                                                                                    (www.hochschulkompass.de)
+
+                                                                                                                                                         18
+1 Die Information berücksichtigt nur die Aspekte, die direkt das Diploma                 unter www.dqr.de.
+                                                                                   5 Empfehlung des Europäischen Parlaments und des Europäischen Rates
+      Supplement betreffen.
+2 Berufsakademien sind keine Hochschulen, es gibt sie nur in einigen                     zur Einrichtung des Europäischen Qualifikationsrahmens für
+                                                                                         lebenslanges Lernen vom 23.04.2008 (2008/C 111/01 ­ Euro-päischer
+      Bundesländern. Sie bieten Studiengänge in enger Zusammenarbeit mit privaten        Qualifikationsrahmen für lebenslanges Lernen ­ EQR).
+                                                                                   6 Musterrechtsverordnung gemäß Artikel 4 Absätze 1 ­ 4 Studien-
+      Unternehmen an. Studierende erhalten einen offiziellen Abschluss und machen
+                                                                                         akkreditierungsstaatsvertrag (Beschluss der Kultusminister-konferenz vom
+      eine Ausbildung im Betrieb. Manche Berufsakademien bieten
+                                                                                         07.12.2017).
+      Bachelorstudiengänge an, deren Abschlüsse einem Bachelorgrad einer           7 Staatsvertrag über die Organisation eines gemeinsamen Akkredi-
+
+      Hochschule gleichgestellt werden können, wenn sie vom Akkreditierungsrat           tierungssystems zur Qualitätssicherung in Studium und Lehre an deutschen
+
+      akkreditiert sind.                                                                 Hochschulen (Studienakkreditierungsstaatsvertrag) (Beschluss der KMK vom
+3 Qualifikationsrahmen für deutsche Hochschulabschlüsse (Be-schluss der
+                                                                                         08.12.2016) In Kraft getreten am 01.01.2018.
+      Kultusministerkonferenz vom 16.02.2017).                                     8 Siehe Fußnote Nr. 7.
+4 Deutscher Qualifikationsrahmen für lebenslanges Lernen (DQR),                    9 Siehe Fußnote Nr. 7.
+                                                                                   10 Hochschulzugang für beruflich qualifizierte Bewerber ohne schulische
+      Gemeinsamer Beschluss der Ständigen Konferenz der Kultus-minister
+      der Länder in der Bundesrepublik Deutschland, des Bundesministeriums               Hochschulzugangsberechtigung (Beschluss der Kultus-ministerkonferenz vom
+      für Bildung und Forschung, der Wirtschafts-ministerkonferenz und des
+      Bundesministeriums für Wirtschaft und Technologie (Beschluss der                   06.03.2009).
+      Kultusministerkonferenz vom 15.11.2012). Ausführliche Informationen
+
+                                                                                   19
+                 Technische Hochschule Mittelhessen /
+                       University of Applied Sciences
+                               Campus Friedberg
+
+               Diploma Supplement (English version)
+
+This Diploma Supplement model was developed by the European Commission, Council of Europe and UNESCO/CEPES. The purpose of the
+supplement is to provide sufficient independent data to improve the international `transparency' and fair academic and professional recognition of
+qualifications (diplomas, degrees, certificates etc.). It is designed to provide a description of the nature, level, context, content and status of the
+studies that were pursued and successfully completed by the individual named on the original qualification to which this supplement is appended.
+It should be free from any value judgements, equivalence statements or suggestions about recognition. Information in all eight sections should be
+provided. Where information is not provided, an explanation should give the reason why.
+
+ 1. INFORMATION IDENTIFYING THE HOLDER OF THE
+ QUALIFICATION
+
+ 1.1 Family name(s) / 1.2 First name(s)
+
+ 1.3 Date of birth (dd/mm/yyyy)
+
+ 1.4 Student identification number or code
+
+ 2. INFORMATION IDENTIFYING THE QUALIFICATION
+
+ 2.1 Name of qualification and (if applicable) title conferred
+      Bachelor of Science
+
+ 2.2 Main field(s) of study for the qualification
+      Business Information Systems
+
+ 2.3 Name and status of awarding institution
+      Technische Hochschule Mittelhessen
+      Wiesenstraße 14
+      D-35390 Gießen
+      University of Applied Sciences
+      State Institution
+
+ 2.4 Name and status of institution (if different from 2.3) administering studies
+      see Sec. 2.3
+
+ 2.5 Language(s) of instruction/examination
+      German
+
+                                                                                                                                       20
+3. INFORMATION ON THE LEVEL AND DURATION OF THE
+QUALIFICATION
+
+3.1 Level of the qualification
+
+3.2 Official duration of programme in credits and/or years
+     3.5 years (7 semesters) / 210 ECTS credits
+
+3.3 Access requirement(s)
+   · University entrance qualification according § 60 HessHG
+   For details see Sec. 8.7
+
+4. INFORMATION ON THE PROGRAMME COMPLETED AND THE RESULTS
+OBTAINED
+
+4.1 Mode of study
+     Full-time
+
+4.2 Programme learning outcomes
+
+   The course of studies "Bachelor of Science (B.Sc) in Business Information Systems Management" leads to a first degree
+   which is scientifically based and practice oriented, providing the graduate with a professional qualification. The usual length
+   of studies is seven semesters. Business information systems is a science undergoing continual innovation. For this reason,
+   particular emphasis is placed on a firm scientific and practical foundation. This foundational knowledge enables students to
+   systematically and independently acquire further knowledge. A broader range of compulsory subject choices enables the
+   student to deepen his/ her knowledge of particular fields. However, specialization as such is not intended for Bachelor studies.
+   Mathematical, computerscientific and economic aspects together with the integrative topics of business information systems
+    form an inter-disciplinary qualification. The study contents are equally distributed over the three fundamental disciplines
+    mentioned above. In addition, key qualifications are trained, such as the ability to work scientifically and in a team,
+    communication and conflict resolution skills, interdisciplinary studies and taking responsibility in selected modules as well as
+    within the business information systems modules. The aim of the studies is to equip oneself for the changing and diverse
+    tasks in the various professional fields of business information systems management to be trained to deal at any time with
+    new problem areas and in so doing to apply the acquired expert knowledge properly and responsibly.
+
+4.3 Programme details, individual credits gained and grades/marks obtained
+
+     see separate document ,,Transcript of Records"
+
+4.4 Grading system and grade distribution table
+
+excellent          1.0 - 1.5                 (100 % - 88 %)
+good               1.6 - 2.5                   (87 % - 73 %)
+satisfactory       2.6 - 3.5                   (72 % - 58 %)
+sufficient         3.6 - 4.0                   (57 % - 50 %)
+insufficient/fail  5.0
+                                            (less than 50 %)
+
+for more detailed information see Sec. 8.6
+
+ECTS-Grades
+
+A (10 %)           100 - ...
+
+B (25 %)           ...-...
+
+C (30 %)           ...-...
+
+D (25 %)           ...-...
+
+E (10 %)           ... - 50
+
+4.5 Overall classification of the qualification (in original language)
+     <<Overall Grade>>
+
+                                                                        21
+5. INFORMATION ON THE FUNCTION OF THE QUALIFICATION
+
+5.1 Access to further study
+   First degree qualifying for a profession. A final grade of "gut" ("good") (grade 2.5 or higher) enables the student to be
+   admitted to the course of studies "Master of Science in Business Information Systems Management". Access to
+   advanced courses of study at German institutions of higher education (See Sec. 8)
+
+5.2 Access to a regulated profession (if applicable)
+   Graduates with the degree "Bachelor of Science (B.Sc) in Business Information Systems Management" are
+   outstandingly qualified to take on diverse software-oriented professions in the process of development of business
+   information systems. They are well prepared to work creatively in all phases of that process. This includes the
+   development of new systems as well as the customizing of standardized systems. This applies particularly to the
+   introduction of standard software. For that purpose, aspects of business administration and management are taken
+   up in the specific information systems modules and studied in their computertechnological context. Suitable
+   employers include not only companies developing software systems, but also any institutions whose entrepreneurial
+   core competences depend on high quality information systems management. The ability to work in teams and the
+   development of the personality are an object of the course of studies. The thorough course of education qualifies
+   graduates for access to a wide range of industries and is able to satisfy the overall demand for Bachelor graduates
+    of business information system management. Their portfolio of competences is broadly based, enabling graduates
+    to take on responsibilities in industry and in the private and public service sectors.
+
+6. ADDITIONAL INFORMATION
+
+6.1 Additional information
+     Additional information about the individual course of studies or special activities of the graduates can be
+     separately certified, if needed.
+
+6.2 Further information sources
+
+     General information: see Sec. 8.8
+
+     Detailed information on the degree programme can be obtained from:
+     Technische Hochschule
+     Mittelhessen University of
+     Applied Sciences
+     Wiesenstr. 14
+     D-35390
+     Gießen/Hesse
+     n Germany
+     http://www.thm.de
+
+7. CERTIFICATION
+
+This Diploma Supplement refers to the following original documents:
+
+Document on the award of the academic degree (Urkunde über die Verleihung des Akademischen Grades) [date]
+
+Certificate (Zeugnis) [date]
+
+Transcript of Records [date]
+
+Certification Date:
+
+              <<DsAusstelldatum>
+          >
+
+                                                            Seal
+
+Dean                                                              Chairman, Examination Board
+
+8. NATIONAL HIGHER EDUCATION SYSTEM
+
+The information on the national higher education system on the following pages provides a context for the qualification
+and the type of higher education institution that awarded it.
+
+                                                                                                                              22
+8. INFORMATION ON THE GERMAN HIGHER                                                       Studies in all three types of institutions have traditionally been offered in
+EDUCATION SYSTEM1                                                                         integrated "long" (one-tier) programmes leading to Diplom- or Magister Artium
+                                                                                          degrees or completed by a Staatsprüfung (State Examination).
+8.1 Types of Institutions and Institutional Status
+                                                                                          Within the framework of the Bologna-Process one-tier study programmes are
+Higher education (HE) studies in Germany are offered at three types of Higher             successively being replaced by a two-tier study system. Since 1998, two-tier
+Education Institutions (HEI). 2                                                           degrees (Bachelor's and Master's) have been introduced in almost all study
+                                                                                          programmes. This change is designed to enlarge variety and flexibility for
+- Universitäten (Universities) including various specialised institutions, offer the      students in planning and pursuing educational objectives; it also enhances
+whole range of academic disciplines. In the German tradition, universities focus          international compatibility of studies.
+in particular on basic research so that advanced stages of study have mainly
+theoretical orientation and research-oriented components.                                 The German Qualifications Framework for Higher Education Qualifications
+                                                                                          (HQR)3 describes the qualification levels as well as the resulting qualifications
+- Fachhochschulen (FH)/Hochschulen für Angewandte Wissenschaften (HAW)                    and competences of the graduates. The three levels of the HQR correspond to
+(Universities of Applied Sciences, UAS) concentrate their study programmes                the levels 6, 7 and 8 of the German Qualifications Framework for Lifelong
+in engineering and other technical disciplines, business-related studies, social          Learning4 and the European Qualifications Framework for Lifelong Learning5.
+work, and design areas. The common mission of applied research and
+development implies an application-oriented focus of studies, which includes              For details cf. Sec. 8.4.1, 8.4.2, and 8.4.3 respectively. Table 1 provides a
+integrated and supervised work assignments in industry, enterprises or other              synoptic summary.
+relevant institutions.
+
+- Kunst- und Musikhochschulen (Universities of Art/Music) offer studies for
+artistic careers in fine arts, performing arts and music; in such fields as
+directing, production, writing in theatre, film, and other media; and in a variety
+of design areas, architecture, media and communication.
+
+Higher Education Institutions are either state or state-recognised institutions.
+In their operations, including the organisation of studies and the designation
+and award of degrees, they are both subject to higher education legislation.
+
+8.2  Types of Programmes and Degrees Awarded
+
+Table 1: Institutions, Programmes and Degrees in German Higher Education
+
+                                                                                      Transfer procedures
+
+        UNIVERSITIES          Bachelor (B.A./B.Sc./B.Eng./LL.B./B.Ed.)                    [1-2 years]
+       (Universitäten) &
+         SPECIALISED          [3-4 years]                   Master (M.A./M.Sc./M.Eng./LL.M./M.Ed.)
+        INSTITUTIONS
+     of university standing   Diplom & Magister Artium (M.A.) degree [4-5 years]                                   Doctorate
+      (Theologische und                                                                                                (Dr.)
+                              Staatsprüfung (State Examination) [3.5-6.5 years]
+         Pädagogische                                                                                          (Thesis research;
+         Hochschulen)                                                                                             may include
+                                                                                                                 formal course
+           [Doctorate]                                                                                                 work)
+
+                                                                                      Transfer procedures          Doctorate
+                                                                                                                       (Dr.)
+        UNIVERSITIES OF       Bachelor (B.A./B.Sc./B.Eng./LL.B.)                          [1-2 years]
+       APPLIED SCIENCES
+                              [3-4 years]                   Master (M.A./M.Sc./M.Eng./LL.M.)
+                 (UAS)
+        (Fachhochschulen,     Diplom (FH) degree [4 years]
+     FH, and Hochschulen für
+
+             Angewandte
+      Wissenschaften, HAW)
+
+                                                                                          Transfer procedures
+
+                                                                                          Transfer procedures
+
+                              Bachelor (B.A./B.F.A./B.Mus./B.Ed.)                         [1-2 years]
+
+     UNIVERSITIES OF          [3-4 years]                   Master (M.A./M.F.A./M.Mus./M.Ed.)
+         ART/MUSIC
+            (Kunst-/          Diplom & M.A. degree, certificates, certified examinations
+                              [4-5 years]
+     Musikhochschulen)
+
+      [Some Doctorate]
+
+                              Integrated/long (one-tier) Programmes                                            Doctorate
+
+     Programmes/
+        degrees
+
+                                                                                      Transfer procedures
+
+                              First degree
+
+                                                                                      Second degree
+
+                                                                                                                                  23
+8.3    Approval/Accreditation of Programmes and Degrees                             - Studies at Kunst- and Musikhochschulen (Universities of Art/Music etc.) are
+                                                                                    more diverse in their organisation, depending on the field and individual
+To ensure quality and comparability of qualifications, the organisation of          objectives. In addition to Diplom/Magister degrees, the integrated study
+                                                                                    programme awards include certificates and certified examinations for
+studies and general degree requirements have to conform to principles and           specialised areas and professional purposes.
+regulations established by the Standing Conference of the Ministers of
+Education and Cultural Affairs of the Länder in the Federal Republic of             8.9 Doctorate
+Germany (KMK).6 In 1999, a system of accreditation for Bachelor's and
+Master's programmes has become operational. All new programmes have to              Universities as well as specialised institutions of university standing, some of
+be accredited under this scheme; after a successful accreditation they receive      the FH/HAW/UAS and some Universities of Art/Music are doctorate-granting
+the seal of the Accreditation Council. 7                                            institutions. Formal prerequisite for admission to doctoral work is a qualified
+                                                                                    Master's degree (UAS and U), a Magister degree, a Diplom, a Staatsprüfung,
+8.4    Organisation and Structure of Studies                                        or a foreign equivalent. Comparable degrees from universities of art and music
+                                                                                    can in exceptional cases (study programmes such as music theory,
+The following programmes apply to all three types of institutions. Bachelor's       musicology, pedagogy of arts and music, media studies) also formally qualify
+and Master's study programmes may be studied consecutively, at various              for doctoral work. Particularly qualified holders of a Bachelor's degree or a
+higher education institutions, at different types of higher education institutions  Diplom (FH) degree may also be admitted to doctoral studies without
+and with phases of professional work between the first and the second               acquisition of a further degree by means of a procedure to determine their
+qualification. The organisation of the study programmes makes use of modular        aptitude. The universities respectively the doctorate-granting institutions
+components and of the European Credit Transfer and Accumulation System              regulate entry to a doctorate as well as the structure of the procedure to
+(ECTS) with 30 credits corresponding to one semester.                               determine aptitude. Admission further requires the acceptance of the
+                                                                                    Dissertation research project by a professor as a supervisor.
+8.4.1  Bachelor                                                                     The doctoral degree corresponds to level 8 of the German Qualifications
+                                                                                    Framework/ European Qualifications Framework.
+Bachelor's degree programmes lay the academic foundations, provide
+methodological competences and include skills related to the professional field.    8.10 Grading Scheme
+The Bachelor's degree is awarded after 3 to 4 years.
+The Bachelor's degree programme includes a thesis requirement. Study                The grading scheme in Germany usually comprises five levels (with numerical
+programmes leading to the Bachelor's degree must be accredited according to         equivalents; intermediate grades may be given): "Sehr Gut" (1) = Very Good;
+the Interstate study accreditation treaty. 8                                        "Gut" (2) = Good; "Befriedigend" (3) = Satisfactory; "Ausreichend" (4) =
+First degree programmes (Bachelor) lead to Bachelor of Arts (B.A.), Bachelor        Sufficient; "Nicht ausreichend" (5) = Non-Sufficient/Fail. The minimum passing
+of Science (B.Sc.), Bachelor of Engineering (B.Eng.), Bachelor of Laws (LL.B.),     grade is "Ausreichend" (4). Verbal designations of grades may vary in some
+Bachelor of Fine Arts (B.F.A.), Bachelor of Music (B.Mus.) or Bachelor of           cases and for doctoral degrees.
+Education (B.Ed.).                                                                  In addition, grade distribution tables as described in the ECTS Users' Guide
+The Bachelor's degree corresponds to level 6 of the German Qualifications           are used to indicate the relative distribution of grades within a reference group.
+Framework/ European Qualifications Framework.
+                                                                                    8.11 Access to Higher Education
+8.8.2  Master
+                                                                                    The General Higher Education Entrance Qualification (Allgemeine
+Master is the second degree after another 1 to 2 years. Master's programmes         Hochschulreife, Abitur) after 12 to 13 years of schooling allows for admission
+may be differentiated by the profile types "practice-oriented" and "research-       to all higher educational studies. Specialised variants (Fachgebundene
+oriented". Higher Education Institutions define the profile.                        Hochschulreife) allow for admission at Fachhochschulen (FH)/Hochschulen für
+The Master's degree programme includes a thesis requirement. Study                  Angewandte Wissenschaften (HAW) (UAS), universities and equivalent higher
+programmes leading to the Master's degree must be accredited according to           education institutions, but only in particular disciplines. Access to study
+the Interstate study accreditation treaty. 9                                        programmes at Fachhochschulen (FH)/Hochschulen für Angewandte
+Second degree programmes (Master) lead to Master of Arts (M.A.), Master of          Wissenschaften (HAW) (UAS) is also possible with a Fachhochschulreife,
+Science (M.Sc.), Master of Engineering (M.Eng.), Master of Laws (L.L.M.),           which can usually be acquired after 12 years of schooling. Admission to study
+Master of Fine Arts (M.F.A.), Master of Music (M.Mus.) or Master of Education       programmes at Universities of Art/Music and comparable study programmes
+(M.Ed.). Master´s programmes which are designed for continuing education            at other higher education institutions as well as admission to a study
+may carry other designations (e.g. MBA).                                            programme in sports may be based on other or additional evidence
+The Master's degree corresponds to level 7 of the German Qualifications             demonstrating individual aptitude.
+Framework/ European Qualifications Framework.                                       Applicants with a qualification in vocational education and training but without
+                                                                                    a school-based higher education entrance qualification are entitled to a general
+8.8.3  Integrated "Long" Programmes (One-Tier):                                     higher education entrance qualification and thus to access to all study
+       Diplom degrees, Magister Artium, Staatsprüfung                               programmes, provided they have obtained advanced further training
+                                                                                    certificates in particular state-regulated vocational fields (e.g. Meister/Meisterin
+An integrated study programme is either mono-disciplinary (Diplom degrees,          im Handwerk, Industriemeister/in, Fachwirt/in (IHK), Betriebswirt/in (IHK) und
+most programmes completed by a Staatsprüfung) or comprises a combination            (HWK), staatlich gebrüfte/r Techniker/in, staatlich geprüfte/r Betriebswirt/in,
+of either two major or one major and two minor fields (Magister Artium). The        staatlich geprüfte/r Gestalter/in, staatlich geprüfte/r Erzieher/in). Vocationally
+first stage (1.5 to 2 years) focuses on broad orientations and foundations of the   qualified applicants can obtain a Fachgebundene Hochschulreife after
+field(s) of study. An Intermediate Examination (Diplom-Vorprüfung for Diplom        completing a state-regulated vocational education of at least two years'
+degrees; Zwischenprüfung or credit requirements for the Magister Artium) is         duration plus professional practice of normally at least three years' duration,
+prerequisite to enter the second stage of advanced studies and specialisations.     after having successfully passed an aptitude test at a higher education
+Degree requirements include submission of a thesis (up to 6 months duration)        institution or other state institution; the aptitude test may be replaced by
+and comprehensive final written and oral examinations. Similar regulations          successfully completed trial studies of at least one year's duration.10
+apply to studies leading to a Staatsprüfung. The level of qualification is          Higher Education Institutions may in certain cases apply additional admission
+equivalent to the Master's level.                                                   procedures.
+
+- Integrated studies at Universitäten (U) last 4 to 5 years (Diplom degree,         8.12 National Sources of Information
+Magister Artium) or 3.5 to 6.5 years (Staatsprüfung). The Diplom degree is
+awarded in engineering disciplines, the natural sciences as well as economics       - Kultusministerkonferenz (KMK) [Standing Conference of the Ministers of
+and business. In the humanities, the corresponding degree is usually the               Education and Cultural Affairs of the Länder in the Federal Republic of
+Magister Artium (M.A.). In the social sciences, the practice varies as a matter        Germany]; Graurheindorfer Str. 157, D-53117 Bonn;
+of institutional traditions. Studies preparing for the legal, medical and              Phone: +49[0]228/501-0; www.kmk.org; E-Mail: hochschulen@kmk.org
+pharmaceutical professions are completed by a Staatsprüfung. This applies
+also to studies preparing for teaching professions of some Länder.                  - Central Office for Foreign Education (ZAB) as German NARIC;
+The three qualifications (Diplom, Magister Artium and Staatsprüfung) are               www.kmk.org; E-Mail: zab@kmk.org
+academically equivalent and correspond to level 7 of the German
+Qualifications Framework/European Qualifications Framework.                         - German information office of the Länder in the EURYDICE Network,
+They qualify to apply for admission to doctoral studies. Further prerequisites         providing the national dossier on the education system; www.kmk.org; E-
+for admission may be defined by the Higher Education Institution, cf. Sec. 8.5.        Mail: Eurydice@kmk.org
+
+- Integrated studies at Fachhochschulen (FH)/Hochschulen für Angewandte             - Hochschulrektorenkonferenz (HRK) [German Rectors' Conference];
+Wissenschaften (HAW) (Universities of Applied Sciences, UAS) last 4 years              Leipziger Platz 11, D-10117 Berlin, Phone: +49 30 206292-11; www.hrk.de;
+and lead to a Diplom (FH) degree which corresponds to level 6 of the German            E-Mail: post@hrk.de
+Qualifications Framework/European Qualifications Framework.
+Qualified graduates of FH/HAW/UAS may apply for admission to doctoral               - "Higher Education Compass" of the German Rectors' Conference features
+studies at doctorate-granting institutions, cf. Sec. 8.5.                              comprehensive information on institutions, programmes of study, etc.
+                                                                                       (www.higher-education-compass.de)
+
+                                                                                                                                               24
+1 The information covers only aspects directly relevant to purposes of the                Lifelong Learning of 23 April 2008 (2008/C 111/01 ­ European
+      Diploma Supplement.                                                                 Qualifications Framework for Lifelong Learning ­ EQF).
+                                                                                    6 Specimen decree pursuant to Article 4, paragraphs 1 ­ 4 of the interstate
+2 Berufsakademien are not considered as Higher Education Institutions,                    study accreditation treaty (Resolution of the Standing Conference of the
+      they only exist in some of the Länder. They offer educational programmes            Ministers of Education and Cultural Affairs of the Länder in the Federal
+      in close cooperation with private companies. Students receive a formal              Republic of Germany of 7 December 2017).
+      degree and carry out an apprenticeship at the company. Some                   7 Interstate Treaty on the organization of a joint accreditation system to
+      Berufsakademien offer Bachelor courses which are recognised as an                   ensure the quality of teaching and learning at German higher education
+      academic degree if they are accredited by the Accreditation Council.                institutions (Interstate study accreditation treaty) (Decision of the Standing
+                                                                                          Conference of the Ministers of Education and Cultural Affairs of the
+3 German Qualifications Framework for Higher Education Degrees.                           Länder in the Federal Republic of Germany of 8 December 2016),
+      (Resolution of the Standing Conference of the Ministers of Education and            Enacted on 1 January 2018.
+      Cultural Affairs of the Länder in the Federal Republic of Germany of 16       8 See note No. 7.
+      February 2017).                                                               9 See note No. 7.
+                                                                                    10 Access to higher education for applicants with a vocational qualification,
+4 German Qualifications Framework for Lifelong Learning (DQR). Joint                      but without a school-based higher education entrance qualification
+      resolution of the Standing Conference of the Ministers of Education and             (Resolution of the Standing Conference of the Ministers of Education and
+      Cultural Affairs of the Länder in the Federal Republic of Germany, the              Cultural Affairs of the Länder in the Federal Republic of Germany of 6
+      German Federal Ministry of Education and Research, the German                       March 2009).
+      Conference of Economics Ministers and the German Federal Ministry of
+      Economics and Technology (Resolution of the Standing Conference of
+      the Ministers of Education and Cultural Affairs of the Länder in the Federal
+      Republic of Germany of 15 November 2012). More information at
+      www.dqr.de
+
+5 Recommendation of the European Parliament and the European Council
+      on the establishment of a European Qualifications Framework for
+
+                                                                                    25
+

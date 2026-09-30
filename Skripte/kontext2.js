@@ -175,5 +175,156 @@ s.addNotes(
   "Grundlage: 7-Schritte-Ablauf des Zulassungsantrags (Studierende, 2. Prüfer, Sekretariat, PA-Vorsitz, 1. Prüfer, Sekretariat, Studierende) und Verlängerungsantrag an den Studienausschuss WI."
 );
 
+// =====================================================================
+// Folie 2: Ist-Zustand als Laufweg des Antragsformulars (kein System)
+// Quelle: "Hinweise zur Bearbeitung" im Zulassungsantrag WS23/24 (7 Schritte),
+// THM-Seite "Abschlussarbeit" FB MND, Verlaengerungsantrag.
+// =====================================================================
+(function buildIst() {
+  const RED = "9B3B2E", REDPALE = "FBF1EF", ORANGE = "C9A227";
+  const s = pres.addSlide();
+  s.background = { color: WHITE };
+
+  s.addText("Kontextdiagramm Ist-Zustand", { x: 0.5, y: 0.2, w: 8, h: 0.48, margin: 0, isTextBox: true, fontFace: "Cambria", fontSize: 24, bold: true, color: INK, valign: "middle" });
+  s.addText("Heute gibt es kein System: das PDF-Formular wandert in sieben Übergaben per E-Mail, Papier und Scan zwischen den Beteiligten", { x: 0.5, y: 0.66, w: 10, h: 0.25, margin: 0, isTextBox: true, fontFace: "Calibri", fontSize: 10.5, color: MUTED });
+  s.addText("REQUIREMENTS ENGINEERING  ·  GRUPPE GRÜN  ·  STAND 30.09.2026", { x: 8.8, y: 0.28, w: 4.05, h: 0.3, margin: 0, isTextBox: true, fontFace: "Calibri", fontSize: 8, bold: true, color: MOSS, charSpacing: 1.5, align: "right", valign: "middle" });
+
+  // Kontextgrenze
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.5, y: 0.98, w: 10.4, h: 4.95, fill: { color: PALE }, line: { color: MOSS, width: 1.25, dashType: "dash" }, rectRadius: 0.2 });
+  s.addText("Kontextgrenze  ·  Ist-Prozess (Laufweg des Antragsformulars)", { x: 0.7, y: 1.02, w: 5, h: 0.22, margin: 0, isTextBox: true, fontFace: "Calibri", fontSize: 8, italic: true, bold: true, color: MOSS });
+
+  const EW = 1.9, EH = 0.55;
+  const box = (x, y, label, kind, sub) => {
+    const st = styles[kind];
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w: EW, h: EH, fill: { color: st.fill }, line: { color: st.line, width: 1.25, dashType: st.dash }, rectRadius: 0.08 });
+    s.addText([
+      { text: label, options: { fontSize: 9.5, bold: true, color: st.txt, breakLine: true } },
+      { text: sub || st.tag, options: { fontSize: 7, color: MUTED } },
+    ], { x, y, w: EW, h: EH, margin: 0.04, isTextBox: true, fontFace: "Calibri", align: "center", valign: "middle" });
+  };
+  const line = (x1, y1, x2, y2, color, head, dash) => {
+    const horiz = Math.abs(y2 - y1) < 0.001;
+    const x = Math.min(x1, x2), y = Math.min(y1, y2);
+    const w = horiz ? Math.abs(x2 - x1) : 0.001, h = horiz ? 0.001 : Math.abs(y2 - y1);
+    const opts = { color, width: 1.5 };
+    if (dash) opts.dashType = dash;
+    if (head) { const endIsP2 = horiz ? x2 > x1 : y2 > y1; if (endIsP2) opts.endArrowType = "triangle"; else opts.beginArrowType = "triangle"; }
+    s.addShape(pres.shapes.LINE, { x, y, w, h, line: opts });
+  };
+  // Polyline: Punkte, Pfeilspitze am letzten Segment
+  const path = (pts, color, dash) => {
+    for (let i = 0; i < pts.length - 1; i++) line(pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1], color, i === pts.length - 2, dash);
+  };
+  const step = (x, y, w, n, text, color) => {
+    const c = color || GREEN;
+    s.addShape(pres.shapes.OVAL, { x, y: y + 0.03, w: 0.22, h: 0.22, fill: { color: c }, line: { color: c } });
+    s.addText(String(n), { x, y: y + 0.03, w: 0.22, h: 0.22, margin: 0, isTextBox: true, fontFace: "Calibri", fontSize: 8, bold: true, color: WHITE, align: "center", valign: "middle" });
+    s.addText(text, { x: x + 0.27, y, w: w - 0.27, h: 0.28, margin: 0.02, isTextBox: true, fontFace: "Calibri", fontSize: 7.5, color: INK, fill: { color: WHITE }, valign: "middle" });
+  };
+
+  // Beteiligte
+  box(1.0, 1.5, "Erstprüfende", "person");
+  box(1.0, 3.2, "Studierende", "person");
+  box(1.0, 4.9, "Interne Zweitprüfende", "person");
+  box(3.4, 4.9, "Externe Korreferenten", "person");
+  box(5.6, 3.2, "Sekretariat / Dekanat MND", "person", "Drehscheibe, prüft und legt ab");
+  box(8.7, 1.5, "Prüfungsausschuss-Vorsitz", "person");
+  box(8.7, 3.2, "Studienausschuss WI", "person", "nur bei Verlängerung");
+
+  // 1: Erstprüfende -> Studierende
+  path([[1.95, 2.05], [1.95, 3.2]], GREEN);
+  step(2.05, 2.45, 1.7, 1, "Formular per E-Mail");
+  // 2: Studierende -> Zweitprüfende (intern)
+  path([[1.95, 3.75], [1.95, 4.9]], GREEN);
+  step(2.05, 4.15, 2.2, 2, "Antrag ausgefüllt, unterschrieben");
+  // 2b: Studierende -> Externe Korreferenten
+  path([[2.9, 3.65], [4.35, 3.65], [4.35, 4.9]], GREEN);
+  step(3.0, 3.75, 2.0, "2", "Formular Ext. Prüfende + Urkunde");
+  // 3: Zweitprüfende (intern + extern) -> Sekretariat
+  line(1.95, 5.45, 1.95, 5.62, GREEN, false);
+  line(4.35, 5.45, 4.35, 5.62, GREEN, false);
+  path([[1.95, 5.62], [6.2, 5.62], [6.2, 3.75]], GREEN);
+  step(6.3, 4.35, 2.3, 3, "unterschrieben, per E-Mail ans Dekanat");
+  // 4: Sekretariat -> PA-Vorsitz
+  path([[7.1, 3.2], [7.1, 1.775], [8.7, 1.775]], GREEN);
+  step(7.2, 2.3, 1.55, 4, "geprüft: Zulassung, Qualifikation");
+  // 5: PA-Vorsitz -> Erstprüfende (über den oberen Rand)
+  path([[9.65, 1.5], [9.65, 1.3], [1.95, 1.3], [1.95, 1.5]], GREEN);
+  step(4.4, 1.32, 3.2, 5, "Entscheidung PA; 1. Prüfer trägt Ausgabe ein (Beginn, Abgabe)");
+  // 6: Erstprüfende -> Sekretariat
+  path([[2.9, 1.9], [5.35, 1.9], [5.35, 3.35], [5.6, 3.35]], GREEN);
+  step(3.0, 2.0, 1.8, 6, "Formular mit Fristen zurück");
+  // 7: Sekretariat -> Studierende
+  path([[5.6, 3.5], [2.9, 3.5]], GREEN);
+  step(3.0, 3.05, 2.3, 7, "Info Thema + Frist; Formular bleibt in der Akte");
+  // V: Verlängerung
+  path([[7.5, 3.5], [8.7, 3.5]], ORANGE, "dash");
+  step(7.55, 3.75, 1.2, "V", "Verlängerung", ORANGE);
+
+  // Rahmenbedingungen (Systeme, Dokumente, Ereignisse ohne eigene Pfeile)
+  const chips = [
+    ["E-Mail (Outlook)", "system", "Transport aller Übergaben, keine Nachverfolgung"],
+    ["THM-Intranet", "system", "PDF-Formulare nur nach Login"],
+    ["Sprechzeiten Sekretariat", "event", "Rückfragen Mo bis Fr 9.30 bis 11.30 Uhr"],
+    ["Papierakte", "document", "Formular wird abgeheftet, nicht an Studierende"],
+  ];
+  s.addText("Rahmenbedingungen im Kontext", { x: 0.5, y: 6.0, w: 3, h: 0.2, margin: 0, isTextBox: true, fontFace: "Calibri", fontSize: 8, bold: true, italic: true, color: MOSS });
+  chips.forEach((c, i) => {
+    const st = styles[c[1]], x = 0.5 + i * 2.62;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 6.22, w: 2.5, h: 0.5, fill: { color: st.fill }, line: { color: st.line, width: 1, dashType: st.dash }, rectRadius: 0.06 });
+    s.addText([
+      { text: c[0], options: { bold: true, fontSize: 8.5, color: st.txt, breakLine: true } },
+      { text: c[2], options: { fontSize: 7, color: MUTED } },
+    ], { x, y: 6.22, w: 2.5, h: 0.5, margin: 0.05, isTextBox: true, fontFace: "Calibri", valign: "middle" });
+  });
+
+  // Schwachstellen
+  const GX = 11.2, GY = 0.98, GW = 1.65, GH = 5.74;
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: GX, y: GY, w: GW, h: GH, fill: { color: WHITE }, line: { color: RED, width: 1, dashType: "sysDot" }, rectRadius: 0.2 });
+  s.addText([
+    { text: "Schwachstellen (Ist)", options: { bold: true, fontSize: 9.5, color: RED, breakLine: true } },
+    { text: "Beobachtet aus Formular und THM-Seite", options: { fontSize: 7, color: GREY } },
+  ], { x: GX + 0.1, y: GY + 0.1, w: GW - 0.2, h: 0.6, margin: 0, isTextBox: true, fontFace: "Calibri", valign: "top" });
+  const weak = [
+    ["Medienbrüche", "PDF ausfüllen, drucken, unterschreiben, scannen, mailen: sieben Übergaben pro Antrag."],
+    ["Kein Status", "Studierende erfahren erst in Schritt 7 vom Ergebnis; Nachfragen nur telefonisch."],
+    ["Manuelle Prüfung", "Zulassung, Qualifikation und Fristen prüft das Sekretariat von Hand (Schritte 3 und 6)."],
+    ["Externe ohne Zugang", "Externe Korreferenten brauchen Zusatzformular, Post oder Scan (Schritt 2)."],
+  ];
+  weak.forEach((g, i) => {
+    const y = GY + 0.8 + i * 1.2;
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: GX + 0.1, y, w: GW - 0.2, h: 1.08, fill: { color: REDPALE }, line: { color: RED, width: 0.75, dashType: "dash" }, rectRadius: 0.06 });
+    s.addText([
+      { text: g[0], options: { bold: true, fontSize: 8, color: RED, breakLine: true } },
+      { text: g[1], options: { fontSize: 7, color: MUTED } },
+    ], { x: GX + 0.16, y: y + 0.05, w: GW - 0.32, h: 1.0, margin: 0, isTextBox: true, fontFace: "Calibri", valign: "top", lineSpacingMultiple: 1.05 });
+  });
+
+  // Legende
+  const ly = 6.9;
+  const leg = (x, kind, text) => {
+    const st = styles[kind];
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: ly + 0.05, w: 0.32, h: 0.2, fill: { color: st.fill }, line: { color: st.line, width: 1, dashType: st.dash }, rectRadius: 0.04 });
+    s.addText(text, { x: x + 0.38, y: ly, w: 1.4, h: 0.3, margin: 0, isTextBox: true, fontFace: "Calibri", fontSize: 7.5, color: MUTED, valign: "middle" });
+  };
+  leg(0.5, "person", "Person / Rolle");
+  leg(1.9, "system", "System im Betrieb");
+  leg(3.4, "document", "Dokument");
+  leg(4.5, "event", "Ereignis / Einschränkung");
+  s.addShape(pres.shapes.LINE, { x: 6.2, y: ly + 0.15, w: 0.4, h: 0.001, line: { color: GREEN, width: 1.5, endArrowType: "triangle" } });
+  s.addText("Übergabe des Formulars, Schritte 1 bis 7", { x: 6.65, y: ly, w: 2.2, h: 0.3, margin: 0, isTextBox: true, fontFace: "Calibri", fontSize: 7.5, color: MUTED, valign: "middle" });
+  s.addShape(pres.shapes.LINE, { x: 8.9, y: ly + 0.15, w: 0.4, h: 0.001, line: { color: ORANGE, width: 1.5, dashType: "dash", endArrowType: "triangle" } });
+  s.addText("Verlängerungsantrag", { x: 9.35, y: ly, w: 1.3, h: 0.3, margin: 0, isTextBox: true, fontFace: "Calibri", fontSize: 7.5, color: MUTED, valign: "middle" });
+  s.addText("Quelle: Zulassungsantrag WS23/24, Hinweise zur Bearbeitung", { x: 10.7, y: ly, w: 2.15, h: 0.3, margin: 0, isTextBox: true, fontFace: "Calibri", fontSize: 6.5, color: GREY, align: "right", valign: "middle" });
+
+  s.addNotes(
+    "Ist-Zustand: kein System, sondern der Laufweg des PDF-Antragsformulars. Die Schritte 1 bis 7 entsprechen den Hinweisen zur Bearbeitung im Zulassungsantrag: " +
+    "1 Erstprüfer mailt das Formular, 2 Studierende füllen aus und unterschreiben (externe Korreferenten zusätzlich mit Formular Externe Prüfende und Urkunde), " +
+    "3 Zweitprüfer unterschreibt und mailt ans Dekanat, 4 Sekretariat prüft Zulassung und Qualifikation, PA-Vorsitz entscheidet, 5 Erstprüfer trägt die Ausgabe ein, " +
+    "6 Formular zurück ans Sekretariat, Fristprüfung und Ablage, 7 Sekretariat informiert Studierende. Verlängerung läuft als eigener Papierantrag an den Studienausschuss WI. " +
+    "Die Abgrenzung des Systems erfolgt laut Vorlesung in der Soll-Perspektive (Folie 1); diese Folie belegt die Schwachstellen."
+  );
+})();
+
 const out = process.env.OUT || "Kontextdiagramm_ThesisFlow_v2.pptx";
 pres.writeFile({ fileName: out }).then(f => console.log("written", f));

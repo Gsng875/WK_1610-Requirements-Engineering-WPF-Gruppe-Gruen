@@ -10,8 +10,7 @@ Anmeldung und Verwaltung von Abschlussarbeiten im Fachbereich MND (Wirtschaftsin
 | One-Pager / Produktvision (freies Design) | `One-Pager_ThesisFlow.pptx` |
 | One-Pager im THM-Template | `One-Pager_ThesisFlow_Template.pptx` |
 | Personas (Bachelor, Sekretariat, Master) | `Personas_ThesisFlow.pptx` |
-| Kontextdiagramm Soll (Datenfluss-Notation, mit Grauzone) | `Kontextdiagramm_ThesisFlow_v2.pptx` |
-| Kontextdiagramm Ist-Zustand (manueller Prozess, Schwachstellen) | `Kontextdiagramm_Ist-Zustand.pptx` |
+| Kontextdiagramm: Folie 1 Soll (ThesisFlow, mit Grauzone), Folie 2 Ist (Laufweg des Formulars, Schwachstellen) | `Kontextdiagramm_ThesisFlow_v2.pptx` |
 
 Die Personas liegen im Repo unter `Unterlagen/Praxis/`. Weitere Folien werden bei Bedarf aus `Skripte/` erzeugt.
 
@@ -31,7 +30,6 @@ cd Skripte
 npm install pptxgenjs jszip sharp
 OUT="../Personas_ThesisFlow.pptx" node personas2.js
 OUT="../Kontextdiagramm_ThesisFlow_v2.pptx" node kontext2.js
-OUT="../Kontextdiagramm_Ist-Zustand.pptx" node kontext_ist.js
 ```
 
 ## Aufgabenstellung (Kurzfassung)

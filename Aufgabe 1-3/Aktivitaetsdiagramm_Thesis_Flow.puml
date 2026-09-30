@@ -1,0 +1,139 @@
+@startuml
+title Thesis Flow - Aktivitaetsdiagramm fuer die digitale Anmeldung einer Abschlussarbeit
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor White
+  BorderColor Black
+  DiamondBackgroundColor White
+  DiamondBorderColor Black
+  StartColor Black
+  EndColor Black
+}
+
+|Studierende:r|
+start
+:Mit THM-Konto anmelden;
+:Neuen Antrag zur Abschlussarbeit anlegen;
+:Studiengang, Abschlussart,\nThema, Starttermin und Pruefende erfassen;
+
+|Thesis Flow Portal|
+:Pflichtfelder und Eingaben pruefen;
+if (Antrag vollstaendig?) then (nein)
+  :Status "Entwurf unvollstaendig" setzen;
+  :Fehlende Angaben anzeigen\nund Erinnerung senden;
+  |Studierende:r|
+  :Antrag korrigieren oder ergaenzen;
+  |Thesis Flow Portal|
+  :Pflichtfelder erneut pruefen;
+endif
+
+if (Externe:r Zweitpruefer:in?) then (ja)
+  |Thesis Flow Portal|
+  :Einladungslink fuer externe Person erzeugen;
+  |Externe:r Zweitpruefer:in|
+  :Einverstaendnis bestaetigen;
+  :Fachliche Qualifikation erfassen\nund Nachweis hochladen;
+else (nein)
+  |Thesis Flow Portal|
+  :THM-Prueferdaten uebernehmen;
+endif
+
+|Thesis Flow Portal|
+:Status "eingereicht" setzen;
+
+repeat
+  |Thesis Flow Portal|
+  :Freigabeanfragen versenden\nund Beteiligte benachrichtigen;
+
+  fork
+    |1. Pruefer:in|
+    :Thema und Starttermin pruefen;
+    if (Freigabe erteilt?) then (ja)
+      :Freigabe digital bestaetigen;
+    else (nein)
+      :Aenderungswunsch oder Ablehnung eintragen;
+    endif
+  fork again
+    |2. Pruefer:in|
+    :Korreferat pruefen;
+    if (Freigabe erteilt?) then (ja)
+      :Freigabe digital bestaetigen;
+    else (nein)
+      :Aenderungswunsch oder Ablehnung eintragen;
+    endif
+  end fork
+
+  |Thesis Flow Portal|
+  :Freigabestand synchronisieren;
+  if (Rueckfrage oder Ablehnung vorhanden?) then (ja)
+    :Status "Rueckfrage bei Pruefenden" setzen;
+    |Studierende:r|
+    :Antrag anpassen oder neue Pruefende benennen;
+    |Thesis Flow Portal|
+    :Aktualisierte Daten speichern;
+  endif
+repeat while (Alle Prueferfreigaben vorhanden?) is (nein) not (ja)
+
+repeat
+  |Dekanat / Pruefungsamt|
+  :Zulassungsvoraussetzungen der/des Studierenden pruefen;
+  :Formale Vollstaendigkeit des Antrags pruefen;
+  if (Externe:r Zweitpruefer:in?) then (ja)
+    :Qualifikation und Nachweise pruefen;
+  endif
+
+  if (Unterlagen oder Voraussetzungen fehlen?) then (ja)
+    |Thesis Flow Portal|
+    :Status "Nachreichung erforderlich" setzen;
+    :Rueckfrage und Frist an Beteiligte senden;
+    |Studierende:r|
+    :Fehlende Angaben oder Nachweise nachreichen;
+    |Thesis Flow Portal|
+    :Nachreichung speichern;
+  endif
+repeat while (Unterlagen oder Voraussetzungen fehlen?) is (ja) not (nein)
+
+|Pruefungsausschuss|
+:Antrag gemaess Pruefungsordnung entscheiden;
+if (Zulassung genehmigt?) then (nein)
+  |Thesis Flow Portal|
+  :Status "abgelehnt" setzen;
+  :Beteiligte ueber Ablehnung informieren;
+  stop
+else (ja)
+  :Zulassung bestaetigen;
+endif
+
+|1. Pruefer:in|
+:Abschlussarbeit ausgeben;
+
+|Thesis Flow Portal|
+:Thema, Ausgabedatum und Bearbeitungsfrist erfassen;
+:Bearbeitungsfrist automatisch berechnen;
+
+|Dekanat / Pruefungsamt|
+:PO-Konformitaet der Frist pruefen;
+:Vorgang rechtssicher ablegen;
+
+|Thesis Flow Portal|
+:Status "ausgegeben" setzen;
+:Studierende:n ueber Thema,\nAusgabedatum und Frist informieren;
+
+|Studierende:r|
+:Bearbeitung der Abschlussarbeit starten;
+
+if (Verlaengerung erforderlich?) then (ja, Ausbaustufe 2)
+  :Verlaengerungsantrag online stellen;
+  |1. Pruefer:in|
+  :Stellungnahme / Befuerwortung erfassen;
+  |Pruefungsausschuss|
+  :Verlaengerung entscheiden;
+  |Thesis Flow Portal|
+  :Neue Frist speichern\nund Beteiligte informieren;
+endif
+
+|Studierende:r|
+stop
+@enduml

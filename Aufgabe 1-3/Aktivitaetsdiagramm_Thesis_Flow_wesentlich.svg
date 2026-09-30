@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1500" viewBox="0 0 1000 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Thesis Flow - wesentliches Aktivitaetsdiagramm</title>
+  <desc id="desc">Reduziertes UML-Aktivitaetsdiagramm mit den wichtigsten Schritten des digitalen Abschlussarbeits-Anmeldeprozesses.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,7 L2,12 Z" fill="#24323a"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #22313a; }
+      .subtitle { font: 18px Arial, sans-serif; fill: #52656f; }
+      .action { fill: #ffffff; stroke: #24323a; stroke-width: 2.5; }
+      .system { fill: #eff8f0; stroke: #5f9f20; stroke-width: 2.8; }
+      .decision { fill: #ffffff; stroke: #24323a; stroke-width: 2.5; }
+      .flow { fill: none; stroke: #24323a; stroke-width: 2.4; marker-end: url(#arrow); }
+      .soft { fill: none; stroke: #7a8a92; stroke-width: 2.2; marker-end: url(#arrow); }
+      .node { font: 22px Arial, sans-serif; fill: #22313a; text-anchor: middle; }
+      .role { font: 16px Arial, sans-serif; fill: #52656f; text-anchor: middle; }
+      .label { font: 16px Arial, sans-serif; fill: #52656f; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="1500" fill="#ffffff"/>
+  <text x="500" y="58" class="title" text-anchor="middle">Thesis Flow - Aktivitaetsdiagramm</text>
+  <text x="500" y="92" class="subtitle" text-anchor="middle">Nur die wesentlichen Schritte der digitalen Abschlussarbeits-Anmeldung</text>
+
+  <circle cx="500" cy="145" r="17" fill="#24323a"/>
+  <path class="flow" d="M500 162 L500 205"/>
+
+  <rect x="285" y="205" width="430" height="82" rx="26" class="action"/>
+  <text x="500" y="238" class="node">Antrag digital ausfuellen</text>
+  <text x="500" y="264" class="role">Studierende:r</text>
+  <path class="flow" d="M500 287 L500 335"/>
+
+  <rect x="285" y="335" width="430" height="82" rx="26" class="system"/>
+  <text x="500" y="368" class="node">Antrag pruefen</text>
+  <text x="500" y="394" class="role">Thesis Flow Portal</text>
+  <path class="flow" d="M500 417 L500 465"/>
+
+  <polygon points="500,465 615,550 500,635 385,550" class="decision"/>
+  <text x="500" y="542" class="node">vollstaendig?</text>
+  <path class="soft" d="M385 550 L180 550 L180 246 L285 246"/>
+  <text x="110" y="532" class="label">nein: korrigieren</text>
+  <path class="flow" d="M500 635 L500 690"/>
+  <text x="515" y="666" class="label">ja</text>
+
+  <rect x="285" y="690" width="430" height="82" rx="26" class="action"/>
+  <text x="500" y="723" class="node">Pruefende geben frei</text>
+  <text x="500" y="749" class="role">1. und 2. Pruefer:in</text>
+  <path class="flow" d="M500 772 L500 820"/>
+
+  <rect x="285" y="820" width="430" height="82" rx="26" class="system"/>
+  <text x="500" y="853" class="node">Zulassung pruefen</text>
+  <text x="500" y="879" class="role">Pruefungsamt / Dekanat</text>
+  <path class="flow" d="M500 902 L500 950"/>
+
+  <polygon points="500,950 615,1035 500,1120 385,1035" class="decision"/>
+  <text x="500" y="1027" class="node">genehmigt?</text>
+
+  <path class="soft" d="M385 1035 L180 1035 L180 246 L285 246"/>
+  <text x="70" y="1018" class="label">nein: Rueckfrage oder Ablehnung</text>
+
+  <path class="flow" d="M500 1120 L500 1175"/>
+  <text x="515" y="1150" class="label">ja</text>
+
+  <rect x="285" y="1175" width="430" height="82" rx="26" class="action"/>
+  <text x="500" y="1208" class="node">Abschlussarbeit ausgeben</text>
+  <text x="500" y="1234" class="role">Pruefungsausschuss / Pruefende</text>
+  <path class="flow" d="M500 1257 L500 1305"/>
+
+  <rect x="285" y="1305" width="430" height="82" rx="26" class="system"/>
+  <text x="500" y="1338" class="node">Frist und Status mitteilen</text>
+  <text x="500" y="1364" class="role">Thesis Flow Portal</text>
+  <path class="flow" d="M500 1387 L500 1430"/>
+
+  <circle cx="500" cy="1455" r="23" fill="#ffffff" stroke="#24323a" stroke-width="3"/>
+  <circle cx="500" cy="1455" r="13" fill="#24323a"/>
+</svg>

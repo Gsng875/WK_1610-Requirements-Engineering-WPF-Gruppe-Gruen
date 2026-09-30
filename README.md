@@ -10,12 +10,12 @@ Anmeldung und Verwaltung von Abschlussarbeiten im Fachbereich MND (Wirtschaftsin
 | One-Pager / Produktvision (freies Design) | `One-Pager_ThesisFlow.pptx` |
 | One-Pager im THM-Template | `One-Pager_ThesisFlow_Template.pptx` |
 | Personas (Bachelor, Sekretariat, Master) | `Personas_ThesisFlow.pptx` |
-| Kontextdiagramm: Folie 1 Soll (ThesisFlow, mit Grauzone), Folie 2 Ist (Laufweg des Formulars, Schwachstellen) | `Kontextdiagramm_ThesisFlow_v2.pptx` |
+| Kontextdiagramm: Folie 1 Soll (ThesisFlow, mit Grauzone), Folie 2 Ist (Laufweg des Formulars, Schwachstellen) | `Aufgabe 1-3/Aufgabe 3 - Kontextdiagramm.pptx` (+ PDF) |
 
 Die Personas liegen im Repo unter `Unterlagen/Praxis/`. Weitere Folien werden bei Bedarf aus `Skripte/` erzeugt.
 
 ## Ordner
-- `Aufgabe 1-3/` – abgegebene Aufgaben.
+- `Aufgabe 1-3/` – Abgaben: Aufgabe 1 One-Pager, Aufgabe 2 Personas, Aufgabe 3 Kontextdiagramm (Soll + Ist).
 - `Unterlagen/Praxis/` – Aufgabenstellung, Formulare der THM (Zulassungsantrag, Verlängerung, externe Prüfende),
   Prüfungsordnungen B.Sc. und M.Sc. als PDF.
 - `Unterlagen/Theorie/` – Vorlesungsfolien, User-Stories-Übung, Lehrbuch Pohl/Rupp.
@@ -29,7 +29,7 @@ Die Personas liegen im Repo unter `Unterlagen/Praxis/`. Weitere Folien werden be
 cd Skripte
 npm install pptxgenjs jszip sharp
 OUT="../Personas_ThesisFlow.pptx" node personas2.js
-OUT="../Kontextdiagramm_ThesisFlow_v2.pptx" node kontext2.js
+OUT="../Aufgabe 1-3/Aufgabe 3 - Kontextdiagramm.pptx" node kontext2.js
 ```
 
 ## Aufgabenstellung (Kurzfassung)

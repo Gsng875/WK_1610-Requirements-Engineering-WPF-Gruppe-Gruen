@@ -25,7 +25,7 @@
 - `Personas_Abschlussarbeiten-Portal_v2.pptx` – drei Personas: Moritz Hoffmann (Bachelor),
   Michael Krüger (Sekretariat/Prüfungsamt), Tarek Yilmaz (Master, berufsbegleitend, externer Korreferent).
   Die Datei ohne `_v2` ist überholt. Im Repo liegt die Kopie unter `Unterlagen/Praxis/`.
-- `Kontextdiagramm_ThesisFlow_v2.pptx` – Kontextdiagramm in Datenfluss-Notation nach Vorlesung Kap. 2
+- `Aufgabe 1-3/Aufgabe 3 - Kontextdiagramm.pptx` (+ PDF) – Kontextdiagramm in Datenfluss-Notation nach Vorlesung Kap. 2
   (Systemgrenze, Kontextgrenze, Grauzone; Personen, Systeme, Dokumente, Ereignisse; grüne Input-,
   blaue Output-Pfeile). Skript `Skripte/kontext2.js`, Format 16:9 breit (13,33 x 7,5 Zoll). Die v1 ist überholt.
 - Folie 2 desselben Decks: Ist-Zustand als Laufweg des Antragsformulars (7 nummerierte Übergaben, kein
@@ -33,6 +33,8 @@
 - Folien-QA: PowerPoint ist installiert; Export per COM (`PowerPoint.Application`, `Slides(1).Export(png)`) und Bild ansehen.
 
 ## Git
+- Abgaben gehören in die Ordner `Aufgabe N` des Teams (1 One-Pager, 2 Personas, 3 Kontextdiagramm), nicht ins Hauptverzeichnis.
+- Keine „Co-Authored-By: Claude“-Zeile in Commit-Messages (Wunsch des Teams, 30.09.2026).
 - Repo: https://github.com/Gsng875/WK_1610-Requirements-Engineering-WPF-Gruppe-Gruen (Branch `main`).
 - Original-PDFs versioniert das Team unter `Unterlagen/Praxis/` und `Unterlagen/Theorie/`; `Quellen/*.pdf` ist
   per `.gitignore` ausgeschlossen, dort nur Textauszüge und Auswertungen.

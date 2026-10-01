@@ -3,7 +3,7 @@ services:
     build: .
     container_name: thesisflow-prototypen
     ports:
-      - "8080:80"
+      - "8081:80"
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost/"]

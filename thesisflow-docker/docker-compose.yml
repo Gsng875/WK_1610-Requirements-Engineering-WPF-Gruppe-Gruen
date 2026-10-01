@@ -1,0 +1,15 @@
+services:
+  thesisflow:
+    build: .
+    container_name: thesisflow-prototypen
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    # Zum Bearbeiten ohne Neubau die folgende Zeile aktivieren:
+    # volumes:
+    #   - ./site:/usr/share/nginx/html:ro

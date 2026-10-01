@@ -1,0 +1,306 @@
+<title>Klick-Prototyp Verlängerungsantrag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: links die Foliennavigation, rechts die aktuelle Folie. Auf schmalen Bildschirmen steht die Navigation hinter einem Menü-Button.
+     Diagramme sind SVG mit Theme-Tokens, der Klick-Prototyp ist als Smartphone in die Interface-Folie eingebaut. */
+  :root {
+    --bg: #F2F4F1; --fg: #1E2A2F; --muted: #586870; --line: #CFD8D3; --panel: #FFFFFF;
+    --slate: #4B5A63; --on-slate: #FFFFFF; --lime: #80BC00; --on-lime: #1B2A00;
+    --tile: #E4F2C2; --tile-line: #B7D66B; --tile-fg: #18230A; --tile-muted: #46591F; --row-alt: #F7FBEA;
+    --warn: #FFF3CD; --warn-fg: #5A4300; --ink: #39464D; --blue-fill: #EAF2FB;
+    --phone: #E1E7E4; --screen: #FFFFFF; --field: #F4F6F5; --error: #B3261E; --error-bg: #FBE9E7; --ok: #2F6B00;
+    --d-user: #A97C00; --d-interface: #7B2D9B; --d-action: #2E8B4F; --d-data: #2A74C2; --d-control: #C62828; --d-env: #222222; --d-quality: #6B7378;
+    --font-head: "IBM Plex Sans Condensed", "Arial Narrow", Arial, sans-serif;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181A; --fg: #E4EBE7; --muted: #9AA9AE; --line: #2C393E; --panel: #1A2225;
+      --slate: #2A363C; --on-slate: #F2F6F4; --on-lime: #14200A;
+      --tile: #2C3E13; --tile-line: #44601C; --tile-fg: #EEF7D6; --tile-muted: #B8CF86; --row-alt: #22330F;
+      --warn: #3B3210; --warn-fg: #F3D98A; --ink: #C8D2D6; --blue-fill: #1B2A3A;
+      --phone: #232D31; --screen: #161D20; --field: #202A2E; --error: #FF8A80; --error-bg: #3A1F1C; --ok: #A5D96B;
+      --d-user: #C79A1A; --d-interface: #A25FC4; --d-action: #3FAE68; --d-data: #4A90E0; --d-control: #E0554F; --d-env: #5B6A70; --d-quality: #7C868B;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181A; --fg: #E4EBE7; --muted: #9AA9AE; --line: #2C393E; --panel: #1A2225;
+    --slate: #2A363C; --on-slate: #F2F6F4; --on-lime: #14200A;
+    --tile: #2C3E13; --tile-line: #44601C; --tile-fg: #EEF7D6; --tile-muted: #B8CF86; --row-alt: #22330F;
+    --warn: #3B3210; --warn-fg: #F3D98A; --ink: #C8D2D6; --blue-fill: #1B2A3A;
+    --phone: #232D31; --screen: #161D20; --field: #202A2E; --error: #FF8A80; --error-bg: #3A1F1C; --ok: #A5D96B;
+    --d-user: #C79A1A; --d-interface: #A25FC4; --d-action: #3FAE68; --d-data: #4A90E0; --d-control: #E0554F; --d-env: #5B6A70; --d-quality: #7C868B;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: 1.45; margin: 0; }
+  button { font: inherit; color: inherit; }
+  .app { display: grid; grid-template-columns: minmax(0, 1fr); min-height: 100vh; }
+  @media (min-width: 960px) { .app { grid-template-columns: 250px minmax(0, 1fr); } }
+
+  /* Navigation */
+  .side { background: var(--panel); border-right: 1px solid var(--line); padding: 16px 12px; }
+  @media (max-width: 959px) { .side { display: none; position: fixed; inset: 56px 0 0 0; z-index: 10; overflow: auto; padding-inline: 16px; } .side.open { display: block; } }
+  @media (min-width: 960px) { .side { position: sticky; top: 0; height: 100vh; overflow: auto; } .menu-btn { display: none; } }
+  .brand { font-family: var(--font-head); font-weight: 700; font-size: 20px; margin: 0 4px 2px; }
+  .brand-sub { font-size: 12px; color: var(--muted); margin: 0 4px 14px; }
+  .nav { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .nav button { width: 100%; text-align: left; background: none; border: 0; border-radius: 4px; padding: 7px 8px; display: grid; grid-template-columns: 22px 1fr; gap: 8px; align-items: center; cursor: pointer; font-size: 14px; }
+  .nav button:hover { background: var(--bg); }
+  .nav button[aria-current="page"] { background: var(--tile); color: var(--tile-fg); font-weight: 600; }
+  .nav .n { width: 22px; height: 22px; border-radius: 3px; color: #fff; display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 12px; }
+  .topbar { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--line); background: var(--panel); position: sticky; top: 0; z-index: 11; }
+  .topbar .t { font-family: var(--font-head); font-weight: 600; font-size: 17px; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .topbar .c { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .iconbtn { border: 1px solid var(--line); background: var(--bg); border-radius: 4px; padding: 6px 10px; cursor: pointer; font-size: 13px; }
+  .iconbtn:hover { border-color: var(--muted); }
+  .iconbtn:focus-visible, .nav button:focus-visible, .pbtn:focus-visible, .step:focus-visible, .tile-btn:focus-visible, textarea:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+  /* Folie */
+  .stage { padding: 20px 16px 28px; }
+  .slide { max-width: 1100px; margin-inline: auto; }
+  .slide[hidden] { display: none; }
+  .shead { display: flex; align-items: center; gap: 12px; background: var(--slate); color: var(--on-slate); border-radius: 3px; padding: 10px 14px; margin-bottom: 16px; }
+  .chip { flex: none; width: 34px; height: 34px; border-radius: 3px; color: #fff; display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 18px; }
+  .shead h2 { font-family: var(--font-head); font-size: clamp(20px, 3.4vw, 28px); margin: 0; font-weight: 700; text-wrap: balance; }
+  .src { color: var(--muted); font-size: 12.5px; margin: 16px 0 0; }
+  .note { color: var(--muted); font-size: 13px; font-style: italic; margin: 10px 0 0; max-width: 100ch; }
+  .note.warn { color: var(--warn-fg); }
+  h3 { font-family: var(--font-head); font-size: 20px; margin: 18px 0 8px; }
+
+  /* Titel */
+  .hero { background: #2B363C; color: #E4EBE7; border-radius: 4px; padding: clamp(20px, 4vw, 44px); }
+  .hero .eyebrow { color: #B8CF86; font-weight: 600; font-size: 15px; margin: 0 0 6px; }
+  .hero h1 { font-family: var(--font-head); font-size: clamp(32px, 6vw, 56px); line-height: 1.05; margin: 0 0 14px; color: #fff; text-wrap: balance; }
+  .hero .story { font-size: clamp(16px, 2.2vw, 21px); max-width: 60ch; margin: 0 0 22px; }
+  .trail { display: grid; grid-template-columns: auto 1fr; gap: 8px 22px; font-size: 15px; margin: 0 0 18px; }
+  .trail dt { color: #80BC00; font-weight: 600; } .trail dd { margin: 0; }
+  .hero .go { font-weight: 600; background: var(--lime); color: #1B2A00; border: 0; border-radius: 6px; padding: 12px 20px; cursor: pointer; }
+  .hero .small { color: #9AA9AE; font-size: 13px; margin: 18px 0 0; }
+
+  /* Kacheln */
+  .grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .tile { background: var(--tile); color: var(--tile-fg); border: 1px solid var(--tile-line); border-radius: 4px; padding: 14px; }
+  .tile h4 { font-family: var(--font-head); font-size: 18px; margin: 0 0 6px; }
+  .tile p, .tile li { font-size: 14px; margin: 0; }
+  .tile ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+  .tile-btn { text-align: left; cursor: pointer; display: block; width: 100%; }
+  .tile-btn:hover { filter: brightness(1.04); }
+  .tile-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .tile-head .chip { width: 30px; height: 30px; font-size: 16px; }
+  .tile-head h4 { margin: 0; }
+
+  /* Persona */
+  .persona { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 900px) { .persona { grid-template-columns: 1.4fr 1fr; } }
+  .pid { display: flex; gap: 16px; align-items: center; grid-column: 1 / -1; }
+  .avatar { width: 84px; height: 84px; border-radius: 50%; background: var(--slate); color: var(--on-slate); display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 32px; flex: none; }
+  .pid h3 { margin: 0; font-size: 26px; } .pid .role { color: var(--muted); margin: 0 0 6px; } .pid q { font-style: italic; }
+  .two { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); } @media (min-width: 640px) { .two { grid-template-columns: 1fr 1fr; } }
+  .col { display: flex; flex-direction: column; gap: 10px; }
+
+  /* Tabellen */
+  .tw { overflow-x: auto; border: 1px solid var(--tile-line); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th { background: var(--slate); color: var(--on-slate); text-align: left; padding: 9px 12px; font-weight: 600; white-space: nowrap; }
+  td { padding: 9px 12px; background: var(--tile); color: var(--tile-fg); border-top: 1px solid var(--tile-line); vertical-align: middle; }
+  tbody tr:nth-child(odd) td { background: var(--row-alt); }
+  td.open { background: var(--warn) !important; color: var(--warn-fg); }
+  td.c, th.c { text-align: center; }
+  td.first { font-weight: 600; }
+
+  /* Diagramme */
+  .dia { overflow-x: auto; border: 1px solid var(--line); background: var(--panel); border-radius: 3px; }
+  .dia svg { display: block; width: 100%; min-width: 760px; height: auto; }
+  svg text { font-family: var(--font-body); fill: var(--fg); }
+  svg .h { font-family: var(--font-head); font-weight: 600; }
+  svg .bx { fill: var(--tile); stroke: var(--tile-line); stroke-width: 1.3; }
+  svg .bw { fill: var(--panel); stroke: var(--ink); stroke-width: 1.5; }
+  svg .bs { fill: var(--slate); stroke: var(--slate); }
+  svg .bs text, svg text.on { fill: var(--on-slate); }
+  svg .dash { stroke-dasharray: 7 5; }
+  svg .ln { stroke: var(--ink); stroke-width: 1.8; fill: none; }
+  svg .lane { fill: var(--panel); stroke: var(--line); } svg .lane2 { fill: var(--bg); stroke: var(--line); }
+  svg .cap { fill: var(--muted); font-size: 12.5px; font-style: italic; }
+  svg .lbl { font-size: 13px; font-weight: 600; font-style: italic; }
+  svg .sm { font-size: 12.5px; }
+  svg .uh { fill: var(--d-data); } svg .ub { fill: var(--blue-fill); stroke: var(--d-data); stroke-width: 1.3; }
+  svg .pk { fill: #A97C00; font-weight: 600; font-size: 11px; } svg .fk { fill: var(--muted); font-weight: 600; font-size: 11px; }
+  svg .pkn { text-decoration: underline; } svg .ty { fill: var(--muted); }
+  svg .warnbx { fill: var(--warn); stroke: var(--tile-line); }
+
+  /* Smartphone-Prototyp */
+  .stage2 { display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+  @media (min-width: 820px) { .stage2 { grid-template-columns: 340px minmax(0, 1fr); gap: 32px; } }
+  .phone { width: 100%; max-width: 340px; margin-inline: auto; background: var(--phone); border: 3px solid var(--ink); border-radius: 36px; padding: 14px 12px 16px; }
+  .notch { width: 70px; height: 6px; border-radius: 3px; background: var(--ink); margin: 0 auto 10px; opacity: .6; }
+  .screen { background: var(--screen); border: 1px solid var(--line); border-radius: 8px; min-height: 540px; padding: 16px 14px; display: flex; flex-direction: column; gap: 10px; }
+  .screen[hidden] { display: none; }
+  .screen h4 { font-family: var(--font-head); font-size: 21px; margin: 0 0 4px; }
+  .prow { background: var(--field); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; font-size: 14px; display: flex; justify-content: space-between; gap: 10px; }
+  .prow .k { color: var(--muted); } .prow .v { font-weight: 500; text-align: right; overflow-wrap: anywhere; }
+  .badge { font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; background: var(--tile); border: 1px solid var(--tile-line); color: var(--tile-fg); }
+  .field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+  .field label { font-size: 13px; color: var(--muted); } .field .hint { font-size: 12px; color: var(--muted); }
+  .field input, .field textarea { font: inherit; font-size: 14px; color: var(--fg); background: var(--field); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; width: 100%; }
+  .field input[readonly] { color: var(--muted); } .field textarea { min-height: 96px; resize: vertical; }
+  .field.invalid textarea { border-color: var(--error); background: var(--error-bg); }
+  .perr { color: var(--error); font-size: 13px; margin: 0; } .perr[hidden] { display: none; }
+  .pbtn { font-weight: 600; font-size: 15px; border: 0; border-radius: 6px; padding: 13px 14px; background: var(--lime); color: var(--on-lime); cursor: pointer; width: 100%; }
+  .pbtn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); font-weight: 500; }
+  .spacer { flex: 1; } .actions { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+  .stepper { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .stepper li { background: var(--field); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; display: grid; grid-template-columns: 18px 1fr; gap: 8px; font-size: 14px; align-items: start; }
+  .stepper .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--muted); margin-top: 4px; }
+  .stepper li.done .dot { background: var(--ok); border-color: var(--ok); }
+  .stepper small { display: block; color: var(--muted); font-size: 12px; }
+  .psel { font: inherit; font-size: 14px; color: var(--fg); background: var(--field); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; width: 100%; }
+  .psel:focus-visible, .plink:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+  .pbtn[disabled] { opacity: .45; cursor: not-allowed; }
+  .pfile { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--tile); border: 1px solid var(--tile-line); color: var(--tile-fg); border-radius: 4px; padding: 8px 10px; font-size: 13px; }
+  .pfn { overflow-wrap: anywhere; } .plink { background: none; border: 0; text-decoration: underline; cursor: pointer; font-size: 13px; color: inherit; flex: none; }
+  .pfile[hidden] { display: none; }
+  .pnote { font-size: 13px; color: var(--muted); border: 1px dashed var(--line); border-radius: 4px; padding: 9px 11px; margin: 0; }
+  .path { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 16px; }
+  .path p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+  .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .step { width: 100%; text-align: left; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; cursor: pointer; }
+  .step:hover { border-color: var(--muted); } .step[aria-current="step"] { background: var(--tile); border-color: var(--tile-line); color: var(--tile-fg); }
+  .step .sid { grid-row: span 2; font-family: var(--font-mono); font-size: 12px; background: var(--slate); color: var(--on-slate); border-radius: 3px; padding: 2px 6px; align-self: start; }
+  .step .st { font-weight: 600; font-size: 14px; } .step .sd { font-size: 13px; color: var(--muted); } .step[aria-current="step"] .sd { color: var(--tile-muted); }
+
+  .opt { display: grid; grid-template-columns: auto 120px minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px 14px; }
+  @media (max-width: 640px) { .opt { grid-template-columns: auto minmax(0, 1fr); } .opt .optt { grid-column: 1 / -1; } }
+  .pager { display: flex; gap: 10px; justify-content: space-between; align-items: center; max-width: 1100px; margin: 26px auto 0; }
+  .pager .btn { background: var(--lime); color: var(--on-lime); border: 0; border-radius: 6px; padding: 11px 18px; font-weight: 600; cursor: pointer; }
+  .pager .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); font-weight: 500; }
+  .pager .btn[disabled] { opacity: .4; cursor: default; }
+  .dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: block; } .dots i.on { background: var(--lime); }
+  @media (prefers-reduced-motion: no-preference) { .slide:not([hidden]) { animation: in .2s ease-out; } @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } } }
+  .full .side, .full .topbar { display: none; } .full .app { grid-template-columns: minmax(0, 1fr); }
+</style>
+
+<style>.sa { max-width: 980px; margin: 0 auto; padding: 24px 16px 40px; } .sa h1 { font-family: var(--font-head); font-size: clamp(28px, 5vw, 40px); margin: 0 0 6px; } .sa .l { color: var(--muted); margin: 0 0 20px; max-width: 64ch; } .sa .e { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }</style>
+<main class="sa"><p class="e">Klick-Prototyp · Ausbaustufe 2 · Task 5.3</p><h1>Verlängerungsantrag stellen</h1>
+<p class="l">Entwurf der Bedienoberfläche am Smartphone. Wähle eine Arbeit, klicke dich durch die drei Screens oder springe über den Klickpfad. Alle Angaben sind Beispieldaten.</p><div id="mount"></div></main>
+<script>
+const $ = (id) => document.getElementById(id);
+/*PHONE-HTML-START*/
+  const phoneHTML = `
+    <div class="stage2">
+      <div class="phone" aria-label="Smartphone-Vorschau"><div class="notch" aria-hidden="true"></div>
+        <section class="screen" id="p1" aria-labelledby="p1h">
+          <h4 id="p1h">Meine Abschlussarbeit</h4>
+          <div class="field" style="margin-bottom:0"><label for="pSel">Arbeit auswählen</label><select id="pSel" class="psel"></select></div>
+          <div class="prow"><span class="k">Thema</span><span class="v" id="r-thema"></span></div>
+          <div class="prow"><span class="k">Firma</span><span class="v" id="r-firma"></span></div>
+          <div class="prow"><span class="k">Beginn</span><span class="v" id="r-beginn"></span></div>
+          <div class="prow"><span class="k">Abgabetermin</span><span class="v" id="r-abgabe"></span></div>
+          <div class="prow"><span class="k">Restzeit</span><span class="v" id="r-rest"></span></div>
+          <div class="prow"><span class="k">Status</span><span class="v"><span class="badge" id="pStatus"></span></span></div>
+          <div class="spacer"></div>
+          <p class="pnote" id="pHint" hidden></p>
+          <div class="actions"><button type="button" class="pbtn" id="pStart">Verlängerung beantragen</button></div>
+        </section>
+        <section class="screen" id="p2" hidden aria-labelledby="p2h">
+          <h4 id="p2h">Verlängerungsantrag</h4>
+          <form id="pForm" novalidate>
+            <div class="field"><label for="pName">Name</label><input id="pName" value="Tarek Yilmaz" readonly><span class="hint">aus THM-Konto</span></div>
+            <div class="field"><label for="pThema">Thema der Arbeit</label><input id="pThema" readonly><span class="hint">aus der gewählten Arbeit</span></div>
+            <div class="field"><label for="pFirma">Firma</label><input id="pFirma" readonly><span class="hint">aus der gewählten Arbeit</span></div>
+            <div class="field"><label for="pAbgabe">Alter Abgabetermin</label><input id="pAbgabe" readonly><span class="hint">aus der gewählten Arbeit</span></div>
+            <div class="field" id="pNeuF"><label for="pNeu">Neuer Abgabetermin</label><input id="pNeu" readonly><span class="hint">automatisch berechnet: alter Abgabetermin + Verlängerungsdauer</span></div>
+            <div class="field" id="pGrundF"><label for="pGrund">Grund der Verlängerung</label><textarea id="pGrund" aria-describedby="pErr" placeholder="Bitte Grund beschreiben"></textarea>
+              <p class="perr" id="pErr" role="alert" hidden>Bitte gib einen Grund an, bevor du den Antrag absendest.</p></div>
+            <div class="field"><label id="pFileLbl">Dokument anhängen <span style="font-weight:400">(optional)</span></label>
+              <input type="file" id="pFile" accept=".pdf,image/*" hidden>
+              <button type="button" class="pbtn ghost" id="pFileBtn" aria-labelledby="pFileLbl">Dokument auswählen</button>
+              <div class="pfile" id="pFileInfo" hidden><span class="pfn" id="pFileName"></span><button type="button" class="plink" id="pFileDel">Entfernen</button></div>
+              <span class="hint">PDF, JPG oder PNG. In der Vorschau wird nichts hochgeladen.</span></div>
+          </form>
+          <div class="spacer"></div>
+          <div class="actions"><button type="submit" form="pForm" class="pbtn">Antrag absenden</button><button type="button" class="pbtn ghost" id="pCancel">Abbrechen</button></div>
+        </section>
+        <section class="screen" id="p3" hidden aria-labelledby="p3h">
+          <h4 id="p3h">Status Ihres Antrags</h4>
+          <div class="prow"><span class="k">Arbeit</span><span class="v" id="s-thema"></span></div>
+          <div class="prow"><span class="k">Alter Termin</span><span class="v" id="s-alt"></span></div>
+          <div class="prow"><span class="k">Neuer Termin</span><span class="v" id="s-neu"></span></div>
+          <div class="prow" id="s-fileRow" hidden><span class="k">Anhang</span><span class="v" id="s-file"></span></div>
+          <ol class="stepper">
+            <li class="done"><span class="dot"></span><span>Antrag eingereicht<small id="pSent">heute</small></span></li>
+            <li><span class="dot"></span><span>Stellungnahme Erstprüfer:in</span></li>
+            <li><span class="dot"></span><span>Entscheidung Prüfungsausschuss</span></li>
+          </ol>
+          <p class="pnote">Bei jedem Statuswechsel erhalten Sie eine Benachrichtigung.</p>
+          <div class="spacer"></div>
+          <div class="actions"><button type="button" class="pbtn" id="pBack">Zurück zur Übersicht</button></div>
+        </section>
+      </div>
+      <aside class="path"><h3 style="margin-top:0">Klickpfad</h3><p>Wähle oben im Smartphone eine deiner Arbeiten. Thema, Firma und Termine werden automatisch aus den hinterlegten Daten gefüllt. Die Nummern sind die User Stories der Story Map. Alle Angaben sind Beispieldaten, es wird nichts gespeichert oder hochgeladen.</p>
+        <ol class="steps" id="pSteps"></ol>
+        <p style="margin:14px 0 0"><button type="button" class="iconbtn" id="pReset">Prototyp zurücksetzen</button></p>
+      </aside>
+    </div>`;
+  
+$('mount').innerHTML = phoneHTML;
+/*PHONE-JS-START*/
+  /* ---------- Smartphone-Logik ---------- */
+  // Hinterlegte Beispieldaten der Studierenden (Stand der Beispieldaten: 19.11.2026)
+  const REF = new Date(2026, 10, 19);
+  const DAUER = 30; // Verlängerungsdauer in Tagen (Beispielwert, laut Unterlagen noch offen)
+  const THESES = [
+    { id: 'ma', art: 'Masterarbeit', thema: 'Beispielthema zur Masterarbeit', firma: 'Beispiel GmbH', beginn: new Date(2026, 9, 1), abgabe: new Date(2026, 11, 31), status: 'In Bearbeitung', open: true },
+    { id: 'ba', art: 'Bachelorarbeit', thema: 'Beispielthema zur Bachelorarbeit', firma: 'Muster AG', beginn: new Date(2019, 3, 1), abgabe: new Date(2019, 6, 1), status: 'Abgeschlossen', open: false }
+  ];
+  const PSTATE = {}; THESES.forEach(t => { PSTATE[t.id] = { requested: false, file: null, neu: null }; });
+  const iso = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  const plus = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+  let cur_t = THESES[0];
+  const fd = (d) => d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const PSTEPS = [{ id: 'p1', sid: '5.3.1', t: 'Antrag starten', d: 'Arbeit auswählen, Daten werden automatisch angezeigt' }, { id: 'p2', sid: '5.3.2', t: 'Grund angeben, absenden', d: 'Daten sind vorbelegt, der neue Abgabetermin wird berechnet, der Grund ist Pflicht, Dokument optional' }, { id: 'p3', sid: '5.3.3', t: 'Status sehen', d: 'Antrag eingereicht, weitere Schritte folgen' }];
+  const submitted = () => PSTATE[cur_t.id].requested;
+  function pshow(id) {
+    PSTEPS.forEach(s => { $(s.id).hidden = s.id !== id; });
+    document.querySelectorAll('.step').forEach(b => { if (b.dataset.id === id) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
+  }
+  function fileLabel(f) { return f ? f.name : ''; }
+  function prefresh() {
+    const t = cur_t, st = PSTATE[t.id];
+    $('r-thema').textContent = t.thema; $('r-firma').textContent = t.firma; $('r-beginn').textContent = fd(t.beginn); $('r-abgabe').textContent = fd(t.abgabe);
+    $('r-rest').textContent = t.open ? Math.round((t.abgabe - REF) / 86400000) + ' Tage' : '–';
+    $('pStatus').textContent = st.requested ? 'Verlängerung beantragt' : t.status;
+    const b = $('pStart'), hint = $('pHint');
+    b.disabled = !t.open; b.textContent = st.requested ? 'Antrag ansehen' : 'Verlängerung beantragen';
+    hint.hidden = t.open; hint.textContent = 'Für eine abgeschlossene Arbeit ist keine Verlängerung möglich.';
+    $('pThema').value = t.thema; $('pFirma').value = t.firma; $('pAbgabe').value = fd(t.abgabe);
+    $('pNeu').value = fd(plus(t.abgabe, DAUER)); $('s-alt').textContent = fd(t.abgabe); $('s-neu').textContent = st.neu ? fd(st.neu) : '–';
+    $('s-thema').textContent = t.art + ': ' + t.thema;
+    $('s-fileRow').hidden = !st.file; $('s-file').textContent = fileLabel(st.file);
+    $('pFileInfo').hidden = !st.file; $('pFileName').textContent = st.file ? st.file.name + ' · ' + st.file.size : '';
+    $('pFileBtn').textContent = st.file ? 'Anderes Dokument auswählen' : 'Dokument auswählen';
+  }
+  function psubmit() { PSTATE[cur_t.id].requested = true; PSTATE[cur_t.id].neu = plus(cur_t.abgabe, DAUER); const t = new Date(); $('pSent').textContent = 'Beispiel, ' + t.toLocaleDateString('de-DE') + ', ' + t.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) + ' Uhr'; prefresh(); }
+  function ensureOpen() { if (!cur_t.open) { cur_t = THESES[0]; $('pSel').value = cur_t.id; prefresh(); } }
+  $('pSel').innerHTML = THESES.map(t => `<option value="${t.id}">${t.art} (${t.open ? 'in Bearbeitung' : 'abgeschlossen'})</option>`).join('');
+  $('pSel').addEventListener('change', () => { cur_t = THESES.find(t => t.id === $('pSel').value); $('pGrund').value = ''; $('pGrundF').classList.remove('invalid'); $('pErr').hidden = true; prefresh(); });
+  $('pSteps').innerHTML = PSTEPS.map(s => `<li><button type="button" class="step" data-id="${s.id}"><span class="sid">${s.sid}</span><span class="st">${s.t}</span><span class="sd">${s.d}</span></button></li>`).join('');
+  $('pSteps').addEventListener('click', (e) => { const b = e.target.closest('.step'); if (!b) return; if (b.dataset.id !== 'p1') ensureOpen(); if (b.dataset.id === 'p3' && !submitted()) psubmit(); pshow(b.dataset.id); });
+  $('pStart').addEventListener('click', () => { if (!cur_t.open) return; pshow(submitted() ? 'p3' : 'p2'); });
+  $('pCancel').addEventListener('click', () => pshow('p1'));
+  $('pBack').addEventListener('click', () => { prefresh(); pshow('p1'); });
+  $('pGrund').addEventListener('input', () => { $('pGrundF').classList.remove('invalid'); $('pErr').hidden = true; });
+  $('pFileBtn').addEventListener('click', () => $('pFile').click());
+  $('pFile').addEventListener('change', () => { const f = $('pFile').files[0]; PSTATE[cur_t.id].file = f ? { name: f.name, size: f.size < 1048576 ? Math.max(1, Math.round(f.size / 1024)) + ' KB' : (f.size / 1048576).toFixed(1) + ' MB' } : null; prefresh(); });
+  $('pFileDel').addEventListener('click', () => { PSTATE[cur_t.id].file = null; $('pFile').value = ''; prefresh(); });
+  $('pForm').addEventListener('submit', (e) => { e.preventDefault(); let ok = true; if (!$('pGrund').value.trim()) { $('pGrundF').classList.add('invalid'); $('pErr').hidden = false; ok = false; } if (!ok) { $('pGrund').focus(); return; } psubmit(); pshow('p3'); });
+  $('pReset').addEventListener('click', () => { THESES.forEach(t => { PSTATE[t.id] = { requested: false, file: null, neu: null }; }); cur_t = THESES[0]; $('pSel').value = cur_t.id; $('pFile').value = ''; $('pGrund').value = ''; $('pGrundF').classList.remove('invalid'); $('pErr').hidden = true; prefresh(); pshow('p1'); });
+  $('pSel').value = cur_t.id; prefresh(); pshow('p1');
+  
+</script>

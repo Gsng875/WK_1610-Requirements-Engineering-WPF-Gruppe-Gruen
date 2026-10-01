@@ -1,0 +1,221 @@
+<title>ThesisFlow Verlängerungsantrag</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: Kopfband wie in den Folien, links die Antragsliste der Erstprüfer:in, rechts der Ablauf aufrufen › prüfen › bestätigen › freigeben */
+  :root {
+    --bg: #f1f4ef; --panel: #ffffff; --ink: #1e2a2f; --muted: #5b6a70; --line: #d5ddd2;
+    --slate: #4b5a63; --slate-ink: #ffffff; --lime: #80bc00; --lime-ink: #1b2a00; --lime-deep: #4f7a00;
+    --tile: #e4f2c2; --tile-line: #b9d37a; --warn: #fff3cd; --warn-ink: #5a4300; --warn-line: #e2c25a;
+    --bad: #b3261e; --bad-bg: #fbe9e7; --focus: #2a74c2;
+    --serif: 'Lora', Cambria, Georgia, serif; --sans: 'Source Sans 3', Calibri, 'Segoe UI', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161c1f; --panel: #1f282c; --ink: #e8eee6; --muted: #a2b0a8; --line: #33423f;
+      --slate: #2b363c; --slate-ink: #f1f5ee; --lime: #8fcf0a; --lime-ink: #142000; --lime-deep: #a6d94a;
+      --tile: #2a3a22; --tile-line: #4d6a34; --warn: #3a3217; --warn-ink: #f0dda0; --warn-line: #7a6620;
+      --bad: #f2a29b; --bad-bg: #3b2321; --focus: #7db3ee; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161c1f; --panel: #1f282c; --ink: #e8eee6; --muted: #a2b0a8; --line: #33423f;
+    --slate: #2b363c; --slate-ink: #f1f5ee; --lime: #8fcf0a; --lime-ink: #142000; --lime-deep: #a6d94a;
+    --tile: #2a3a22; --tile-line: #4d6a34; --warn: #3a3217; --warn-ink: #f0dda0; --warn-line: #7a6620;
+    --bad: #f2a29b; --bad-bg: #3b2321; --focus: #7db3ee; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font: 16px/1.5 var(--sans); padding-inline: 0; }
+  button, input, textarea { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .top { background: var(--slate); color: var(--slate-ink); }
+  .top-in { max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .mark { width: 34px; height: 34px; background: var(--lime); color: var(--lime-ink); display: grid; place-items: center; font: 700 17px var(--serif); border-radius: 3px; flex: none; }
+  .brand b { font: 700 19px var(--serif); display: block; line-height: 1.2; }
+  .brand small { opacity: .8; font-size: 13px; }
+  .who { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .who .av { width: 36px; height: 36px; border-radius: 50%; background: var(--tile); color: var(--ink); display: grid; place-items: center; font: 700 14px var(--serif); }
+  .who .lg { opacity: .8; font-size: 12.5px; }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 28px 24px 48px; display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 28px; align-items: start; }
+  h2 { font: 700 20px/1.25 var(--serif); margin: 0; text-wrap: balance; }
+  .side h2 { margin-bottom: 4px; }
+  .sub { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+  .list { display: flex; flex-direction: column; gap: 10px; }
+  .item { text-align: left; width: 100%; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; cursor: pointer; display: grid; gap: 4px; }
+  .item:hover { border-color: var(--tile-line); }
+  .item[aria-current="true"] { border-color: var(--lime-deep); box-shadow: inset 4px 0 0 var(--lime); background: var(--tile); }
+  .item .nm { font-weight: 700; display: flex; justify-content: space-between; gap: 8px; }
+  .item .th { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--muted); width: fit-content; }
+  .badge.ok { background: var(--tile); border-color: var(--tile-line); color: var(--ink); }
+  .badge.wait { background: var(--warn); border-color: var(--warn-line); color: var(--warn-ink); }
+  .badge.ask { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+  .demo { margin-top: 14px; font-size: 13px; color: var(--muted); }
+  .link { background: none; border: 0; padding: 0; color: var(--lime-deep); text-decoration: underline; cursor: pointer; font-size: 13px; }
+
+  .work { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+  .work-h { padding: 22px 28px 0; }
+  .work-h p { margin: 4px 0 0; color: var(--muted); font-size: 14.5px; }
+  ol.steps { list-style: none; margin: 20px 0 0; padding: 0 28px 20px; display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+  .steps li { display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border: 1px solid var(--line); border-radius: 999px; font-size: 14.5px; font-weight: 600; color: var(--muted); background: var(--bg); }
+  .steps .n { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; background: var(--line); color: var(--ink); flex: none; }
+  .steps li.on { background: var(--tile); border-color: var(--tile-line); color: var(--ink); }
+  .steps li.on .n { background: var(--lime); color: var(--lime-ink); }
+  .steps li.done { color: var(--ink); }
+  .steps li.done .n { background: var(--lime-deep); color: #fff; }
+  :root[data-theme="dark"] .steps li.done .n { color: #101800; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .steps li.done .n { color: #101800; } }
+
+  .body { padding: 24px 28px 28px; display: grid; gap: 22px; }
+  dl.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0; margin: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .facts div { padding: 12px 16px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); margin: -0.5px; min-width: 0; }
+  .facts dt { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  .facts dd { margin: 2px 0 0; font-weight: 600; overflow-wrap: anywhere; }
+  .topic { background: var(--tile); border: 1px solid var(--tile-line); border-radius: 6px; padding: 16px 20px; }
+  .topic small { text-transform: uppercase; letter-spacing: .06em; font-weight: 600; color: var(--muted); font-size: 12px; }
+  .topic p { margin: 4px 0 0; font: 600 19px/1.35 var(--serif); overflow-wrap: anywhere; }
+  .note { border: 1px solid var(--warn-line); background: var(--warn); color: var(--warn-ink); border-radius: 6px; padding: 12px 16px; font-size: 14.5px; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { border: 2px solid var(--slate); background: transparent; color: var(--ink); border-radius: 6px; padding: 11px 20px; font-weight: 700; cursor: pointer; }
+  .btn:hover:not(:disabled) { background: var(--bg); }
+  .btn.pri { background: var(--lime); border-color: var(--lime); color: var(--lime-ink); }
+  .btn.pri:hover:not(:disabled) { filter: brightness(.95); background: var(--lime); }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
+  legend { font: 700 18px var(--serif); padding: 0; margin-bottom: 6px; }
+  .opt { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 2px solid var(--line); border-radius: 6px; cursor: pointer; }
+  .opt:has(input:checked) { border-color: var(--lime-deep); background: var(--tile); }
+  .opt input { margin-top: 5px; accent-color: var(--lime-deep); width: 18px; height: 18px; flex: none; }
+  .opt b { display: block; } .opt span { color: var(--muted); font-size: 14px; }
+  label.f { display: grid; gap: 6px; font-weight: 600; }
+  textarea { width: 100%; min-height: 110px; padding: 10px 12px; border: 2px solid var(--line); border-radius: 6px; background: var(--bg); resize: vertical; }
+  textarea:disabled { opacity: .5; }
+  .err { color: var(--bad); font-size: 14px; font-weight: 600; margin: 0; }
+
+  .result { border: 2px solid var(--lime-deep); border-radius: 8px; background: var(--tile); padding: 22px; display: grid; gap: 14px; }
+  .result.ask { border-color: var(--bad); background: var(--bad-bg); }
+  .result h3 { margin: 0; font: 700 22px var(--serif); }
+  .result .big { display: flex; gap: 14px; align-items: center; }
+  .tick { width: 44px; height: 44px; border-radius: 50%; background: var(--lime-deep); color: #fff; display: grid; place-items: center; font-size: 24px; flex: none; }
+  .result.ask .tick { background: var(--bad); }
+  :root[data-theme="dark"] .tick { color: #101800; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tick { color: #101800; } }
+  .toast { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); background: var(--slate); color: var(--slate-ink); padding: 12px 20px; border-radius: 6px; font-weight: 600; box-shadow: 0 6px 24px rgba(0,0,0,.25); max-width: calc(100% - 32px); }
+  @media (max-width: 900px) {
+    .wrap { grid-template-columns: minmax(0, 1fr); padding-inline: 16px; }
+    .top-in { padding-inline: 16px; } .work-h, .body { padding-inline: 18px; } ol.steps { padding-inline: 18px; }
+  }
+  @media (prefers-reduced-motion: no-preference) { .body > * { animation: in .25s ease both; } @keyframes in { from { opacity: 0; transform: translateY(6px); } } }
+
+  input.ro, .ro { width: 100%; padding: 10px 12px; border: 2px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--muted); }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px 20px; }
+  .hint { color: var(--muted); font-size: 13px; font-weight: 400; }
+  .drop { border: 2px dashed var(--line); border-radius: 6px; padding: 14px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .drop .fn { font-weight: 600; overflow-wrap: anywhere; }
+  .tl { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .tl li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); }
+  .tl li.done { background: var(--tile); border-color: var(--tile-line); }
+  .dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--muted); flex: none; margin-top: 3px; }
+  .tl .done .dot { background: var(--lime-deep); border-color: var(--lime-deep); }
+  .tl small { display: block; color: var(--muted); }
+</style>
+
+<header class="top"><div class="top-in">
+  <div class="brand"><div class="mark" aria-hidden="true">TF</div><div><b>ThesisFlow</b><small>Abschlussarbeiten-Portal FB MND</small></div></div>
+  <div class="who"><div class="av" aria-hidden="true">TY</div><div><div><b>Tarek Yilmaz</b></div><div class="lg">Studierende:r M.Sc. Wirtschaftsinformatik · angemeldet über THM-Login</div></div></div>
+</div></header>
+<main class="wrap">
+  <section class="side" aria-labelledby="lh">
+    <h2 id="lh">Meine Abschlussarbeiten</h2>
+    <p class="sub">Wählen Sie die Arbeit, für die Sie eine Verlängerung beantragen möchten.</p>
+    <div class="list" id="list"></div>
+    <p class="demo">Beispieldaten, es wird nichts gespeichert. <button class="link" id="reset" type="button">Beispiel zurücksetzen</button></p>
+  </section>
+  <section class="work" id="work" aria-live="polite"></section>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+  const REF = new Date(2026, 10, 19), DAUER = 30; // Verlängerungsdauer in Tagen (Beispielwert, laut Unterlagen noch offen)
+  const SEED = () => [
+    { id: 'ma', art: 'Masterarbeit', thema: 'Beispielthema zur Masterarbeit', firma: 'Beispiel GmbH', beginn: new Date(2026, 9, 1), abgabe: new Date(2026, 11, 31), status: 'In Bearbeitung', open: true, req: false, neu: null, grund: '', file: null, zeit: '' },
+    { id: 'ba', art: 'Bachelorarbeit', thema: 'Beispielthema zur Bachelorarbeit', firma: 'Muster AG', beginn: new Date(2019, 3, 1), abgabe: new Date(2019, 6, 1), status: 'Abgeschlossen', open: false, req: false, neu: null, grund: '', file: null, zeit: '' }
+  ];
+  let DATA = SEED(), S = { sel: 0, stage: 0, err: '' };
+  const $ = (id) => document.getElementById(id);
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const fd = (d) => d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const plus = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+  const cur = () => DATA[S.sel];
+  const stamp = () => new Date().toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + ' Uhr';
+
+  function badge(a) {
+    if (a.req) return '<span class="badge ok">Verlängerung beantragt</span>';
+    return a.open ? '<span class="badge ok">In Bearbeitung</span>' : '<span class="badge">Abgeschlossen</span>';
+  }
+  function renderList() {
+    $('list').innerHTML = DATA.map((a, i) => `<button type="button" class="item" data-i="${i}" aria-current="${i === S.sel}">
+      <span class="nm"><span>${a.art}</span></span><span class="th">${esc(a.thema)}</span>${badge(a)}</button>`).join('');
+  }
+  function steps(a) {
+    const act = a.req ? 0 : S.stage + 1, done = a.req ? 3 : S.stage;
+    const names = ['Antrag starten', 'Grund angeben, absenden', 'Status sehen'];
+    return `<ol class="steps">${names.map((n, k) => `<li class="${k < done ? 'done' : ''} ${k + 1 === act ? 'on' : ''}"><span class="n">${k < done ? '✓' : k + 1}</span>${n}</li>`).join('')}</ol>`;
+  }
+  const facts = (a) => `<dl class="facts"><div><dt>Thema</dt><dd>${esc(a.thema)}</dd></div><div><dt>Firma</dt><dd>${esc(a.firma)}</dd></div>
+    <div><dt>Beginn</dt><dd>${fd(a.beginn)}</dd></div><div><dt>Abgabetermin</dt><dd>${fd(a.abgabe)}</dd></div>
+    <div><dt>Restzeit</dt><dd>${a.open ? Math.round((a.abgabe - REF) / 86400000) + ' Tage' : '–'}</dd></div><div><dt>Status</dt><dd>${a.req ? 'Verlängerung beantragt' : a.status}</dd></div></dl>`;
+
+  function renderWork() {
+    const a = cur(); let h = `<div class="work-h"><h2>${a.art}</h2><p>Verlängerungsantrag stellen</p></div>` + steps(a) + '<div class="body">';
+    if (a.req) {
+      h += `<div class="result"><div class="big"><div class="tick" aria-hidden="true">✓</div><h3>Antrag eingereicht</h3></div>
+        <dl class="facts" style="background:var(--panel)"><div><dt>Arbeit</dt><dd>${a.art}: ${esc(a.thema)}</dd></div><div><dt>Alter Abgabetermin</dt><dd>${fd(a.abgabe)}</dd></div><div><dt>Neuer Abgabetermin</dt><dd>${fd(a.neu)}</dd></div>
+        ${a.file ? `<div><dt>Anhang</dt><dd>${esc(a.file.name)}</dd></div>` : ''}</dl></div>
+        <ol class="tl"><li class="done"><span class="dot"></span><span><b>Antrag eingereicht</b><small>Beispiel, ${a.zeit}</small></span></li>
+        <li><span class="dot"></span><span><b>Stellungnahme Erstprüfer:in</b></span></li><li><span class="dot"></span><span><b>Entscheidung Prüfungsausschuss</b></span></li></ol>
+        <p style="margin:0;color:var(--muted)">Bei jedem Statuswechsel erhalten Sie eine Benachrichtigung.</p>
+        <div class="actions"><button class="btn" data-act="back" type="button">Zurück zur Übersicht</button></div>`;
+    } else if (S.stage === 0) {
+      h += facts(a);
+      h += a.open ? '' : '<div class="note">Für eine abgeschlossene Arbeit ist keine Verlängerung möglich.</div>';
+      h += `<div class="actions"><button class="btn pri" data-act="start" type="button" ${a.open ? '' : 'disabled'}>Verlängerung beantragen</button></div>`;
+    } else {
+      h += `<div class="grid2">
+        <label class="f">Name<input class="ro" value="Tarek Yilmaz" readonly><span class="hint">aus THM-Konto</span></label>
+        <label class="f">Thema der Arbeit<input class="ro" value="${esc(a.thema)}" readonly><span class="hint">aus der gewählten Arbeit</span></label>
+        <label class="f">Firma<input class="ro" value="${esc(a.firma)}" readonly><span class="hint">aus der gewählten Arbeit</span></label>
+        <label class="f">Alter Abgabetermin<input class="ro" value="${fd(a.abgabe)}" readonly><span class="hint">aus der gewählten Arbeit</span></label>
+        <label class="f">Neuer Abgabetermin<input class="ro" value="${fd(plus(a.abgabe, DAUER))}" readonly><span class="hint">automatisch berechnet: alter Abgabetermin + Verlängerungsdauer</span></label></div>
+        <label class="f" for="grund">Grund der Verlängerung<textarea id="grund" placeholder="Bitte Grund beschreiben">${esc(a.grund)}</textarea></label>
+        ${S.err ? `<p class="err" role="alert">${S.err}</p>` : ''}
+        <div><div style="font-weight:600;margin-bottom:6px">Dokument anhängen <span class="hint">(optional)</span></div>
+          <div class="drop"><input type="file" id="file" accept=".pdf,image/*" hidden><button class="btn" type="button" data-act="pick">${a.file ? 'Anderes Dokument auswählen' : 'Dokument auswählen'}</button>
+          ${a.file ? `<span class="fn">${esc(a.file.name)} · ${a.file.size}</span><button class="link" type="button" data-act="unfile">Entfernen</button>` : '<span class="hint">PDF, JPG oder PNG. In der Vorschau wird nichts hochgeladen.</span>'}</div></div>
+        <div class="actions"><button class="btn pri" data-act="send" type="button">Antrag absenden</button><button class="btn" data-act="back" type="button" style="border-color:var(--line)">Abbrechen</button></div>`;
+    }
+    $('work').innerHTML = h + '</div>';
+  }
+  function render() { renderList(); renderWork(); }
+  function toast(t) { const el = $('toast'); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { el.hidden = true; }, 3200); }
+  $('list').addEventListener('click', (e) => { const b = e.target.closest('.item'); if (!b) return; S = { sel: +b.dataset.i, stage: 0, err: '' }; render(); });
+  $('work').addEventListener('input', (e) => { if (e.target.id === 'grund') { cur().grund = e.target.value; } });
+  $('work').addEventListener('change', (e) => { if (e.target.id === 'file') { const f = e.target.files[0]; cur().file = f ? { name: f.name, size: f.size < 1048576 ? Math.max(1, Math.round(f.size / 1024)) + ' KB' : (f.size / 1048576).toFixed(1) + ' MB' } : null; renderWork(); } });
+  $('work').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-act]'); if (!b) return; const a = cur(), act = b.dataset.act;
+    if (act === 'start') { S.stage = 1; S.err = ''; }
+    else if (act === 'back') { S = { sel: S.sel, stage: 0, err: '' }; }
+    else if (act === 'pick') { $('file').click(); return; }
+    else if (act === 'unfile') { a.file = null; }
+    else if (act === 'send') {
+      if (!a.grund.trim()) { S.err = 'Bitte geben Sie einen Grund an, bevor Sie den Antrag absenden.'; renderWork(); $('grund').focus(); return; }
+      a.req = true; a.neu = plus(a.abgabe, DAUER); a.zeit = stamp(); toast('Antrag eingereicht. Sie erhalten eine Benachrichtigung bei jedem Statuswechsel.');
+    }
+    render();
+  });
+  $('reset').addEventListener('click', () => { DATA = SEED(); S = { sel: 0, stage: 0, err: '' }; render(); });
+  render();
+</script>

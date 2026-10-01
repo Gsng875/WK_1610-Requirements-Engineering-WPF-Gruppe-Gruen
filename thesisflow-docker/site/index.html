@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThesisFlow Prototypen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  :root { --bg:#f1f4ef; --panel:#fff; --ink:#1e2a2f; --muted:#5b6a70; --line:#d5ddd2; --slate:#4b5a63; --lime:#80bc00; --tile:#e4f2c2; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#161c1f; --panel:#1f282c; --ink:#e8eee6; --muted:#a2b0a8; --line:#33423f; --slate:#2b363c; --lime:#8fcf0a; --tile:#2a3a22; color-scheme: dark; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 'Source Sans 3', Calibri, 'Segoe UI', system-ui, sans-serif; }
+  header { background: var(--slate); color: #fff; }
+  .in { max-width: 980px; margin: 0 auto; padding: 18px 20px; display: flex; align-items: center; gap: 12px; }
+  .mark { width: 36px; height: 36px; background: var(--lime); color: #1b2a00; display: grid; place-items: center; font: 700 18px Lora, Georgia, serif; border-radius: 3px; }
+  header b { font: 700 20px Lora, Georgia, serif; display: block; line-height: 1.2; } header small { opacity: .8; }
+  main { max-width: 980px; margin: 0 auto; padding: 28px 20px 48px; display: grid; gap: 28px; }
+  h2 { font: 700 20px Lora, Georgia, serif; margin: 0 0 4px; }
+  p.sub { color: var(--muted); margin: 0 0 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  a.card { display: grid; gap: 4px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; color: inherit; text-decoration: none; }
+  a.card:hover { border-color: var(--lime); background: var(--tile); }
+  a.card:focus-visible { outline: 3px solid #2a74c2; outline-offset: 2px; }
+  a.card b { font-size: 17px; } a.card span { color: var(--muted); font-size: 14.5px; }
+  .tag { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+</style>
+</head>
+<body>
+<header><div class="in"><div class="mark" aria-hidden="true">TF</div><div><b>ThesisFlow</b><small>Abschlussarbeiten-Portal FB MND · Prototypen der Gruppe Grün</small></div></div></header>
+<main>
+  <section>
+    <h2>Verlängerungsantrag stellen</h2>
+    <p class="sub">User Story 5.3 · Studierende:r</p>
+    <div class="grid">
+      <a class="card" href="verlaengerung-smartphone.html"><span class="tag">Smartphone</span><b>Klick-Prototyp</b><span>Arbeit wählen, Daten prüfen, absenden, Status sehen</span></a>
+      <a class="card" href="verlaengerung-pc.html"><span class="tag">PC</span><b>Webanwendung</b><span>Derselbe Ablauf für den Desktop</span></a>
+    </div>
+  </section>
+  <section>
+    <h2>Themenfreigabe</h2>
+    <p class="sub">User Story 4.1.1 · Erstprüfer:in</p>
+    <div class="grid">
+      <a class="card" href="themenfreigabe-smartphone.html"><span class="tag">Smartphone</span><b>Klick-Prototyp</b><span>Thema aufrufen, prüfen, freigeben oder Änderungswunsch senden</span></a>
+      <a class="card" href="themenfreigabe-pc.html"><span class="tag">PC</span><b>Webanwendung</b><span>Antragsliste und Freigabe am Desktop</span></a>
+    </div>
+  </section>
+  <section>
+    <h2>Präsentation</h2>
+    <p class="sub">Discover to Deliver, 7 Dimensionen</p>
+    <div class="grid"><a class="card" href="praesentation.html"><span class="tag">Web-App</span><b>D2D Verlängerungsantrag</b><span>11 Folien mit Persona, Diagrammen und Smartphone-Prototyp</span></a></div>
+  </section>
+</main>
+</body>
+</html>

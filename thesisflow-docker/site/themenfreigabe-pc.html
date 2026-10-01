@@ -1,0 +1,217 @@
+<title>ThesisFlow Themenfreigabe</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: Kopfband wie in den Folien, links die Antragsliste der Erstprüfer:in, rechts der Ablauf aufrufen › prüfen › bestätigen › freigeben */
+  :root {
+    --bg: #f1f4ef; --panel: #ffffff; --ink: #1e2a2f; --muted: #5b6a70; --line: #d5ddd2;
+    --slate: #4b5a63; --slate-ink: #ffffff; --lime: #80bc00; --lime-ink: #1b2a00; --lime-deep: #4f7a00;
+    --tile: #e4f2c2; --tile-line: #b9d37a; --warn: #fff3cd; --warn-ink: #5a4300; --warn-line: #e2c25a;
+    --bad: #b3261e; --bad-bg: #fbe9e7; --focus: #2a74c2;
+    --serif: 'Lora', Cambria, Georgia, serif; --sans: 'Source Sans 3', Calibri, 'Segoe UI', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161c1f; --panel: #1f282c; --ink: #e8eee6; --muted: #a2b0a8; --line: #33423f;
+      --slate: #2b363c; --slate-ink: #f1f5ee; --lime: #8fcf0a; --lime-ink: #142000; --lime-deep: #a6d94a;
+      --tile: #2a3a22; --tile-line: #4d6a34; --warn: #3a3217; --warn-ink: #f0dda0; --warn-line: #7a6620;
+      --bad: #f2a29b; --bad-bg: #3b2321; --focus: #7db3ee; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161c1f; --panel: #1f282c; --ink: #e8eee6; --muted: #a2b0a8; --line: #33423f;
+    --slate: #2b363c; --slate-ink: #f1f5ee; --lime: #8fcf0a; --lime-ink: #142000; --lime-deep: #a6d94a;
+    --tile: #2a3a22; --tile-line: #4d6a34; --warn: #3a3217; --warn-ink: #f0dda0; --warn-line: #7a6620;
+    --bad: #f2a29b; --bad-bg: #3b2321; --focus: #7db3ee; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font: 16px/1.5 var(--sans); padding-inline: 0; }
+  button, input, textarea { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .top { background: var(--slate); color: var(--slate-ink); }
+  .top-in { max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .mark { width: 34px; height: 34px; background: var(--lime); color: var(--lime-ink); display: grid; place-items: center; font: 700 17px var(--serif); border-radius: 3px; flex: none; }
+  .brand b { font: 700 19px var(--serif); display: block; line-height: 1.2; }
+  .brand small { opacity: .8; font-size: 13px; }
+  .who { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .who .av { width: 36px; height: 36px; border-radius: 50%; background: var(--tile); color: var(--ink); display: grid; place-items: center; font: 700 14px var(--serif); }
+  .who .lg { opacity: .8; font-size: 12.5px; }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 28px 24px 48px; display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 28px; align-items: start; }
+  h2 { font: 700 20px/1.25 var(--serif); margin: 0; text-wrap: balance; }
+  .side h2 { margin-bottom: 4px; }
+  .sub { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+  .list { display: flex; flex-direction: column; gap: 10px; }
+  .item { text-align: left; width: 100%; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; cursor: pointer; display: grid; gap: 4px; }
+  .item:hover { border-color: var(--tile-line); }
+  .item[aria-current="true"] { border-color: var(--lime-deep); box-shadow: inset 4px 0 0 var(--lime); background: var(--tile); }
+  .item .nm { font-weight: 700; display: flex; justify-content: space-between; gap: 8px; }
+  .item .th { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--muted); width: fit-content; }
+  .badge.ok { background: var(--tile); border-color: var(--tile-line); color: var(--ink); }
+  .badge.wait { background: var(--warn); border-color: var(--warn-line); color: var(--warn-ink); }
+  .badge.ask { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+  .demo { margin-top: 14px; font-size: 13px; color: var(--muted); }
+  .link { background: none; border: 0; padding: 0; color: var(--lime-deep); text-decoration: underline; cursor: pointer; font-size: 13px; }
+
+  .work { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+  .work-h { padding: 22px 28px 0; }
+  .work-h p { margin: 4px 0 0; color: var(--muted); font-size: 14.5px; }
+  ol.steps { list-style: none; margin: 20px 0 0; padding: 0 28px 20px; display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+  .steps li { display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border: 1px solid var(--line); border-radius: 999px; font-size: 14.5px; font-weight: 600; color: var(--muted); background: var(--bg); }
+  .steps .n { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; background: var(--line); color: var(--ink); flex: none; }
+  .steps li.on { background: var(--tile); border-color: var(--tile-line); color: var(--ink); }
+  .steps li.on .n { background: var(--lime); color: var(--lime-ink); }
+  .steps li.done { color: var(--ink); }
+  .steps li.done .n { background: var(--lime-deep); color: #fff; }
+  :root[data-theme="dark"] .steps li.done .n { color: #101800; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .steps li.done .n { color: #101800; } }
+
+  .body { padding: 24px 28px 28px; display: grid; gap: 22px; }
+  dl.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0; margin: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .facts div { padding: 12px 16px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); margin: -0.5px; min-width: 0; }
+  .facts dt { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  .facts dd { margin: 2px 0 0; font-weight: 600; overflow-wrap: anywhere; }
+  .topic { background: var(--tile); border: 1px solid var(--tile-line); border-radius: 6px; padding: 16px 20px; }
+  .topic small { text-transform: uppercase; letter-spacing: .06em; font-weight: 600; color: var(--muted); font-size: 12px; }
+  .topic p { margin: 4px 0 0; font: 600 19px/1.35 var(--serif); overflow-wrap: anywhere; }
+  .note { border: 1px solid var(--warn-line); background: var(--warn); color: var(--warn-ink); border-radius: 6px; padding: 12px 16px; font-size: 14.5px; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { border: 2px solid var(--slate); background: transparent; color: var(--ink); border-radius: 6px; padding: 11px 20px; font-weight: 700; cursor: pointer; }
+  .btn:hover:not(:disabled) { background: var(--bg); }
+  .btn.pri { background: var(--lime); border-color: var(--lime); color: var(--lime-ink); }
+  .btn.pri:hover:not(:disabled) { filter: brightness(.95); background: var(--lime); }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
+  legend { font: 700 18px var(--serif); padding: 0; margin-bottom: 6px; }
+  .opt { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 2px solid var(--line); border-radius: 6px; cursor: pointer; }
+  .opt:has(input:checked) { border-color: var(--lime-deep); background: var(--tile); }
+  .opt input { margin-top: 5px; accent-color: var(--lime-deep); width: 18px; height: 18px; flex: none; }
+  .opt b { display: block; } .opt span { color: var(--muted); font-size: 14px; }
+  label.f { display: grid; gap: 6px; font-weight: 600; }
+  textarea { width: 100%; min-height: 110px; padding: 10px 12px; border: 2px solid var(--line); border-radius: 6px; background: var(--bg); resize: vertical; }
+  textarea:disabled { opacity: .5; }
+  .err { color: var(--bad); font-size: 14px; font-weight: 600; margin: 0; }
+
+  .result { border: 2px solid var(--lime-deep); border-radius: 8px; background: var(--tile); padding: 22px; display: grid; gap: 14px; }
+  .result.ask { border-color: var(--bad); background: var(--bad-bg); }
+  .result h3 { margin: 0; font: 700 22px var(--serif); }
+  .result .big { display: flex; gap: 14px; align-items: center; }
+  .tick { width: 44px; height: 44px; border-radius: 50%; background: var(--lime-deep); color: #fff; display: grid; place-items: center; font-size: 24px; flex: none; }
+  .result.ask .tick { background: var(--bad); }
+  :root[data-theme="dark"] .tick { color: #101800; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tick { color: #101800; } }
+  .toast { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); background: var(--slate); color: var(--slate-ink); padding: 12px 20px; border-radius: 6px; font-weight: 600; box-shadow: 0 6px 24px rgba(0,0,0,.25); max-width: calc(100% - 32px); }
+  @media (max-width: 900px) {
+    .wrap { grid-template-columns: minmax(0, 1fr); padding-inline: 16px; }
+    .top-in { padding-inline: 16px; } .work-h, .body { padding-inline: 18px; } ol.steps { padding-inline: 18px; }
+  }
+  @media (prefers-reduced-motion: no-preference) { .body > * { animation: in .25s ease both; } @keyframes in { from { opacity: 0; transform: translateY(6px); } } }
+</style>
+
+<header class="top"><div class="top-in">
+  <div class="brand"><div class="mark" aria-hidden="true">TF</div><div><b>ThesisFlow</b><small>Abschlussarbeiten-Portal FB MND</small></div></div>
+  <div class="who"><div class="av" aria-hidden="true">AB</div><div><div><b>Prof. Dr. Andreas Becker</b></div><div class="lg">Erstprüfer:in · angemeldet über THM-Login</div></div></div>
+</div></header>
+
+<main class="wrap">
+  <section class="side" aria-labelledby="lh">
+    <h2 id="lh">Meine Anträge</h2>
+    <p class="sub">Nur Anträge, denen Sie als Erstprüfer:in zugeordnet sind.</p>
+    <div class="list" id="list"></div>
+    <p class="demo">Beispieldaten, es wird nichts gespeichert. <button class="link" id="reset" type="button">Beispiel zurücksetzen</button></p>
+  </section>
+  <section class="work" id="work" aria-live="polite"></section>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+  // Beispieldaten nach dem Datenmodell: Antrag mit Studierenden-Daten, Thema, Zulassung
+  const SEED = () => [
+    { id: 4711, mnr: 1112233, name: 'Moritz Hoffmann', studiengang: 'Wirtschaftsinformatik', abschluss: 'Bachelor', start: '2026-11-02', thema: 'Digitalisierung der Antragsprozesse an Hochschulen', zulassung: 'angenommen', result: null },
+    { id: 4712, mnr: 1114455, name: 'Lea Brandt', studiengang: 'Wirtschaftsinformatik', abschluss: 'Master', start: '2026-12-01', thema: 'Prozessautomatisierung im Mittelstand mit Low-Code', zulassung: 'angenommen', result: null },
+    { id: 4713, mnr: 1116677, name: 'Jonas Keller', studiengang: 'Wirtschaftsinformatik', abschluss: 'Bachelor', start: '2027-01-11', thema: 'Datenschutz in Hochschul-Webanwendungen', zulassung: 'in Prüfung', result: null }
+  ];
+  let DATA = SEED(), S = { sel: 0, stage: 0, choice: null, wunsch: '', err: '' };
+  const $ = (id) => document.getElementById(id);
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const fd = (iso) => new Date(iso + 'T00:00:00').toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const stamp = () => new Date().toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + ' Uhr';
+  const cur = () => DATA[S.sel];
+
+  function badge(a) {
+    if (a.result === 'frei') return '<span class="badge ok">Thema freigegeben</span>';
+    if (a.result === 'rueck') return '<span class="badge ask">Änderungswunsch gesendet</span>';
+    return a.zulassung === 'angenommen' ? '<span class="badge ok">Wartet auf Themenprüfung</span>' : '<span class="badge wait">Zulassung in Prüfung</span>';
+  }
+  function renderList() {
+    $('list').innerHTML = DATA.map((a, i) => `<button type="button" class="item" data-i="${i}" aria-current="${i === S.sel}">
+      <span class="nm"><span>${esc(a.name)}</span><span style="font-weight:400;color:var(--muted);font-size:13px">${a.abschluss}</span></span>
+      <span class="th">${esc(a.thema)}</span>${badge(a)}</button>`).join('');
+  }
+  function steps(a) {
+    const done = a.result ? 4 : (S.stage === 0 ? 0 : (S.choice === 'ja' ? 2 : 1));
+    const active = a.result ? 0 : (S.stage === 0 ? 1 : (S.choice === 'ja' ? 3 : 2));
+    const names = ['Thema aufrufen', 'Thema prüfen', 'Thema bestätigen', 'Thema freigeben'];
+    return `<ol class="steps">${names.map((n, k) => `<li class="${k < done ? 'done' : ''} ${k + 1 === active ? 'on' : ''}"><span class="n">${k < done ? '✓' : k + 1}</span>${n}</li>`).join('')}</ol>`;
+  }
+  const facts = (a) => `<dl class="facts">
+    <div><dt>Studierende:r</dt><dd>${esc(a.name)}</dd></div><div><dt>Matrikelnummer</dt><dd>${a.mnr}</dd></div>
+    <div><dt>Studiengang</dt><dd>${a.studiengang}</dd></div><div><dt>Abschluss</dt><dd>${a.abschluss}</dd></div>
+    <div><dt>Wunschstart</dt><dd>${fd(a.start)}</dd></div><div><dt>Zulassung</dt><dd>${a.zulassung}</dd></div></dl>`;
+
+  function renderWork() {
+    const a = cur(); let h = `<div class="work-h"><h2>Antrag ${a.id} · ${esc(a.name)}</h2><p>Thema der Abschlussarbeit prüfen und freigeben</p></div>` + steps(a) + '<div class="body">';
+    if (a.result === 'frei') {
+      h += `<div class="result"><div class="big"><div class="tick" aria-hidden="true">✓</div><h3>Thema freigegeben</h3></div>
+        <div class="topic" style="background:var(--panel)"><small>Thema</small><p>${esc(a.thema)}</p></div>
+        <dl class="facts" style="background:var(--panel)"><div><dt>Freigegeben von</dt><dd>Prof. Dr. Andreas Becker</dd></div><div><dt>Zeitpunkt</dt><dd>${a.zeit}</dd></div><div><dt>Vorschlag bestätigt</dt><dd>Ja</dd></div></dl>
+        <p style="margin:0">${esc(a.name)} wird per E-Mail informiert. Der Antrag steht danach für das Festlegen der Bearbeitungszeit bereit.</p></div>
+        <div class="actions"><button class="btn" data-act="back" type="button">Zurück zur Übersicht</button></div>`;
+    } else if (a.result === 'rueck') {
+      h += `<div class="result ask"><div class="big"><div class="tick" aria-hidden="true">!</div><h3>Änderungswunsch gesendet</h3></div>
+        <div class="topic" style="background:var(--panel)"><small>Ihr Änderungswunsch</small><p style="font:500 17px/1.5 var(--sans)">${esc(a.wunsch)}</p></div>
+        <p style="margin:0">${esc(a.name)} erhält eine Rückfrage und passt den Antrag an. Gesendet am ${a.zeit}.</p></div>
+        <div class="actions"><button class="btn" data-act="back" type="button">Zurück zur Übersicht</button></div>`;
+    } else if (S.stage === 0) {
+      h += facts(a) + `<div class="topic"><small>Thema laut Antrag</small><p>${esc(a.thema)}</p></div>`;
+      if (a.zulassung !== 'angenommen') h += '<div class="note"><b>Freigabe noch nicht möglich.</b> Der Prüfungsausschuss hat den Antrag noch nicht angenommen. Sie können das Thema ansehen, aber erst nach der Annahme freigeben.</div>';
+      h += `<div class="actions"><button class="btn pri" data-act="check" type="button">Thema prüfen</button></div>`;
+    } else {
+      const ok = a.zulassung === 'angenommen', nein = S.choice === 'nein';
+      h += `<div class="topic"><small>Thema laut Antrag</small><p>${esc(a.thema)}</p></div>
+        <fieldset><legend>Passt das Thema?</legend>
+          <label class="opt"><input type="radio" name="pt" value="ja" ${S.choice === 'ja' ? 'checked' : ''}><div><b>Ja, Thema bestätigen</b><span>Das Thema entspricht der Abstimmung mit der Studierenden und wird freigegeben.</span></div></label>
+          <label class="opt"><input type="radio" name="pt" value="nein" ${nein ? 'checked' : ''}><div><b>Nein, Änderungswunsch eintragen</b><span>Die Studierende bekommt eine Rückfrage und passt den Antrag an.</span></div></label></fieldset>
+        <label class="f" for="wunsch">Änderungswunsch<textarea id="wunsch" ${nein ? '' : 'disabled'} placeholder="${nein ? 'Was soll am Thema geändert werden?' : 'Nur bei „Nein“ auszufüllen'}">${esc(S.wunsch)}</textarea></label>
+        ${S.err ? `<p class="err" role="alert">${S.err}</p>` : ''}
+        ${!ok ? '<div class="note">Die Freigabe ist gesperrt, bis der Prüfungsausschuss den Antrag angenommen hat.</div>' : ''}
+        <div class="actions">
+          <button class="btn pri" data-act="freigeben" type="button" ${S.choice === 'ja' && ok ? '' : 'disabled'}>Bestätigen und freigeben</button>
+          <button class="btn" data-act="wunsch" type="button" ${nein ? '' : 'disabled'}>Änderungswunsch senden</button>
+          <button class="btn" data-act="back" type="button" style="border-color:var(--line)">Abbrechen</button></div>`;
+    }
+    $('work').innerHTML = h + '</div>';
+  }
+  function render() { renderList(); renderWork(); }
+  function toast(t) { const el = $('toast'); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { el.hidden = true; }, 3200); }
+
+  $('list').addEventListener('click', (e) => { const b = e.target.closest('.item'); if (!b) return; S = { sel: +b.dataset.i, stage: 0, choice: null, wunsch: '', err: '' }; render(); });
+  $('work').addEventListener('change', (e) => { if (e.target.name === 'pt') { S.choice = e.target.value; S.err = ''; renderWork(); if (S.choice === 'nein') $('wunsch').focus(); } });
+  $('work').addEventListener('input', (e) => { if (e.target.id === 'wunsch') S.wunsch = e.target.value; });
+  $('work').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-act]'); if (!b) return; const a = cur(), act = b.dataset.act;
+    if (act === 'check') { S.stage = 1; S.err = ''; }
+    else if (act === 'back') { S = { sel: S.sel, stage: 0, choice: null, wunsch: '', err: '' }; }
+    else if (act === 'freigeben') { a.result = 'frei'; a.zeit = stamp(); toast('Thema freigegeben. ' + a.name + ' wird benachrichtigt.'); }
+    else if (act === 'wunsch') {
+      if (!S.wunsch.trim()) { S.err = 'Bitte tragen Sie einen Änderungswunsch ein, bevor Sie ihn senden.'; renderWork(); $('wunsch').focus(); return; }
+      a.result = 'rueck'; a.wunsch = S.wunsch.trim(); a.zeit = stamp(); toast('Rückfrage an ' + a.name + ' gesendet.');
+    }
+    render();
+  });
+  $('reset').addEventListener('click', () => { DATA = SEED(); S = { sel: 0, stage: 0, choice: null, wunsch: '', err: '' }; render(); });
+  render();
+</script>

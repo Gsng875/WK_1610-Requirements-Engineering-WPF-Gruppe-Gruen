@@ -1,0 +1,490 @@
+<title>D2D Verlängerungsantrag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: links die Foliennavigation, rechts die aktuelle Folie. Auf schmalen Bildschirmen steht die Navigation hinter einem Menü-Button.
+     Diagramme sind SVG mit Theme-Tokens, der Klick-Prototyp ist als Smartphone in die Interface-Folie eingebaut. */
+  :root {
+    --bg: #F2F4F1; --fg: #1E2A2F; --muted: #586870; --line: #CFD8D3; --panel: #FFFFFF;
+    --slate: #4B5A63; --on-slate: #FFFFFF; --lime: #80BC00; --on-lime: #1B2A00;
+    --tile: #E4F2C2; --tile-line: #B7D66B; --tile-fg: #18230A; --tile-muted: #46591F; --row-alt: #F7FBEA;
+    --warn: #FFF3CD; --warn-fg: #5A4300; --ink: #39464D; --blue-fill: #EAF2FB;
+    --phone: #E1E7E4; --screen: #FFFFFF; --field: #F4F6F5; --error: #B3261E; --error-bg: #FBE9E7; --ok: #2F6B00;
+    --d-user: #A97C00; --d-interface: #7B2D9B; --d-action: #2E8B4F; --d-data: #2A74C2; --d-control: #C62828; --d-env: #222222; --d-quality: #6B7378;
+    --font-head: "IBM Plex Sans Condensed", "Arial Narrow", Arial, sans-serif;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181A; --fg: #E4EBE7; --muted: #9AA9AE; --line: #2C393E; --panel: #1A2225;
+      --slate: #2A363C; --on-slate: #F2F6F4; --on-lime: #14200A;
+      --tile: #2C3E13; --tile-line: #44601C; --tile-fg: #EEF7D6; --tile-muted: #B8CF86; --row-alt: #22330F;
+      --warn: #3B3210; --warn-fg: #F3D98A; --ink: #C8D2D6; --blue-fill: #1B2A3A;
+      --phone: #232D31; --screen: #161D20; --field: #202A2E; --error: #FF8A80; --error-bg: #3A1F1C; --ok: #A5D96B;
+      --d-user: #C79A1A; --d-interface: #A25FC4; --d-action: #3FAE68; --d-data: #4A90E0; --d-control: #E0554F; --d-env: #5B6A70; --d-quality: #7C868B;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181A; --fg: #E4EBE7; --muted: #9AA9AE; --line: #2C393E; --panel: #1A2225;
+    --slate: #2A363C; --on-slate: #F2F6F4; --on-lime: #14200A;
+    --tile: #2C3E13; --tile-line: #44601C; --tile-fg: #EEF7D6; --tile-muted: #B8CF86; --row-alt: #22330F;
+    --warn: #3B3210; --warn-fg: #F3D98A; --ink: #C8D2D6; --blue-fill: #1B2A3A;
+    --phone: #232D31; --screen: #161D20; --field: #202A2E; --error: #FF8A80; --error-bg: #3A1F1C; --ok: #A5D96B;
+    --d-user: #C79A1A; --d-interface: #A25FC4; --d-action: #3FAE68; --d-data: #4A90E0; --d-control: #E0554F; --d-env: #5B6A70; --d-quality: #7C868B;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: 1.45; margin: 0; }
+  button { font: inherit; color: inherit; }
+  .app { display: grid; grid-template-columns: minmax(0, 1fr); min-height: 100vh; }
+  @media (min-width: 960px) { .app { grid-template-columns: 250px minmax(0, 1fr); } }
+
+  /* Navigation */
+  .side { background: var(--panel); border-right: 1px solid var(--line); padding: 16px 12px; }
+  @media (max-width: 959px) { .side { display: none; position: fixed; inset: 56px 0 0 0; z-index: 10; overflow: auto; padding-inline: 16px; } .side.open { display: block; } }
+  @media (min-width: 960px) { .side { position: sticky; top: 0; height: 100vh; overflow: auto; } .menu-btn { display: none; } }
+  .brand { font-family: var(--font-head); font-weight: 700; font-size: 20px; margin: 0 4px 2px; }
+  .brand-sub { font-size: 12px; color: var(--muted); margin: 0 4px 14px; }
+  .nav { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .nav button { width: 100%; text-align: left; background: none; border: 0; border-radius: 4px; padding: 7px 8px; display: grid; grid-template-columns: 22px 1fr; gap: 8px; align-items: center; cursor: pointer; font-size: 14px; }
+  .nav button:hover { background: var(--bg); }
+  .nav button[aria-current="page"] { background: var(--tile); color: var(--tile-fg); font-weight: 600; }
+  .nav .n { width: 22px; height: 22px; border-radius: 3px; color: #fff; display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 12px; }
+  .topbar { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--line); background: var(--panel); position: sticky; top: 0; z-index: 11; }
+  .topbar .t { font-family: var(--font-head); font-weight: 600; font-size: 17px; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .topbar .c { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .iconbtn { border: 1px solid var(--line); background: var(--bg); border-radius: 4px; padding: 6px 10px; cursor: pointer; font-size: 13px; }
+  .iconbtn:hover { border-color: var(--muted); }
+  .iconbtn:focus-visible, .nav button:focus-visible, .pbtn:focus-visible, .step:focus-visible, .tile-btn:focus-visible, textarea:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+  /* Folie */
+  .stage { padding: 20px 16px 28px; }
+  .slide { max-width: 1100px; margin-inline: auto; }
+  .slide[hidden] { display: none; }
+  .shead { display: flex; align-items: center; gap: 12px; background: var(--slate); color: var(--on-slate); border-radius: 3px; padding: 10px 14px; margin-bottom: 16px; }
+  .chip { flex: none; width: 34px; height: 34px; border-radius: 3px; color: #fff; display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 18px; }
+  .shead h2 { font-family: var(--font-head); font-size: clamp(20px, 3.4vw, 28px); margin: 0; font-weight: 700; text-wrap: balance; }
+  .src { color: var(--muted); font-size: 12.5px; margin: 16px 0 0; }
+  .note { color: var(--muted); font-size: 13px; font-style: italic; margin: 10px 0 0; max-width: 100ch; }
+  .note.warn { color: var(--warn-fg); }
+  h3 { font-family: var(--font-head); font-size: 20px; margin: 18px 0 8px; }
+
+  /* Titel */
+  .hero { background: #2B363C; color: #E4EBE7; border-radius: 4px; padding: clamp(20px, 4vw, 44px); }
+  .hero .eyebrow { color: #B8CF86; font-weight: 600; font-size: 15px; margin: 0 0 6px; }
+  .hero h1 { font-family: var(--font-head); font-size: clamp(32px, 6vw, 56px); line-height: 1.05; margin: 0 0 14px; color: #fff; text-wrap: balance; }
+  .hero .story { font-size: clamp(16px, 2.2vw, 21px); max-width: 60ch; margin: 0 0 22px; }
+  .trail { display: grid; grid-template-columns: auto 1fr; gap: 8px 22px; font-size: 15px; margin: 0 0 18px; }
+  .trail dt { color: #80BC00; font-weight: 600; } .trail dd { margin: 0; }
+  .hero .go { font-weight: 600; background: var(--lime); color: #1B2A00; border: 0; border-radius: 6px; padding: 12px 20px; cursor: pointer; }
+  .hero .small { color: #9AA9AE; font-size: 13px; margin: 18px 0 0; }
+
+  /* Kacheln */
+  .grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .tile { background: var(--tile); color: var(--tile-fg); border: 1px solid var(--tile-line); border-radius: 4px; padding: 14px; }
+  .tile h4 { font-family: var(--font-head); font-size: 18px; margin: 0 0 6px; }
+  .tile p, .tile li { font-size: 14px; margin: 0; }
+  .tile ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+  .tile-btn { text-align: left; cursor: pointer; display: block; width: 100%; }
+  .tile-btn:hover { filter: brightness(1.04); }
+  .tile-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .tile-head .chip { width: 30px; height: 30px; font-size: 16px; }
+  .tile-head h4 { margin: 0; }
+
+  /* Persona */
+  .persona { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 900px) { .persona { grid-template-columns: 1.4fr 1fr; } }
+  .pid { display: flex; gap: 16px; align-items: center; grid-column: 1 / -1; }
+  .avatar { width: 84px; height: 84px; border-radius: 50%; background: var(--slate); color: var(--on-slate); display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; font-size: 32px; flex: none; }
+  .pid h3 { margin: 0; font-size: 26px; } .pid .role { color: var(--muted); margin: 0 0 6px; } .pid q { font-style: italic; }
+  .two { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); } @media (min-width: 640px) { .two { grid-template-columns: 1fr 1fr; } }
+  .col { display: flex; flex-direction: column; gap: 10px; }
+
+  /* Tabellen */
+  .tw { overflow-x: auto; border: 1px solid var(--tile-line); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th { background: var(--slate); color: var(--on-slate); text-align: left; padding: 9px 12px; font-weight: 600; white-space: nowrap; }
+  td { padding: 9px 12px; background: var(--tile); color: var(--tile-fg); border-top: 1px solid var(--tile-line); vertical-align: middle; }
+  tbody tr:nth-child(odd) td { background: var(--row-alt); }
+  td.open { background: var(--warn) !important; color: var(--warn-fg); }
+  td.c, th.c { text-align: center; }
+  td.first { font-weight: 600; }
+
+  /* Diagramme */
+  .dia { overflow-x: auto; border: 1px solid var(--line); background: var(--panel); border-radius: 3px; }
+  .dia svg { display: block; width: 100%; min-width: 760px; height: auto; }
+  svg text { font-family: var(--font-body); fill: var(--fg); }
+  svg .h { font-family: var(--font-head); font-weight: 600; }
+  svg .bx { fill: var(--tile); stroke: var(--tile-line); stroke-width: 1.3; }
+  svg .bw { fill: var(--panel); stroke: var(--ink); stroke-width: 1.5; }
+  svg .bs { fill: var(--slate); stroke: var(--slate); }
+  svg .bs text, svg text.on { fill: var(--on-slate); }
+  svg .dash { stroke-dasharray: 7 5; }
+  svg .ln { stroke: var(--ink); stroke-width: 1.8; fill: none; }
+  svg .lane { fill: var(--panel); stroke: var(--line); } svg .lane2 { fill: var(--bg); stroke: var(--line); }
+  svg .cap { fill: var(--muted); font-size: 12.5px; font-style: italic; }
+  svg .lbl { font-size: 13px; font-weight: 600; font-style: italic; }
+  svg .sm { font-size: 12.5px; }
+  svg .uh { fill: var(--d-data); } svg .ub { fill: var(--blue-fill); stroke: var(--d-data); stroke-width: 1.3; }
+  svg .pk { fill: #A97C00; font-weight: 600; font-size: 11px; } svg .fk { fill: var(--muted); font-weight: 600; font-size: 11px; }
+  svg .pkn { text-decoration: underline; } svg .ty { fill: var(--muted); }
+  svg .warnbx { fill: var(--warn); stroke: var(--tile-line); }
+
+  /* Smartphone-Prototyp */
+  .stage2 { display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+  @media (min-width: 820px) { .stage2 { grid-template-columns: 340px minmax(0, 1fr); gap: 32px; } }
+  .phone { width: 100%; max-width: 340px; margin-inline: auto; background: var(--phone); border: 3px solid var(--ink); border-radius: 36px; padding: 14px 12px 16px; }
+  .notch { width: 70px; height: 6px; border-radius: 3px; background: var(--ink); margin: 0 auto 10px; opacity: .6; }
+  .screen { background: var(--screen); border: 1px solid var(--line); border-radius: 8px; min-height: 540px; padding: 16px 14px; display: flex; flex-direction: column; gap: 10px; }
+  .screen[hidden] { display: none; }
+  .screen h4 { font-family: var(--font-head); font-size: 21px; margin: 0 0 4px; }
+  .prow { background: var(--field); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; font-size: 14px; display: flex; justify-content: space-between; gap: 10px; }
+  .prow .k { color: var(--muted); } .prow .v { font-weight: 500; text-align: right; overflow-wrap: anywhere; }
+  .badge { font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; background: var(--tile); border: 1px solid var(--tile-line); color: var(--tile-fg); }
+  .field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
+  .field label { font-size: 13px; color: var(--muted); } .field .hint { font-size: 12px; color: var(--muted); }
+  .field input, .field textarea { font: inherit; font-size: 14px; color: var(--fg); background: var(--field); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; width: 100%; }
+  .field input[readonly] { color: var(--muted); } .field textarea { min-height: 96px; resize: vertical; }
+  .field.invalid textarea { border-color: var(--error); background: var(--error-bg); }
+  .perr { color: var(--error); font-size: 13px; margin: 0; } .perr[hidden] { display: none; }
+  .pbtn { font-weight: 600; font-size: 15px; border: 0; border-radius: 6px; padding: 13px 14px; background: var(--lime); color: var(--on-lime); cursor: pointer; width: 100%; }
+  .pbtn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); font-weight: 500; }
+  .spacer { flex: 1; } .actions { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+  .stepper { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .stepper li { background: var(--field); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; display: grid; grid-template-columns: 18px 1fr; gap: 8px; font-size: 14px; align-items: start; }
+  .stepper .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--muted); margin-top: 4px; }
+  .stepper li.done .dot { background: var(--ok); border-color: var(--ok); }
+  .stepper small { display: block; color: var(--muted); font-size: 12px; }
+  .psel { font: inherit; font-size: 14px; color: var(--fg); background: var(--field); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; width: 100%; }
+  .psel:focus-visible, .plink:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+  .pbtn[disabled] { opacity: .45; cursor: not-allowed; }
+  .pfile { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--tile); border: 1px solid var(--tile-line); color: var(--tile-fg); border-radius: 4px; padding: 8px 10px; font-size: 13px; }
+  .pfn { overflow-wrap: anywhere; } .plink { background: none; border: 0; text-decoration: underline; cursor: pointer; font-size: 13px; color: inherit; flex: none; }
+  .pfile[hidden] { display: none; }
+  .pnote { font-size: 13px; color: var(--muted); border: 1px dashed var(--line); border-radius: 4px; padding: 9px 11px; margin: 0; }
+  .path { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 16px; }
+  .path p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+  .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .step { width: 100%; text-align: left; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; cursor: pointer; }
+  .step:hover { border-color: var(--muted); } .step[aria-current="step"] { background: var(--tile); border-color: var(--tile-line); color: var(--tile-fg); }
+  .step .sid { grid-row: span 2; font-family: var(--font-mono); font-size: 12px; background: var(--slate); color: var(--on-slate); border-radius: 3px; padding: 2px 6px; align-self: start; }
+  .step .st { font-weight: 600; font-size: 14px; } .step .sd { font-size: 13px; color: var(--muted); } .step[aria-current="step"] .sd { color: var(--tile-muted); }
+
+  .opt { display: grid; grid-template-columns: auto 120px minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px 14px; }
+  @media (max-width: 640px) { .opt { grid-template-columns: auto minmax(0, 1fr); } .opt .optt { grid-column: 1 / -1; } }
+  .pager { display: flex; gap: 10px; justify-content: space-between; align-items: center; max-width: 1100px; margin: 26px auto 0; }
+  .pager .btn { background: var(--lime); color: var(--on-lime); border: 0; border-radius: 6px; padding: 11px 18px; font-weight: 600; cursor: pointer; }
+  .pager .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); font-weight: 500; }
+  .pager .btn[disabled] { opacity: .4; cursor: default; }
+  .dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: block; } .dots i.on { background: var(--lime); }
+  @media (prefers-reduced-motion: no-preference) { .slide:not([hidden]) { animation: in .2s ease-out; } @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } } }
+  .full .side, .full .topbar { display: none; } .full .app { grid-template-columns: minmax(0, 1fr); }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink)"/></marker></defs></svg>
+<div class="app" id="app">
+  <aside class="side" id="side" aria-label="Folien">
+    <p class="brand">D2D Verlängerungsantrag</p>
+    <p class="brand-sub">Discover to Deliver · 7 Dimensionen</p>
+    <ol class="nav" id="nav"></ol>
+  </aside>
+  <div>
+    <div class="topbar">
+      <button class="iconbtn menu-btn" id="menuBtn" aria-expanded="false" aria-controls="side">Folien</button>
+      <span class="t" id="topTitle"></span>
+      <span class="c" id="counter"></span>
+      <button class="iconbtn" id="fsBtn" title="Vollbild">Vollbild</button>
+    </div>
+    <main class="stage" id="stage"></main>
+    <div class="pager" style="padding-inline:16px;margin-bottom:28px">
+      <button class="btn ghost" id="prev">Zurück</button>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+      <button class="btn" id="next">Weiter</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const DIM = { user: 'var(--d-user)', interface: 'var(--d-interface)', action: 'var(--d-action)', data: 'var(--d-data)', control: 'var(--d-control)', env: 'var(--d-env)', quality: 'var(--d-quality)', none: 'var(--slate)' };
+  const esc = (s) => s;
+  const table = (head, rows, o = {}) => `<div class="tw"><table><thead><tr>${head.map((h, i) => `<th class="${(o.center || []).includes(i) ? 'c' : ''}">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map((c, i) => `<td class="${c === 'offen' ? 'open ' : ''}${(o.center || []).includes(i) ? 'c ' : ''}${i === 0 && o.firstBold !== false ? 'first' : ''}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  const card = (h, items) => `<div class="tile"><h4>${h}</h4><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`;
+
+  /* ---------- SVG-Helfer ---------- */
+  const defs = '';
+  const T = (x, y, t, cls = '', anchor = 'start') => `<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}">${t}</text>`;
+  const ML = (x, y, lines, cls = '', anchor = 'middle', lh = 17) => `<text x="${x}" y="${y - (lines.length - 1) * lh / 2}" class="${cls}" text-anchor="${anchor}">${lines.map((l, i) => `<tspan x="${x}" dy="${i ? lh : 0}">${l}</tspan>`).join('')}</text>`;
+  const line = (pts, o = {}) => `<polyline class="ln ${o.dash ? 'dash' : ''}" points="${pts.map(p => p.join(',')).join(' ')}" ${o.end ? 'marker-end="url(#ah)"' : ''} ${o.start ? 'marker-start="url(#ah)"' : ''}/>`;
+  const box = (x, y, w, h, lines, o = {}) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" class="${o.cls || 'bx'} ${o.dash ? 'dash' : ''}"/>${ML(x + w / 2, y + h / 2 + 5, lines, (o.bold ? 'h ' : '') + (o.on ? 'on ' : '') + (o.sm ? 'sm' : ''), 'middle', o.sm ? 15 : 17)}`;
+  function msg(x, y, filled, label, below) {
+    const r = 27;
+    let s = `<circle cx="${x}" cy="${y}" r="${r}" fill="${filled ? 'var(--ink)' : 'var(--panel)'}" stroke="var(--ink)" stroke-width="${filled ? 2 : 1.6}"/>`;
+    s += `<rect x="${x - 13}" y="${y - 8.5}" width="26" height="17" fill="var(--panel)" stroke="${filled ? 'var(--panel)' : 'var(--ink)'}" stroke-width="1.3"/>`;
+    s += `<polyline points="${x - 13},${y - 8.5} ${x},${y + 2} ${x + 13},${y - 8.5}" fill="none" stroke="var(--ink)" stroke-width="1.3"/>`;
+    s += below ? T(x, y + r + 18, label, 'lbl', 'middle') : T(x + 38, y + 5, label, 'lbl');
+    return s;
+  }
+
+  /* ---------- Kontextdiagramm (statisch) ---------- */
+  function svgContext() {
+    const L = (pts) => line(pts);
+    return `<svg viewBox="0 0 900 520" role="img" aria-label="Kontextdiagramm">${defs}<g transform="translate(150,0)">
+      ${box(330, 210, 240, 100, ['Abschlussarbeiten-Portal'], { cls: 'bs', on: true, bold: true })}
+      ${box(330, 30, 240, 80, ['THM-Login'], { cls: 'bw', bold: true })}${L([[450, 110], [450, 210]])}
+      ${box(330, 410, 240, 80, ['E-Mail-Dienst'], { cls: 'bw', bold: true })}${L([[450, 310], [450, 410]])}
+      ${box(30, 55, 220, 90, ['Studierende:r'], { cls: 'bw', bold: true })}${L([[330, 235], [285, 235], [285, 100], [250, 100]])}
+      ${box(30, 375, 220, 90, ['Erstprüfer:in'], { cls: 'bw', bold: true })}${L([[330, 285], [285, 285], [285, 420], [250, 420]])}
+    </g></svg>`;
+  }
+
+  /* ---------- Aktivitätsdiagramm ---------- */
+  function svgAction() {
+    const LH = 170, LW = 1260, LBL = 150, BW = 104, BH = 76, G = 20, EV = 34, GW = 42;
+    const cy = (l) => l * LH + LH / 2;
+    const lanes = ['Studierende:r', 'Portal (System)', 'Erstprüfer:in'];
+    let s = defs;
+    lanes.forEach((l, i) => { s += `<rect x="0" y="${i * LH}" width="${LW}" height="${LH}" class="${i % 2 ? 'lane2' : 'lane'}"/><rect x="0" y="${i * LH}" width="${LBL}" height="${LH}" class="bs"/>${T(LBL / 2, i * LH + LH / 2 + 5, l, 'on h', 'middle')}`; });
+    const task = (x, l, lines) => box(x, cy(l) - BH / 2, BW, BH, lines, { sm: 1 });
+    const ev = (x, l, text, end) => `<circle cx="${x + EV / 2}" cy="${cy(l)}" r="${EV / 2}" fill="var(--panel)" stroke="var(--ink)" stroke-width="${end ? 4 : 1.6}"/>` + ML(x + EV / 2, cy(l) + EV / 2 + 18, text, 'sm', 'middle', 14);
+    const gate = (x, l, kind, text) => { const c = x + GW / 2, y = cy(l), d = GW / 2, k = 9; return `<polygon points="${c},${y - d} ${c + d},${y} ${c},${y + d} ${c - d},${y}" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6"/>` + (kind === 'x' ? `<polyline class="ln" points="${c - k},${y - k} ${c + k},${y + k}"/><polyline class="ln" points="${c - k},${y + k} ${c + k},${y - k}"/>` : `<polyline class="ln" points="${c - k},${y} ${c + k},${y}"/><polyline class="ln" points="${c},${y - k} ${c},${y + k}"/>`) + (text ? ML(c, y - d - 24, text, 'sm', 'middle', 14) : ''); };
+    let x = LBL + 70; const p = {};
+    p.start = x; x += EV + G; p.t1 = x; x += BW + G; p.t2 = x; x += BW + G; p.g1 = x; x += GW + G; p.t3 = x; x += BW + G; p.g2 = x; x += GW + G; p.t4 = x; x += BW + G; p.g3 = x; x += GW + G; p.t5 = x; x += BW + G; p.g4 = x; x += GW + G; p.end = x;
+    const y0 = cy(0), yP = cy(1), yR = cy(2), c3 = p.g3 + GW / 2, c4 = p.t5 + BW / 2;
+    s += ev(p.start, 0, ['Verlängerung', 'nötig']) + task(p.t1, 0, ['Arbeit wählen,', 'Antrag starten', '(5.3.1)']) + task(p.t2, 0, ['Daten prüfen,', 'Grund angeben', '(5.3.2)']) + gate(p.g1, 0, 'x', ['Dokument', 'vorhanden?']) + task(p.t3, 0, ['Dokument', 'hochladen']) + gate(p.g2, 0, 'x') + task(p.t4, 0, ['Antrag absenden', '(5.3.3)']) + gate(p.g3, 0, 'p') + task(p.t5, 0, ['Status im Portal', 'sehen (5.3.3)']) + gate(c4 - GW / 2, 1, 'p') + ev(p.end, 1, ['Antrag im System', 'bestätigt'], 1);
+    [[p.start + EV, p.t1], [p.t1 + BW, p.t2], [p.t2 + BW, p.g1], [p.g1 + GW, p.t3], [p.t3 + BW, p.g2], [p.g2 + GW, p.t4], [p.t4 + BW, p.g3], [p.g3 + GW, p.t5]].forEach(([a, b]) => { s += line([[a, y0], [b, y0]], { end: 1 }); });
+    const yb = y0 + 62;
+    s += line([[p.g1 + GW / 2, y0 + GW / 2], [p.g1 + GW / 2, yb], [p.g2 + GW / 2, yb], [p.g2 + GW / 2, y0 + GW / 2]], { end: 1 }) + T(p.g1 + GW + 2, y0 - 8, 'ja', 'sm') + T(p.g1 + GW / 2 + 6, yb - 6, 'nein', 'sm');
+    s += box(c3 - BW / 2, yP - BH / 2, BW, BH, ['Antragseingang', 'verarbeiten'], { sm: 1 }) + box(c3 - BW / 2, yR - BH / 2, BW, BH, ['Antrag prüfen,', 'Stellungnahme', 'abgeben (5.4)'], { sm: 1 });
+    s += line([[c3, y0 + GW / 2], [c3, yP - BH / 2]], { end: 1 }) + line([[c3, yP + BH / 2], [c3, yR - BH / 2]], { end: 1 }) + line([[c3 + BW / 2, yR], [c4, yR], [c4, yP + GW / 2]], { end: 1 }) + line([[c4, y0 + BH / 2], [c4, yP - GW / 2]], { end: 1 }) + line([[c4 + GW / 2, yP], [p.end, yP]], { end: 1 });
+    return `<svg viewBox="0 0 ${LW} ${3 * LH}" role="img" aria-label="BPMN-Diagramm Verlängerungsantrag stellen">${s}</svg>`;
+  }
+
+  /* ---------- Datenmodell ---------- */
+  function svgData() {
+    const HH = 38, RH = 24;
+    let s = '';
+    function cls(x, y, w, name, attrs) {
+      const h = HH + RH * attrs.length + 14;
+      s += `<rect x="${x}" y="${y}" width="${w}" height="${HH}" class="uh"/>${T(x + w / 2, y + 25, name, 'on h', 'middle')}<rect x="${x}" y="${y + HH}" width="${w}" height="${h - HH}" class="ub"/>`;
+      attrs.forEach(([k, n, t], i) => {
+        const yy = y + HH + 7 + RH * i + 17;
+        s += `<text x="${x + 10}" y="${yy}" font-size="14"><tspan class="${k === 'PK' ? 'pk' : 'fk'}">${(k || '').padEnd(2, ' ')}</tspan><tspan dx="${k ? 6 : 24}" class="${k === 'PK' ? 'pkn' : ''}">${n}</tspan><tspan class="ty"> : ${t}</tspan></text>`;
+      });
+      return { x, y, w, h };
+    }
+    function en(x, y, w, name, lits, owner) {
+      const hh = 55, h = hh + 24 * lits.length + 14, r = 10, lx = x + w / 2;
+      s += `<line class="ln" x1="${lx}" y1="${owner + 2 * r}" x2="${lx}" y2="${y}"/><circle cx="${lx}" cy="${owner + r}" r="${r}" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6"/><line class="ln" x1="${lx - r}" y1="${owner + r}" x2="${lx + r}" y2="${owner + r}" style="stroke-width:1.3"/><line class="ln" x1="${lx}" y1="${owner}" x2="${lx}" y2="${owner + 2 * r}" style="stroke-width:1.3"/>`;
+      s += `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="var(--panel)" stroke="var(--d-data)" stroke-width="2.4"/>` + T(x + w / 2, y + 20, '«enumeration»', 'cap', 'middle') + T(x + w / 2, y + 42, name, 'h', 'middle') + `<line x1="${x}" y1="${y + hh}" x2="${x + w}" y2="${y + hh}" stroke="var(--d-data)" stroke-width="1.2"/>`;
+      lits.forEach((l, i) => { s += T(x + 12, y + hh + 22 + 24 * i, l, 'sm'); });
+    }
+    const A = cls(280, 25, 340, 'Abschlussarbeit', [['PK', 'matrikelnummer', 'String'], ['PK', 'arbeit_id', 'Integer'], ['', 'name', 'String'], ['', 'thema', 'String'], ['', 'firma', 'String'], ['', 'erstpruefer', 'String'], ['', 'beginn', 'Date'], ['', 'abgabetermin', 'Date']]);
+    const V = cls(800, 25, 470, 'Verlängerungsantrag', [['PK', 'antrag_id', 'Integer'], ['FK', 'arbeit_id', 'Integer'], ['', 'grund', 'Text'], ['', 'krankmeldung', 'Dokument (optional)'], ['', 'antragsdatum', 'Date'], ['', 'alter_abgabetermin', 'Date'], ['', 'neuer_abgabetermin', 'Date'], ['', 'stellungnahme', 'Stellungnahme'], ['', 'pruefungsausschuss', 'String'], ['', 'entscheider_personalnummer', 'String'], ['', 'entscheider_name', 'String'], ['', 'entscheidungsergebnis', 'Entscheidungsergebnis'], ['', 'entscheidungsdatum', 'Date'], ['', 'status', 'AntragStatus']]);
+    const ly = 25 + HH + 40;
+    const rel = (x1, x2, label, l1, l2) => line([[x1, ly], [x2, ly]]) + T(x1 + 6, ly - 8, l1, 'sm') + T(x2 - 6, ly - 8, l2, 'sm', 'end') + T((x1 + x2) / 2, ly + 20, label, 'sm', 'middle');
+    s += rel(A.x + A.w, V.x, '◄ gehört zu', '1', '0..n');
+    const yE = V.y + V.h + 40;
+    en(V.x + 30, yE, 230, 'Entscheidungsergebnis', ['genehmigt', 'abgelehnt'], V.y + V.h);
+    en(V.x + 290, yE, 180, 'AntragStatus', ['eingereicht', 'in_pruefung', 'entschieden'], V.y + V.h);
+    { // Stellungnahme: Linie mit ⊕ am Antrag, im Winkel zum Enum-Kasten
+      const xo = V.x + 40, yb = V.y + V.h, r = 10, ex = 700, ym = yb + 30;
+      s += `<polyline class="ln" points="${xo},${yb + 2 * r} ${xo},${ym} ${ex},${ym} ${ex},${yE}"/><circle cx="${xo}" cy="${yb + r}" r="${r}" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.6"/><line class="ln" x1="${xo - r}" y1="${yb + r}" x2="${xo + r}" y2="${yb + r}" style="stroke-width:1.3"/><line class="ln" x1="${xo}" y1="${yb}" x2="${xo}" y2="${yb + 2 * r}" style="stroke-width:1.3"/>`;
+      const x = ex - 100, w = 200, hh = 55, hgt = hh + 24 * 2 + 14;
+      s += `<rect x="${x}" y="${yE}" width="${w}" height="${hgt}" fill="var(--panel)" stroke="var(--d-data)" stroke-width="2.4"/>` + T(x + w / 2, yE + 20, '«enumeration»', 'cap', 'middle') + T(x + w / 2, yE + 42, 'Stellungnahme', 'h', 'middle') + `<line x1="${x}" y1="${yE + hh}" x2="${x + w}" y2="${yE + hh}" stroke="var(--d-data)" stroke-width="1.2"/>` + T(x + 12, yE + hh + 22, 'befuerwortet', 'sm') + T(x + 12, yE + hh + 46, 'nicht_befuerwortet', 'sm');
+    }
+    return `<svg viewBox="0 0 1330 640" role="img" aria-label="Datenmodell">${s}</svg>`;
+  }
+
+  /* ---------- Entscheidungsbaum ---------- */
+  function svgTree() {
+    return `<svg viewBox="0 0 470 380" role="img" aria-label="Entscheidungsbaum" style="min-width:0">${defs}
+      ${box(0, 0, 300, 64, ['Stellungnahme der Erstprüfer:in', 'liegt vor?'], { cls: 'warnbx', bold: true })}
+      ${box(360, 0, 110, 64, ['warten'], { cls: 'bw' })}${line([[300, 32], [360, 32]], { end: 1 })}${T(330, 22, 'nein', 'lbl', 'middle')}
+      ${line([[150, 64], [150, 130]], { end: 1 })}${T(160, 100, 'ja', 'lbl')}
+      ${box(0, 130, 470, 70, ['Prüfungsausschuss genehmigt?'], { cls: 'warnbx', bold: true })}
+      ${line([[115, 200], [115, 270]], { end: 1 })}${T(125, 240, 'ja', 'lbl')}${line([[355, 200], [355, 270]], { end: 1 })}${T(365, 240, 'nein', 'lbl')}
+      ${box(0, 270, 230, 80, ['Neuer Abgabetermin =', 'alt + Dauer'])}${box(240, 270, 230, 80, ['Ablehnung hinterlegen'])}</svg>`;
+  }
+
+  /* ---------- Smartphone-Prototyp ---------- */
+  /*PHONE-HTML-START*/
+  const phoneHTML = `
+    <div class="stage2">
+      <div class="phone" aria-label="Smartphone-Vorschau"><div class="notch" aria-hidden="true"></div>
+        <section class="screen" id="p1" aria-labelledby="p1h">
+          <h4 id="p1h">Meine Abschlussarbeit</h4>
+          <div class="field" style="margin-bottom:0"><label for="pSel">Arbeit auswählen</label><select id="pSel" class="psel"></select></div>
+          <div class="prow"><span class="k">Thema</span><span class="v" id="r-thema"></span></div>
+          <div class="prow"><span class="k">Firma</span><span class="v" id="r-firma"></span></div>
+          <div class="prow"><span class="k">Beginn</span><span class="v" id="r-beginn"></span></div>
+          <div class="prow"><span class="k">Abgabetermin</span><span class="v" id="r-abgabe"></span></div>
+          <div class="prow"><span class="k">Restzeit</span><span class="v" id="r-rest"></span></div>
+          <div class="prow"><span class="k">Status</span><span class="v"><span class="badge" id="pStatus"></span></span></div>
+          <div class="spacer"></div>
+          <p class="pnote" id="pHint" hidden></p>
+          <div class="actions"><button type="button" class="pbtn" id="pStart">Verlängerung beantragen</button></div>
+        </section>
+        <section class="screen" id="p2" hidden aria-labelledby="p2h">
+          <h4 id="p2h">Verlängerungsantrag</h4>
+          <form id="pForm" novalidate>
+            <div class="field"><label for="pName">Name</label><input id="pName" value="Tarek Yilmaz" readonly><span class="hint">aus THM-Konto</span></div>
+            <div class="field"><label for="pThema">Thema der Arbeit</label><input id="pThema" readonly><span class="hint">aus der gewählten Arbeit</span></div>
+            <div class="field"><label for="pFirma">Firma</label><input id="pFirma" readonly><span class="hint">aus der gewählten Arbeit</span></div>
+            <div class="field"><label for="pAbgabe">Alter Abgabetermin</label><input id="pAbgabe" readonly><span class="hint">aus der gewählten Arbeit</span></div>
+            <div class="field" id="pNeuF"><label for="pNeu">Neuer Abgabetermin</label><input id="pNeu" readonly><span class="hint">automatisch berechnet: alter Abgabetermin + Verlängerungsdauer</span></div>
+            <div class="field" id="pGrundF"><label for="pGrund">Grund der Verlängerung</label><textarea id="pGrund" aria-describedby="pErr" placeholder="Bitte Grund beschreiben"></textarea>
+              <p class="perr" id="pErr" role="alert" hidden>Bitte gib einen Grund an, bevor du den Antrag absendest.</p></div>
+            <div class="field"><label id="pFileLbl">Dokument anhängen <span style="font-weight:400">(optional)</span></label>
+              <input type="file" id="pFile" accept=".pdf,image/*" hidden>
+              <button type="button" class="pbtn ghost" id="pFileBtn" aria-labelledby="pFileLbl">Dokument auswählen</button>
+              <div class="pfile" id="pFileInfo" hidden><span class="pfn" id="pFileName"></span><button type="button" class="plink" id="pFileDel">Entfernen</button></div>
+              <span class="hint">PDF, JPG oder PNG. In der Vorschau wird nichts hochgeladen.</span></div>
+          </form>
+          <div class="spacer"></div>
+          <div class="actions"><button type="submit" form="pForm" class="pbtn">Antrag absenden</button><button type="button" class="pbtn ghost" id="pCancel">Abbrechen</button></div>
+        </section>
+        <section class="screen" id="p3" hidden aria-labelledby="p3h">
+          <h4 id="p3h">Status Ihres Antrags</h4>
+          <div class="prow"><span class="k">Arbeit</span><span class="v" id="s-thema"></span></div>
+          <div class="prow"><span class="k">Alter Termin</span><span class="v" id="s-alt"></span></div>
+          <div class="prow"><span class="k">Neuer Termin</span><span class="v" id="s-neu"></span></div>
+          <div class="prow" id="s-fileRow" hidden><span class="k">Anhang</span><span class="v" id="s-file"></span></div>
+          <ol class="stepper">
+            <li class="done"><span class="dot"></span><span>Antrag eingereicht<small id="pSent">heute</small></span></li>
+            <li><span class="dot"></span><span>Stellungnahme Erstprüfer:in</span></li>
+            <li><span class="dot"></span><span>Entscheidung Prüfungsausschuss</span></li>
+          </ol>
+          <p class="pnote">Bei jedem Statuswechsel erhalten Sie eine Benachrichtigung.</p>
+          <div class="spacer"></div>
+          <div class="actions"><button type="button" class="pbtn" id="pBack">Zurück zur Übersicht</button></div>
+        </section>
+      </div>
+      <aside class="path"><h3 style="margin-top:0">Klickpfad</h3><p>Wähle oben im Smartphone eine deiner Arbeiten. Thema, Firma und Termine werden automatisch aus den hinterlegten Daten gefüllt. Die Nummern sind die User Stories der Story Map. Alle Angaben sind Beispieldaten, es wird nichts gespeichert oder hochgeladen.</p>
+        <ol class="steps" id="pSteps"></ol>
+        <p style="margin:14px 0 0"><button type="button" class="iconbtn" id="pReset">Prototyp zurücksetzen</button></p>
+      </aside>
+    </div>`;
+  /*PHONE-HTML-END*/
+
+  /* ---------- Folien ---------- */
+  const OV = [['user', 'User', 'Studierende:r (Persona Tarek), Erstprüfer:in, Prüfungsausschuss', 2], ['interface', 'Interface', 'Webanwendung mit THM-Login; Klick-Prototyp und Kontextdiagramm', 4], ['action', 'Action', 'Antrag starten, Dokument anhängen, absenden; Antragseingang verarbeiten', 6], ['data', 'Data', 'Abschlussarbeit und Verlängerungsantrag mit altem und neuem Abgabetermin', 7], ['control', 'Control', 'Zugriff nur mit THM-Login; neuer Abgabetermin = alter Abgabetermin + Verlängerungsdauer', 8], ['env', 'Environment', 'Browser auf Handy, Laptop und Desktop; E-Mail-Dienst', 9], ['quality', 'Quality Attributes', 'Benutzbarkeit, Verfügbarkeit, Transparenz, Datenschutz, Pflegbarkeit', 10]];
+  const SLIDES = [
+    { nav: 'Titel', title: 'Titel', dim: 'none', mark: '★', html: () => `<div class="hero"><p class="eyebrow">Discover to Deliver · 7 Dimensionen</p><h1>Verlängerungsantrag stellen</h1>
+        <p class="story">Als Studierende:r möchte ich einen Verlängerungsantrag direkt im Portal stellen, damit kein separater Papierantrag notwendig ist.</p>
+        <dl class="trail"><dt>Epic</dt><dd>Anmeldung und Ausgabe einer Abschlussarbeit digital abwickeln</dd><dt>Activity 5</dt><dd>Durchführung der Arbeit</dd><dt>User Task 5.3</dt><dd>Verlängerungsantrag digital stellen (Ausbaustufe 2)</dd><dt>Stories</dt><dd>5.3.1 Antrag starten · 5.3.2 Grund angeben · 5.3.3 Absenden und Status sehen</dd></dl>
+        <button class="go" data-go="1">Präsentation starten</button></div>` },
+    { nav: 'Überblick', title: 'Die 7 Dimensionen im Überblick', dim: 'none', mark: '≡', html: () => `<div class="grid">${OV.map(([d, n, t, go], i) => `<button type="button" class="tile tile-btn" data-go="${go}"><div class="tile-head"><span class="chip" style="background:${DIM[d]}">${i + 1}</span><h4>${n}</h4></div><p>${t}</p></button>`).join('')}</div><p class="note">Klick auf eine Kachel springt zur Folie.</p>` },
+    { nav: 'User: Persona', title: 'User: Persona Tarek Yilmaz (Studierende:r, Master)', dim: 'user', mark: '1', html: () => `<div class="persona">
+        <div class="pid"><div class="avatar" aria-hidden="true">TY</div><div><h3>Tarek Yilmaz</h3><p class="role">Student M.Sc. Wirtschaftsinformatik, berufsbegleitend</p><q>Zwischen Kundenprojekt und Thesis habe ich keine Zeit für Formularpost.</q></div></div>
+        <div class="two">${card('Eigenschaften', ['29 Jahre, Frankfurt am Main, verheiratet, ein Kind', 'IT-Consultant, Vollzeit', 'Geräte: Laptop, Firmenhandy, viel unterwegs', 'Effizient, technikaffin, kennt den Prozess vom Bachelor', 'Schreibt die Masterarbeit im eigenen Unternehmen', 'Pragmatisch, wenig Geduld für Bürokratie', 'Laufen, Fußball mit dem Sohn, Podcasts beim Pendeln'])}${card('Frustrationen', ['Zusatzformular und Rückfragen für den externen Korreferenten', 'Termine im Prüfungsamt kollidieren mit Kundenterminen', 'Fristen und Verlängerungsregeln unklar', 'Firma hat keinen THM-Zugang'])}</div>
+        <div class="col">${card('Spezifische Ziele', ['Externen Korreferenten direkt im Antrag benennen', 'Freigaben ohne Präsenztermin', 'Verlängerung bei Bedarf online beantragen'])}${card('Allgemeine Ziele', ['Master neben dem Job abschließen'])}${card('Nutzungsüberwindung', ['Rund um die Uhr nutzbar', 'Fristen und Verlängerungsoptionen transparent', 'Alles in einem Vorgang, keine Doppelerfassung'])}</div></div>` },
+    { nav: 'User: Rollen', title: 'User: Wer nutzt, wer profitiert', dim: 'user', mark: '1', html: () => table(['Rolle', 'Beteiligung an der Story'], [["Studierende:r", "Stellt den Antrag, hängt optional ein Dokument an und sieht den Status. Profitiert, weil kein Papierantrag nötig ist."], ["Erstprüfer:in", "Nimmt zum Antrag Stellung (nur die Erstprüfer:in)."], ["Prüfungsausschuss", "Entscheidet über den Antrag und legt den neuen Abgabetermin fest."], ["Nachbarsystem THM-Login", "Anmeldung und Rollen (Nachbarsystem)."]]) },
+    { nav: 'Interface: Bedienoberfläche', title: 'Interface: Bedienoberfläche als Klick-Prototyp', dim: 'interface', mark: '2', html: () => phoneHTML },
+    { nav: 'Interface: Kontextdiagramm', title: 'Interface: Kontextdiagramm (Schnittstellen)', dim: 'interface', mark: '2', html: () => `<div class="dia">${svgContext()}</div>` },
+    { nav: 'Action: Ablauf', title: 'Action: Verlängerungsantrag stellen (Ablauf)', dim: 'action', mark: '3', html: () => `<div class="dia">${svgAction()}</div><p class="note">Notation: BPMN (dünner Kreis = Start, dicker Kreis = Ende, Raute = Gateway). Auslöser: Die Bearbeitungszeit reicht nicht aus (Activity 5). Stellungnahme (5.4) und Entscheidung (5.5) folgen danach.</p>` },
+    { nav: 'Data: Datenmodell', title: 'Data: Datenmodell (Ausschnitt)', dim: 'data', mark: '4', html: () => `<p style="margin:0 0 10px;color:var(--muted)">Fristen und Verlängerung von Abschlussarbeiten</p><div class="dia">${svgData()}</div><p class="note">Pro Abschlussarbeit sind 0..n Verlängerungsanträge möglich. PK = Primärschlüssel, FK = Fremdschlüssel.</p>` },
+    { nav: 'Control: Regeln', title: 'Control: Regeln und Entscheidungslogik', dim: 'control', mark: '5', html: () => `<div class="two" style="grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px"><div>${table(['Regel', 'Durchsetzung'], [
+        ['Zugriff nur nach THM-Login.', 'Login-Maske'], ['Der Antrag enthält einen Grund. Die Krankmeldung ist optional.', 'Pflichtfeld im Portal'], ['Die Erstprüfer:in nimmt Stellung, danach entscheidet der Prüfungsausschuss.', 'Prüfschritt im Portal'], ['Der Prüfungsausschuss entscheidet an einem Tag und legt das neue Abgabeende fest.', 'Entscheidungsdatum im Portal']], { firstBold: false })}
+        <div class="tile" style="margin-top:14px;background:var(--warn);color:var(--warn-fg);border-color:var(--tile-line)"><h4>Formel</h4><p style="font-size:16px;font-weight:600">Neuer Abgabetermin = alter Abgabetermin + Verlängerungsdauer</p><p style="font-style:italic;margin-top:4px">Die Verlängerungsdauer legt der Prüfungsausschuss fest. Die maximale Dauer ist offen.</p></div></div>
+        <div><div class="dia" style="padding:12px">${svgTree()}</div></div></div>` },
+    { nav: 'Environment', title: 'Environment', dim: 'env', mark: '6', html: () => `<p style="margin:0 0 12px;color:var(--muted)">US 5.3.1–5.3.3 · Studierende:r: Antrag starten › Daten angeben › Antrag absenden › Status sehen</p>${table(['Bereich', 'Relevante Umgebung', 'Bedeutung für die User Story'], [
+        ['Personen', 'Studierende:r, Erstprüfer:in, Prüfungsausschuss', 'Die Studierende:r stellt den Antrag. Danach nimmt die Erstprüfer:in Stellung, und der Prüfungsausschuss entscheidet.'],
+        ['Systeme', 'THM-Login (Anmeldung), E-Mail-Dienst (Benachrichtigung)', 'Der Login identifiziert die Nutzer:in und ordnet die Rolle zu. Der Weg der Benachrichtigung ist noch zu klären.'],
+        ['Prozesse', 'Activity 5 „Durchführung der Arbeit“, User Task 5.3 (Ausbaustufe 2)', 'Der Antrag wird nach der Ausgabe des Themas (Activity 4) und vor der Abgabe (Activity 6) gestellt.'],
+        ['Ereignisse', 'Die Bearbeitungszeit reicht nicht aus; Antrag abgesendet', 'Das erste Ereignis löst die Story aus, das zweite beendet sie und übergibt den Antrag an die Erstprüfer:in.'],
+        ['Dokumente', 'Formular „Antrag auf Verlängerung“; Krankmeldung (optional)', 'Das Formular gibt die Felder des Antrags vor. Die Krankmeldung wird als Dokument angehängt. Regeln zur Verlängerung stehen nicht in den Unterlagen (offen).'],
+        ['Technik', 'Webanwendung im Browser auf Handy, Laptop und Desktop', 'Der Antrag muss auf allen drei Geräten komfortabel möglich sein.']])}` },
+    { nav: 'Quality Attributes', title: 'Quality Attributes', dim: 'quality', mark: '7', html: () => table(['Attribut', 'Anforderung aus den Unterlagen', 'Prüfbarkeit'], [["Benutzbarkeit", "Schritt-für-Schritt-Führung mit Pflichtfeldprüfung, keine neue Registrierung, kurze Einführung statt wochenlanger Schulung", "Eine Testperson stellt den Antrag ohne Hilfe"], ["Plattformunabhängigkeit", "Mobil genauso komfortabel wie am Desktop", "Test am Desktop-Browser und am Smartphone mit gleichem Funktionsumfang"], ["Verfügbarkeit", "Rund um die Uhr verfügbar", "Prüfung der Erreichbarkeit außerhalb der Bürozeiten"], ["Zuverlässigkeit", "Läuft zuverlässig und bildet die Prüfschritte ab", "Antrag durchläuft alle Prüfschritte fehlerfrei"], ["Transparenz", "Status jederzeit sichtbar, Fristen und Verlängerungsoptionen transparent, Benachrichtigung bei Statuswechsel", "Status und Frist sind sichtbar, die Benachrichtigung kommt bei jedem Statuswechsel an"], ["Datenschutz, Sicherheit", "Personenbezogene Daten geschützt, THM-Login mit Rollen", "Rollen- und Rechtetest, Abstimmung zum Datenschutz"], ["Pflegbarkeit", "Regeln und Fristen sind pflegbar", "Regel oder Frist lässt sich ohne Entwickler ändern"], ["Nachvollziehbarkeit", "Rechtssichere Ablage ohne Papierstapel", "Prüfung: Entscheidung und Antrag sind in der Akte auffindbar"]]) }
+  ];
+
+  /* ---------- App ---------- */
+  let cur = 0;
+  const $ = (id) => document.getElementById(id);
+  $('stage').innerHTML = SLIDES.map((s, i) => `<section class="slide" id="s${i}" hidden aria-label="${s.title}"><div class="shead"><span class="chip" style="background:${DIM[s.dim]}">${s.mark}</span><h2>${s.title}</h2></div>${s.html()}${s.src ? `<p class="src">${s.src}</p>` : ''}</section>`).join('');
+  $('nav').innerHTML = SLIDES.map((s, i) => `<li><button type="button" data-go="${i}"><span class="n" style="background:${DIM[s.dim]}">${s.mark}</span><span>${s.nav}</span></button></li>`).join('');
+  $('dots').innerHTML = SLIDES.map(() => '<i></i>').join('');
+
+  function go(i, fromHash) {
+    cur = Math.max(0, Math.min(SLIDES.length - 1, i));
+    SLIDES.forEach((_, k) => { $('s' + k).hidden = k !== cur; });
+    document.querySelectorAll('#nav button').forEach((b, k) => { if (k === cur) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
+    document.querySelectorAll('#dots i').forEach((d, k) => d.classList.toggle('on', k === cur));
+    $('topTitle').textContent = SLIDES[cur].title; $('counter').textContent = (cur + 1) + ' / ' + SLIDES.length;
+    $('prev').disabled = cur === 0; $('next').disabled = cur === SLIDES.length - 1;
+    $('side').classList.remove('open'); $('menuBtn').setAttribute('aria-expanded', 'false');
+    try { history.replaceState(null, '', '#s' + cur); } catch (e) { }
+    if (!fromHash) window.scrollTo({ top: 0 });
+  }
+  document.addEventListener('click', (e) => { const b = e.target.closest('[data-go]'); if (b) go(+b.dataset.go); });
+  $('prev').addEventListener('click', () => go(cur - 1)); $('next').addEventListener('click', () => go(cur + 1));
+  $('menuBtn').addEventListener('click', () => { const o = $('side').classList.toggle('open'); $('menuBtn').setAttribute('aria-expanded', String(o)); });
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest('textarea, input')) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') go(cur + 1); else if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(cur - 1);
+    else if (e.key === 'Home') go(0); else if (e.key === 'End') go(SLIDES.length - 1);
+  });
+  $('fsBtn').addEventListener('click', () => { try { const d = document.documentElement; if (document.fullscreenElement) document.exitFullscreen(); else d.requestFullscreen(); } catch (e) { } });
+  document.addEventListener('fullscreenchange', () => $('app').classList.toggle('full', !!document.fullscreenElement));
+  window.addEventListener('hashchange', () => { const m = /^#s(\d+)$/.exec(location.hash); if (m) go(+m[1], true); });
+
+  /*PHONE-JS-START*/
+  /* ---------- Smartphone-Logik ---------- */
+  // Hinterlegte Beispieldaten der Studierenden (Stand der Beispieldaten: 19.11.2026)
+  const REF = new Date(2026, 10, 19);
+  const DAUER = 30; // Verlängerungsdauer in Tagen (Beispielwert, laut Unterlagen noch offen)
+  const THESES = [
+    { id: 'ma', art: 'Masterarbeit', thema: 'Beispielthema zur Masterarbeit', firma: 'Beispiel GmbH', beginn: new Date(2026, 9, 1), abgabe: new Date(2026, 11, 31), status: 'In Bearbeitung', open: true },
+    { id: 'ba', art: 'Bachelorarbeit', thema: 'Beispielthema zur Bachelorarbeit', firma: 'Muster AG', beginn: new Date(2019, 3, 1), abgabe: new Date(2019, 6, 1), status: 'Abgeschlossen', open: false }
+  ];
+  const PSTATE = {}; THESES.forEach(t => { PSTATE[t.id] = { requested: false, file: null, neu: null }; });
+  const iso = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  const plus = (d, n) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n);
+  let cur_t = THESES[0];
+  const fd = (d) => d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const PSTEPS = [{ id: 'p1', sid: '5.3.1', t: 'Antrag starten', d: 'Arbeit auswählen, Daten werden automatisch angezeigt' }, { id: 'p2', sid: '5.3.2', t: 'Grund angeben, absenden', d: 'Daten sind vorbelegt, der neue Abgabetermin wird berechnet, der Grund ist Pflicht, Dokument optional' }, { id: 'p3', sid: '5.3.3', t: 'Status sehen', d: 'Antrag eingereicht, weitere Schritte folgen' }];
+  const submitted = () => PSTATE[cur_t.id].requested;
+  function pshow(id) {
+    PSTEPS.forEach(s => { $(s.id).hidden = s.id !== id; });
+    document.querySelectorAll('.step').forEach(b => { if (b.dataset.id === id) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
+  }
+  function fileLabel(f) { return f ? f.name : ''; }
+  function prefresh() {
+    const t = cur_t, st = PSTATE[t.id];
+    $('r-thema').textContent = t.thema; $('r-firma').textContent = t.firma; $('r-beginn').textContent = fd(t.beginn); $('r-abgabe').textContent = fd(t.abgabe);
+    $('r-rest').textContent = t.open ? Math.round((t.abgabe - REF) / 86400000) + ' Tage' : '–';
+    $('pStatus').textContent = st.requested ? 'Verlängerung beantragt' : t.status;
+    const b = $('pStart'), hint = $('pHint');
+    b.disabled = !t.open; b.textContent = st.requested ? 'Antrag ansehen' : 'Verlängerung beantragen';
+    hint.hidden = t.open; hint.textContent = 'Für eine abgeschlossene Arbeit ist keine Verlängerung möglich.';
+    $('pThema').value = t.thema; $('pFirma').value = t.firma; $('pAbgabe').value = fd(t.abgabe);
+    $('pNeu').value = fd(plus(t.abgabe, DAUER)); $('s-alt').textContent = fd(t.abgabe); $('s-neu').textContent = st.neu ? fd(st.neu) : '–';
+    $('s-thema').textContent = t.art + ': ' + t.thema;
+    $('s-fileRow').hidden = !st.file; $('s-file').textContent = fileLabel(st.file);
+    $('pFileInfo').hidden = !st.file; $('pFileName').textContent = st.file ? st.file.name + ' · ' + st.file.size : '';
+    $('pFileBtn').textContent = st.file ? 'Anderes Dokument auswählen' : 'Dokument auswählen';
+  }
+  function psubmit() { PSTATE[cur_t.id].requested = true; PSTATE[cur_t.id].neu = plus(cur_t.abgabe, DAUER); const t = new Date(); $('pSent').textContent = 'Beispiel, ' + t.toLocaleDateString('de-DE') + ', ' + t.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) + ' Uhr'; prefresh(); }
+  function ensureOpen() { if (!cur_t.open) { cur_t = THESES[0]; $('pSel').value = cur_t.id; prefresh(); } }
+  $('pSel').innerHTML = THESES.map(t => `<option value="${t.id}">${t.art} (${t.open ? 'in Bearbeitung' : 'abgeschlossen'})</option>`).join('');
+  $('pSel').addEventListener('change', () => { cur_t = THESES.find(t => t.id === $('pSel').value); $('pGrund').value = ''; $('pGrundF').classList.remove('invalid'); $('pErr').hidden = true; prefresh(); });
+  $('pSteps').innerHTML = PSTEPS.map(s => `<li><button type="button" class="step" data-id="${s.id}"><span class="sid">${s.sid}</span><span class="st">${s.t}</span><span class="sd">${s.d}</span></button></li>`).join('');
+  $('pSteps').addEventListener('click', (e) => { const b = e.target.closest('.step'); if (!b) return; if (b.dataset.id !== 'p1') ensureOpen(); if (b.dataset.id === 'p3' && !submitted()) psubmit(); pshow(b.dataset.id); });
+  $('pStart').addEventListener('click', () => { if (!cur_t.open) return; pshow(submitted() ? 'p3' : 'p2'); });
+  $('pCancel').addEventListener('click', () => pshow('p1'));
+  $('pBack').addEventListener('click', () => { prefresh(); pshow('p1'); });
+  $('pGrund').addEventListener('input', () => { $('pGrundF').classList.remove('invalid'); $('pErr').hidden = true; });
+  $('pFileBtn').addEventListener('click', () => $('pFile').click());
+  $('pFile').addEventListener('change', () => { const f = $('pFile').files[0]; PSTATE[cur_t.id].file = f ? { name: f.name, size: f.size < 1048576 ? Math.max(1, Math.round(f.size / 1024)) + ' KB' : (f.size / 1048576).toFixed(1) + ' MB' } : null; prefresh(); });
+  $('pFileDel').addEventListener('click', () => { PSTATE[cur_t.id].file = null; $('pFile').value = ''; prefresh(); });
+  $('pForm').addEventListener('submit', (e) => { e.preventDefault(); let ok = true; if (!$('pGrund').value.trim()) { $('pGrundF').classList.add('invalid'); $('pErr').hidden = false; ok = false; } if (!ok) { $('pGrund').focus(); return; } psubmit(); pshow('p3'); });
+  $('pReset').addEventListener('click', () => { THESES.forEach(t => { PSTATE[t.id] = { requested: false, file: null, neu: null }; }); cur_t = THESES[0]; $('pSel').value = cur_t.id; $('pFile').value = ''; $('pGrund').value = ''; $('pGrundF').classList.remove('invalid'); $('pErr').hidden = true; prefresh(); pshow('p1'); });
+  $('pSel').value = cur_t.id; prefresh(); pshow('p1');
+  /*PHONE-JS-END*/
+
+  const m0 = /^#s(\d+)$/.exec(location.hash); go(m0 ? +m0[1] : 0, true);
+</script>

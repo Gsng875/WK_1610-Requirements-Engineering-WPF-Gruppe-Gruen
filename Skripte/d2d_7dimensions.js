@@ -141,7 +141,7 @@ const slide = (n, title, source) => {
 {
   const s = slide(3, "3. Action", "vgl. Vorlesung RE, Kap. 6 Funktionsperspektive; Darstellung als BPMN");
   const PX = 0.45, PY = 1.08, PW = 9.1, BAND = 0.3;
-  const H1 = 1.95, H2 = 1.45, PH = H1 + H2;
+  const H1 = 1.95, H2 = 1.5, PH = H1 + H2;
   // Pool und Lanes
   rect(s, PX, PY, PW, PH, WHITE, INK, 1.25);
   rect(s, PX, PY, BAND, PH, TINT, INK, 1.25);
@@ -154,17 +154,18 @@ const slide = (n, title, source) => {
   vtext(PX + BAND, PY + H1, BAND, H2, "Portal");
 
   const TW = 1.3, TH = 0.52;
-  const task = (x, cy, text) => { rbox(s, x, cy - TH / 2, TW, TH, WHITE, INK, { line: { color: INK, width: 1.25 }, rectRadius: 0.1 }); T(s, text, { x: x + 0.05, y: cy - TH / 2, w: TW - 0.1, h: TH, fontSize: 8.5, align: "center", valign: "middle" }); };
-  const cyA = PY + 0.5, cyE = PY + 1.3, cyP = PY + H1 + 0.62;
-  const xStart = 1.3, x1 = 2.15, x2 = 3.75, xG = 5.4, x3 = 5.95, xEnd = 7.75;
+  const task = (x, cy, text, h) => { h = h || TH; rbox(s, x, cy - h / 2, TW, h, WHITE, INK, { line: { color: INK, width: 1.25 }, rectRadius: 0.1 }); T(s, text, { x: x + 0.05, y: cy - h / 2, w: TW - 0.1, h, fontSize: 8.5, align: "center", valign: "middle" }); };
+  const THP = 0.76;
+  const cyA = PY + 0.5, cyE = PY + 1.3, cyP = PY + H1 + 0.55;
+  const xStart = 1.22, x1 = 1.75, x2 = 3.3, xG = 4.98, x3 = 5.4, xE1 = 6.9, x4 = 7.45, xE2 = 8.95;
 
-  // Startereignis
+  // Startereignis (Portal): Thema liegt vor
   circle(s, xStart, cyP - 0.14, 0.28, WHITE, GREEN, 1.25);
-  T(s, "Antrag vom Prüfungsausschuss angenommen", { x: xStart - 0.12, y: cyP + 0.2, w: 0.95, h: 0.45, fontSize: 7, color: MUTED, align: "left" });
+  T(s, "Thema von Studierende:r eingereicht", { x: xStart - 0.1, y: cyP + 0.42, w: 1.2, h: 0.36, fontSize: 7, color: MUTED, align: "left" });
   seg(s, xStart + 0.28, cyP, x1, cyP, true);
   task(x1, cyP, "Erstprüfer:in informieren");
   seg(s, x1 + TW / 2, cyP - TH / 2, x1 + TW / 2, cyE + TH / 2, true);
-  task(x1, cyE, "Antrag aufrufen");
+  task(x1, cyE, "Thema aufrufen");
   seg(s, x1 + TW, cyE, x2, cyE, true);
   task(x2, cyE, "Thema prüfen");
   seg(s, x2 + TW, cyE, xG - 0.22, cyE, true);
@@ -172,31 +173,33 @@ const slide = (n, title, source) => {
   s.addShape(pres.shapes.DIAMOND, { x: xG - 0.22, y: cyE - 0.22, w: 0.44, h: 0.44, fill: { color: AMBERPALE }, line: { color: INK, width: 1.25 } });
   T(s, "X", { x: xG - 0.22, y: cyE - 0.22, w: 0.44, h: 0.44, fontSize: 11, bold: true, align: "center", valign: "middle" });
   T(s, "Thema wie abgestimmt?", { x: xG - 0.75, y: cyE + 0.25, w: 1.5, h: 0.2, fontSize: 7.5, italic: true, color: MUTED, align: "center" });
-  // ja
+  // ja: bestaetigen und freigeben -> Portal speichert und leitet weiter
   seg(s, xG + 0.22, cyE, x3, cyE, true);
-  T(s, "ja", { x: xG + 0.24, y: cyE - 0.2, w: 0.3, h: 0.18, fontSize: 7.5, color: MUTED });
+  T(s, "ja", { x: xG + 0.2, y: cyE - 0.2, w: 0.2, h: 0.18, fontSize: 7.5, color: MUTED });
   task(x3, cyE, "Thema bestätigen und freigeben");
-  seg(s, x3 + TW / 2, cyE + TH / 2, x3 + TW / 2, cyP - TH / 2, true);
-  task(x3, cyP, "Themenfreigabe speichern");
-  seg(s, x3 + TW, cyP, xEnd, cyP, true);
-  circle(s, xEnd, cyP - 0.15, 0.3, WHITE, INK, 3);
-  T(s, "Thema freigegeben", { x: xEnd + 0.4, y: cyP - 0.15, w: 1.35, h: 0.3, fontSize: 8, bold: true, valign: "middle" });
-  // nein
+  seg(s, x3 + TW / 2, cyE + TH / 2, x3 + TW / 2, cyP - THP / 2, true);
+  task(x3, cyP, "Themenfreigabe speichern, Antrag weiterleiten", THP);
+  seg(s, x3 + TW, cyP, xE1, cyP, true);
+  circle(s, xE1, cyP - 0.15, 0.3, WHITE, INK, 3);
+  T(s, "Thema freigegeben", { x: xE1 - 0.4, y: cyP + 0.46, w: 1.1, h: 0.2, fontSize: 7.5, bold: true, align: "center", valign: "middle" });
+  // nein: Aenderungswunsch eintragen -> Portal speichert und informiert Studierende:n
   seg(s, xG, cyE - 0.22, xG, cyA, false);
-  seg(s, xG, cyA, x3, cyA, true);
+  seg(s, xG, cyA, x4, cyA, true);
   T(s, "nein", { x: xG + 0.05, y: cyA - 0.2, w: 0.4, h: 0.18, fontSize: 7.5, color: MUTED });
-  task(x3, cyA, "Änderungswunsch eintragen");
-  seg(s, x3 + TW, cyA, xEnd, cyA, true);
-  circle(s, xEnd, cyA - 0.15, 0.3, WHITE, INK, 3);
-  T(s, "Rückfrage an Studierende:n", { x: xEnd + 0.4, y: cyA - 0.2, w: 1.35, h: 0.4, fontSize: 8, bold: true, valign: "middle" });
+  task(x4, cyA, "Änderungswunsch eintragen");
+  seg(s, x4 + TW / 2, cyA + TH / 2, x4 + TW / 2, cyP - THP / 2, true);
+  task(x4, cyP, "Änderungswunsch speichern, Studierende:n informieren", THP);
+  seg(s, x4 + TW, cyP, xE2, cyP, true);
+  circle(s, xE2, cyP - 0.15, 0.3, WHITE, INK, 3);
+  T(s, "Rückfrage gesendet", { x: xE2 - 0.8, y: cyP + 0.46, w: 1.15, h: 0.2, fontSize: 7.5, bold: true, align: "right", valign: "middle" });
 
-  rbox(s, 0.45, 4.62, 9.1, 0.5, AMBERPALE, AMBER);
+  rbox(s, 0.45, 4.67, 9.1, 0.46, AMBERPALE, AMBER);
   T(s, [
     { text: "Ausschnitt: ", options: { bold: true, color: BROWN } }, { text: "nur US 4.1.1.   " },
-    { text: "Davor: ", options: { bold: true, color: BROWN } }, { text: "Entscheidung des Prüfungsausschusses (User Task 3.2).   " },
+    { text: "Davor: ", options: { bold: true, color: BROWN } }, { text: "Studierende:r reicht den Antrag mit Thema ein (Activity 2).   " },
     { text: "Danach: ", options: { bold: true, color: BROWN } }, { text: "Bearbeitungszeit festlegen (User Task 4.2)." },
-  ], { x: 0.57, y: 4.62, w: 8.86, h: 0.5, fontSize: 8.5, valign: "middle" });
-  s.addNotes("BPMN-Ausschnitt nur für US 4.1.1. Start: Antrag vom Prüfungsausschuss angenommen (US 3.2.1); Erstprüfer:in wird informiert (US 3.2.3). Der Nein-Zweig stammt aus dem Aktivitätsdiagramm des Teams (1. Prüfer:in: Änderungswunsch oder Ablehnung eintragen, danach Rückfrage, Studierende:r passt den Antrag an) und aus dem Formularfeld Bestätigung der Vorschläge des Kandidaten: Nein (siehe Anlage). Die Vorlesung nutzt für Abläufe UML-Aktivitätsdiagramme; BPMN wurde auf Wunsch des Teams gewählt. Editierbare Quelle: quellen/Action_Themenfreigabe.bpmn.");
+  ], { x: 0.57, y: 4.67, w: 8.86, h: 0.46, fontSize: 8.5, valign: "middle" });
+  s.addNotes("BPMN-Ausschnitt nur für US 4.1.1. Start: Die oder der Studierende hat den Antrag mit Thema eingereicht; das Portal informiert die Erstprüfer:in. Erstprüfer:in ruft das Thema auf und prüft es. Ja-Zweig: Thema bestätigen und freigeben, das Portal speichert die Themenfreigabe und leitet den Antrag weiter (Regel C6). Nein-Zweig: Erstprüfer:in trägt einen Änderungswunsch ein, das Portal speichert ihn und informiert die Studierende:n. Systemschritte liegen in der Lane Portal, Endereignisse sind als Zustände benannt. Editierbare Quelle: quellen/Action_Themenfreigabe.bpmn.");
 }
 
 // =====================================================================

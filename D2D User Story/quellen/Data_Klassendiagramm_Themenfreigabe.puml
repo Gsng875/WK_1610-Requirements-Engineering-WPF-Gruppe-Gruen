@@ -1,0 +1,44 @@
+@startuml
+' UML-Klassendiagramm zu US 4.1.1 "Thema bestaetigen und freigeben" (Dimension Data)
+' Minimales Modell: nur Klassen, die fuer diese User Story benoetigt werden.
+' Attribute stammen aus dem Zulassungsantrag WS23/24 (siehe Quellen/Antrag_Zulassung_Auswertung.md).
+' Zu validieren: Wertebereich Antragsstatus, Multiplizitaet Studierende:r - Antrag.
+title Data: Themenfreigabe (US 4.1.1)
+skinparam monochrome true
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty methods
+hide circle
+
+class "Studierende:r" as Studierender {
+  - name : String
+  - matrikelnummer : String
+  - studiengang : String
+}
+
+class Antrag {
+  - studienabschluss : Abschlussart
+  - gewuenschterStarttermin : Datum
+  - zulassung : Entscheidung
+  - status : Antragsstatus
+}
+
+class "Erstprüfer:in" as Erstpruefer {
+  - name : String
+}
+
+class Thema {
+  - wortlaut : String
+}
+
+class Themenfreigabe {
+  - zeitpunkt : Datum
+  - vorschlagBestaetigt : Boolean
+}
+
+Studierender "1" -- "1..*" Antrag : stellt >
+Antrag "0..*" -- "1" Erstpruefer : ist zugeordnet >
+Antrag "1" *-- "1" Thema : enthält >
+Antrag "1" -- "0..1" Themenfreigabe : hat >
+Erstpruefer "1" -- "0..*" Themenfreigabe : erteilt >
+@enduml

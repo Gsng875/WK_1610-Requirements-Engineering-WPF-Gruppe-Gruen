@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BPMN 2.0 zu US 4.1.1 "Thema bestaetigen und freigeben" (Dimension Action).
+     Editierbar z. B. mit bpmn.io oder dem Camunda Modeler. Ausschnitt nur dieser User Story. -->
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_Themenfreigabe" targetNamespace="http://thesisflow.example/bpmn">
+  <bpmn:collaboration id="Collaboration_1">
+    <bpmn:participant id="Participant_ThesisFlow" name="ThesisFlow: Themenfreigabe" processRef="Process_Themenfreigabe" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Themenfreigabe" name="Themenfreigabe" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Erstpruefer" name="Erstprüfer:in">
+        <bpmn:flowNodeRef>Task_AntragAufrufen</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ThemaPruefen</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_WieAbgestimmt</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ThemaFreigeben</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Aenderungswunsch</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_Rueckfrage</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Portal" name="Portal">
+        <bpmn:flowNodeRef>Start_AntragAngenommen</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_Informieren</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_FreigabeSpeichern</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>End_ThemaFreigegeben</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="Start_AntragAngenommen" name="Antrag vom Prüfungsausschuss angenommen">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_Informieren" name="Erstprüfer:in informieren">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:userTask id="Task_AntragAufrufen" name="Antrag aufrufen">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ThemaPruefen" name="Thema prüfen">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_WieAbgestimmt" name="Thema wie abgestimmt?">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_Ja</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Nein</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_ThemaFreigeben" name="Thema bestätigen und freigeben">
+      <bpmn:incoming>Flow_Ja</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_Aenderungswunsch" name="Änderungswunsch eintragen">
+      <bpmn:incoming>Flow_Nein</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:task id="Task_FreigabeSpeichern" name="Themenfreigabe speichern">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End_ThemaFreigegeben" name="Thema freigegeben">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="End_Rueckfrage" name="Rückfrage an Studierende:n">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Start_AntragAngenommen" targetRef="Task_Informieren" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_Informieren" targetRef="Task_AntragAufrufen" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_AntragAufrufen" targetRef="Task_ThemaPruefen" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_ThemaPruefen" targetRef="Gateway_WieAbgestimmt" />
+    <bpmn:sequenceFlow id="Flow_Ja" name="ja" sourceRef="Gateway_WieAbgestimmt" targetRef="Task_ThemaFreigeben" />
+    <bpmn:sequenceFlow id="Flow_Nein" name="nein" sourceRef="Gateway_WieAbgestimmt" targetRef="Task_Aenderungswunsch" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_ThemaFreigeben" targetRef="Task_FreigabeSpeichern" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_FreigabeSpeichern" targetRef="End_ThemaFreigegeben" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Task_Aenderungswunsch" targetRef="End_Rueckfrage" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Participant_ThesisFlow_di" bpmnElement="Participant_ThesisFlow" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="920" height="420" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Erstpruefer_di" bpmnElement="Lane_Erstpruefer" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="890" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Portal_di" bpmnElement="Lane_Portal" isHorizontal="true">
+        <dc:Bounds x="190" y="330" width="890" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Start_AntragAngenommen_di" bpmnElement="Start_AntragAngenommen">
+        <dc:Bounds x="242" y="397" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="218" y="440" width="86" height="40" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Informieren_di" bpmnElement="Task_Informieren">
+        <dc:Bounds x="330" y="375" width="120" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_AntragAufrufen_di" bpmnElement="Task_AntragAufrufen">
+        <dc:Bounds x="330" y="200" width="120" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ThemaPruefen_di" bpmnElement="Task_ThemaPruefen">
+        <dc:Bounds x="500" y="200" width="120" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_WieAbgestimmt_di" bpmnElement="Gateway_WieAbgestimmt" isMarkerVisible="true">
+        <dc:Bounds x="675" y="215" width="50" height="50" />
+        <bpmndi:BPMNLabel><dc:Bounds x="655" y="272" width="90" height="27" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ThemaFreigeben_di" bpmnElement="Task_ThemaFreigeben">
+        <dc:Bounds x="790" y="200" width="120" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Aenderungswunsch_di" bpmnElement="Task_Aenderungswunsch">
+        <dc:Bounds x="790" y="95" width="120" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_FreigabeSpeichern_di" bpmnElement="Task_FreigabeSpeichern">
+        <dc:Bounds x="790" y="375" width="120" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_ThemaFreigegeben_di" bpmnElement="End_ThemaFreigegeben">
+        <dc:Bounds x="972" y="397" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="946" y="440" width="88" height="27" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_Rueckfrage_di" bpmnElement="End_Rueckfrage">
+        <dc:Bounds x="972" y="117" width="36" height="36" />
+        <bpmndi:BPMNLabel><dc:Bounds x="946" y="160" width="88" height="27" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="278" y="415" /><di:waypoint x="330" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="390" y="375" /><di:waypoint x="390" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="450" y="240" /><di:waypoint x="500" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="620" y="240" /><di:waypoint x="675" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Ja_di" bpmnElement="Flow_Ja">
+        <di:waypoint x="725" y="240" /><di:waypoint x="790" y="240" />
+        <bpmndi:BPMNLabel><dc:Bounds x="752" y="222" width="12" height="14" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Nein_di" bpmnElement="Flow_Nein">
+        <di:waypoint x="700" y="215" /><di:waypoint x="700" y="135" /><di:waypoint x="790" y="135" />
+        <bpmndi:BPMNLabel><dc:Bounds x="706" y="117" width="22" height="14" /></bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="850" y="280" /><di:waypoint x="850" y="375" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <di:waypoint x="910" y="415" /><di:waypoint x="972" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <di:waypoint x="910" y="135" /><di:waypoint x="972" y="135" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

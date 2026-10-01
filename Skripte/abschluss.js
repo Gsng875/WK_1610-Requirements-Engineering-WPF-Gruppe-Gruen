@@ -148,15 +148,14 @@ const rules = (s, y, list) => {
 // 4 Stakeholder
 // =====================================================================
 {
-  const s = slide("Stakeholder", "3  ·  STAKEHOLDER", "Vier Personas für die Rollen, die ThesisFlow nutzen");
+  const s = slide("Stakeholder", "3  ·  STAKEHOLDER", "Drei Personas für die Rollen, die ThesisFlow nutzen");
   const P = [
-    { name: "Moritz Hoffmann", role: "Studierende:r, B.Sc. WI", photo: "bachelor.png", full: true, ziel: "Antrag in einem Durchgang einreichen, Status jederzeit sehen", pain: "Wochenlang keine Rückmeldung zum Antrag" },
-    { name: "Tarek Yilmaz", role: "Studierende:r, M.Sc. WI, berufsbegleitend", photo: "master.png", ziel: "Externe Zweitprüfer:in einbinden, Verlängerung online beantragen", pain: "Termine vor Ort kollidieren mit dem Beruf" },
+    { name: "Moritz Hoffmann", role: "Studierende:r", photo: "bachelor.png", full: true, ziel: "Antrag in einem Durchgang einreichen, Status jederzeit sehen, Verlängerung online beantragen", pain: "Wochenlang keine Rückmeldung zum Antrag, Papierformulare und unklare Fristen" },
     { name: "Prof. Dr. Andreas Becker", role: "Erstprüfer:in", initials: "AB", ziel: "Thema prüfen und freigeben, ohne Formular und Unterschrift", pain: "Formular per E-Mail hin- und herschicken" },
     { name: "Michael Krüger", role: "Dekanat", photo: "sekretariat.png", ziel: "Vollständigkeit und Fristen auf einen Blick prüfen", pain: "Unleserliche Scans, tägliche Telefonrückfragen" },
   ];
   P.forEach((p, i) => {
-    const x = 0.45 + i * 2.31, w = 2.17, y = 1.02;
+    const x = 0.45 + i * 3.075, w = 2.95, y = 1.02;
     rbox(s, x, y, w, 3.35, TINT);
     const d = 1.05;
     if (p.full) { const h = 1.15, ww = h * 360 / 836; s.addImage({ path: img(p.photo), x: x + (w - ww) / 2, y: y + 0.12, w: ww, h }); }
@@ -342,7 +341,7 @@ const S1 = {
   title: "Antrag einreichen",
   story: "Als Studierende:r möchte ich meinen Antrag verbindlich über das Portal einreichen, damit die Anmeldung meiner Abschlussarbeit offiziell gestartet wird.",
   ref: "US 2.4.2  ·  Activity 2 Antragstellung  ·  User Task 2.4 Antrag absenden  ·  Release 1",
-  photo: "bachelor.png", full: true, persona: "Moritz Hoffmann", role: "Studierende:r, B.Sc. Wirtschaftsinformatik",
+  photo: "bachelor.png", full: true, persona: "Moritz Hoffmann", role: "Studierende:r",
   ziel: "Antrag in einem Durchgang korrekt einreichen.", pain: "Unsicher, ob der Antrag vollständig und angekommen ist.", others: "Erstprüfer:in, Dekanat.",
   placeholder: "Interface-Entwurf „Antrag stellen“\nwird durch das Projektteam ergänzt.",
   data: [["Studierende:r", "matrikelnummer, name, studiengang", "lesen"], ["Prüfer:in", "name, extern", "lesen"], ["Abschlussarbeit", "thema, firma, wunsch_starttermin, Erst- und Zweitprüfer:in", "anlegen"], ["Abschlussarbeit", "status = eingereicht", "ändern"]],
@@ -438,7 +437,7 @@ const S3 = {
   title: "Verlängerungsantrag stellen",
   story: "Als Studierende:r möchte ich einen Verlängerungsantrag direkt im Portal stellen, damit kein separater Papierantrag notwendig ist.",
   ref: "US 5.3.1 bis 5.3.3  ·  Activity 5 Durchführung der Arbeit  ·  User Task 5.3  ·  Release 2",
-  photo: "master.png", persona: "Tarek Yilmaz", role: "Studierende:r, M.Sc. Wirtschaftsinformatik, berufsbegleitend",
+  photo: "bachelor.png", full: true, persona: "Moritz Hoffmann", role: "Studierende:r",
   ziel: "Verlängerung bei Bedarf online beantragen.", pain: "Papierantrag und unklare Fristen.", others: "Erstprüfer:in, Prüfungsausschussvorsitzende:r.",
   image: "wireframes_verlaengerung.png", ratio: 985 / 2070, caption: "Wireframes des Projektteams. Ergänzung nach Rückmeldung: optionales Uploadfeld für einen Nachweis, Anzeige von altem und neuem Abgabetermin.",
   data: [["Abschlussarbeit", "thema, firma, abgabetermin", "lesen"], ["Verlängerungsantrag", "grund, nachweis (optional), datum, status = eingereicht", "anlegen"], ["Verlängerungsantrag", "stellungnahme, entscheidung, entscheidungsdatum, pa_vorsitzende_r", "ändern"], ["Verlängerungsantrag", "neuer_abgabetermin", "ändern"]],

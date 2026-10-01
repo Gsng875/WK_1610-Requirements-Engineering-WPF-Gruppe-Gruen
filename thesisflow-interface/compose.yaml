@@ -1,0 +1,22 @@
+services:
+  pruefer:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      APP_ORIGIN: http://localhost:8080
+      DATA_DIR: /app/data
+      EXAMINER_PASSWORD: ${EXAMINER_PASSWORD:-PrueferDemo!2026}
+      OTHER_PASSWORD: ${OTHER_PASSWORD:-AndereDemo!2026}
+      STUDENT_PASSWORD: ${STUDENT_PASSWORD:-StudentDemo!2026}
+    volumes:
+      - prueferdaten:/app/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  prueferdaten:
